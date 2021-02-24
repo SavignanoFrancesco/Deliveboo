@@ -46,6 +46,7 @@
                     <div class="form-group mb-5 mt-5">
                         <label>Ingredienti</label>
                         <input type="text" name="ingredients" value="{{old('ingredients')}}"
+                               maxlength="50" minlength="1" autocomplete="on"
                                class="form-control">
                     </div>
 
@@ -64,12 +65,10 @@
                     </div>
 
 
-
-
                     <div class="form-group mb-5 mt-5">
                         <label>Prezzo</label>
-                        <input type="number" name="price" value="{{old('price'), $category->price}}"
-                               class="form-control">
+                        <input type="text" name="price" value="{{old('price'), $category->price}}"
+                               class="form-control" maxlength="6" minlength="1">
                     </div>
 
                     <div class="form-group">

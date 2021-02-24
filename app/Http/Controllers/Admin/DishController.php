@@ -62,7 +62,7 @@ class DishController extends Controller
             'name' => 'required|max:255',
             'description' => 'required',
             'ingredients' => 'nullable',
-            'price' => 'required',
+            'price' => 'required|max:9',
             'restaurant_id' => 'nullable|exists:restaurants,id',
             'dish_category_id' => 'nullable|exists:dish_categories,id',
             'cover' => 'nullable|image|max:512'
@@ -159,7 +159,7 @@ class DishController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'ingredients' => 'nullable|string',
-            'price' => 'required',
+            'price' => 'required|max:9',
             'restaurant_id' => 'nullable|exists:restaurant,id',
             'dish_category_id' => 'nullable|exists:dish_categories,id',
             'cover' => 'nullable|image|max:512'

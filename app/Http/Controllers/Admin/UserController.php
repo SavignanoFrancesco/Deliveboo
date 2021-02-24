@@ -99,7 +99,7 @@ class UserController extends Controller
             'piva' => ['required', 'string', 'max:11'],
             'iban' => ['required', 'string', 'max:50'],
             'email' => ['nullable', 'string', 'email', 'max:50', 'unique:users,email,'. $user->id],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'max:64', 'confirmed'],
         ]);
 
         $form_data = $request->all();
