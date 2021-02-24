@@ -2,7 +2,10 @@
 
 @section('content')
 
-    <section id="create-dish">
+    @if($restaurant->isEmpty())
+    <h1>Devi creare prima un ristorante</h1>
+    @else
+        <section id="create-dish">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -16,7 +19,7 @@
         </div>
     </section>
 
-    <section id="card">
+        <section id="card">
         <div class="container">
             <div class="row">
                 @foreach($dishes as $dish)
@@ -59,4 +62,5 @@
             </div>
         </div>
     </section>
+    @endif
 @endsection
