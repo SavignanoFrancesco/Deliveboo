@@ -2,48 +2,56 @@
     height: 100%;
 
     .jumbo {       
-        padding: 80px 0;
-        min-height: 65vh;
-        background: rgb(208,235,153);
-        background: -moz-linear-gradient(350deg, rgba(208,235,153,1) 50%, rgba(0,204,188,1) 51%);
-        background: -webkit-linear-gradient(350deg, rgba(208,235,153,1) 50%, rgba(0,204,188,1) 51%);
-        background: linear-gradient(350deg, rgba(208,235,153,1) 50%, rgba(0,204,188,1) 51%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d0eb99",endColorstr="#00ccbc",GradientType=1);
+        padding: $pd_xxl $pd_0;
+        background: #d0eb99;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #00ccbf, #d0eb99);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #00ccbf, #d0eb99); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
         position: relative;
 
         .background {
-            position: absolute;
-            top: 30%;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 25%);
-            background-image: url(../images/general/jumbo.svg);
-            background-repeat: no-repeat;
-            background-position: bottom;
-            background-origin: content-box;
+            max-width: 80%;
+            padding: $pd_lg $pd_0;
         }
 
         .info-section {
-            display: inline-block;
-            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+
+            .title {
+                width: 100%;
+                text-align: center;
+            }
+
+            .box-cta {
+                margin: $m_md $m_0;
+            }
 
             h1 {
-                font-size: 48px;
+                font-size: 56px;
                 text-transform: uppercase;
                 font-weight: 800;
-                color: white;
-            }    
+                text-shadow: 3px 3px 3px rgba(20, 20, 20, 0.2);
+                color: #fff;
+            }
+            h4 {
+                text-transform: uppercase;
+                font-weight: $font_sbold;
+                padding: 8px 0;
+                color: darkslategray;
+            }
             p {
-                font-size: 24px;
-                color: white;
+                font-size: 16px;
+                color: darkslategray;
             }
         }  
     }    
 
     .carousel-container {
-        min-height: 35vh;
         max-width: 100%;
-        padding: 20px 0;
+        padding: $pd_lg $pd_0;
 
         .VueCarousel-wrapper {
 
@@ -66,7 +74,7 @@
 
     #category {
         min-height: 100vh;
-        padding: 150px 0;
+        padding: $pd_xxl $pd_0;
 
         .filter-box {
             padding: $pd_xl;
