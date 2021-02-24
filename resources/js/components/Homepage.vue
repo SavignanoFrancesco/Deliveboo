@@ -1,22 +1,40 @@
 <template>
     <div>
         <section class="jumbo">
-            <div class="background"></div>
-            <div class="container d-flex justify-content-center align-items-center">
-                    <div class="row">
-                        <div class="col-sm-12">
+            <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-sm-12 col-md-6">
                             <div class="info-section">
                                 <div class="title">
                                     <h1>Deliveboo</h1>
-                                    <p>Consegnamo i migliori piatti direttamente a casa tua!</p>
                                 </div>
+                                <div class="block">
+                                    <h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>
+                                    <div class="block box-cta">
+                                        <p>Sei un consumatore? Esplora i nostri gustosi ristoranti!</p>
+                                        <a :href="href" @click.prevent="scroll" class="btn btn-primary">
+                                            <slot>Esplora</slot>
+                                        </a>
+                                    </div>
+                                    <div class="block box-cta">
+                                        <p>Vuoi unirti a noi come ristoratore?</p>
+                                        <a :href="href" @click.prevent="scroll" class="btn btn-primary">
+                                            <slot>Registrati</slot>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="background">
+                                <img :src="'../images/general/jumbo.svg'" alt="jumbo-image">
                             </div>
                         </div>
                     </div>
                 </div>
         </section>
         <section class="carousel-container">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
                         <h3 class="">Tipologia di Ristorante</h3>
