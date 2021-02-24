@@ -11,9 +11,15 @@ class RestaurantController extends Controller
 {
     public function restaurants_by_category(Request $request){
         $category = $request->all()['category'];
-        $restaurants = Restaurant::whereHas('categories', function($query) use($category){
+
+        if ($category == 'all') {
+          // code...
+          $restaurants = Restaurant::all();
+        }else{
+          $restaurants = Restaurant::whereHas('categories', function($query) use($category){
             $query->where('name', $category);
-        })->get();
+          })->get();
+        }
 
         return response()->json([
             'success'=> true,

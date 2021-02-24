@@ -97,7 +97,7 @@
   <div id="cart_comp">
 
     <div class="restaurant-cover">
-      <img class="" src=" {{$restaurant->cover}} " alt=" {{$restaurant->name}} ">
+      <img class="" src=" {{asset('storage').'/'.$restaurant->cover}} " alt=" {{$restaurant->name}} ">
     </div>
 
     <section class="restaurant">
@@ -135,6 +135,7 @@
 
             {{-- {{ dd($restaurant->id) }} --}}
             {{-- VUE COMPONENT --}}
+            {{-- {{dd($json_array)}} --}}
             <shopping-cart :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_variable }}"></shopping-cart>
 
         </div>

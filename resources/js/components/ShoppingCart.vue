@@ -6,7 +6,8 @@
 
       <!-- da aggiungere v-if visibility -->
       <div class="dish-card"
-      v-for='dish in json_dishes'
+      v-for='(dish, index) in json_dishes'
+      :key='index'
       >
 
         <div class="card-body">
@@ -14,13 +15,13 @@
 
 
               <div class="img-box">
-                <img :src="dish.cover" alt="">
+                <img :src="'../storage/'+dish.cover" alt="">
               </div>
 
 
               <div class="info-box">
                 <h3 class="dish-header">{{ dish.name }}</h3>
-                <h2>{{ dish.price.toFixed(2) }}$</h2>
+                <h2>{{ dish.price }}$</h2>
                 <!-- <p class="dish-description">{{ dish.description }}</p> -->
               </div>
 
@@ -78,7 +79,7 @@
             </div>
             <div class="cart-card-info">
               <p>{{ dish.name }}:</p>
-              <p>{{dish.price.toFixed(2)}}$</p>
+              <p>{{dish.price}}$</p>
               <div class="dish-quantity">
                 <span>x {{ dish.quantity }}</span>
                 <div class="btn-group">
@@ -129,7 +130,8 @@ export default {
     //Before mount tutto ok
   },
   mounted() {
-
+    console.log('dishes: ',this.dishes);
+    console.log('json_dishes: ',this.json_dishes);
     // controlllo se il componente funziona
     // alert('component working!');
 
