@@ -1,57 +1,77 @@
 <template>
     <div>
-        <section class="jumbo d-flex flex-column justify-content-between">
-                <section class="hero-area d-flex justify-content-center">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-5 col-sm-12">
-                                <div class="block">
-                                    <h1 class="">Deliveboo</h1>
-                                    <p>Consegnamo i migliori piatti direttamente a casa tua!</p>
-                                    <a :href="href" @click.prevent="scroll" class="btn btn-cta">
-                                        <slot>Esplora</slot>
-                                    </a>
+        <section class="jumbo">
+            <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="info-section">
+                                <div class="title">
+                                    <h1>Deliveboo</h1>
                                 </div>
-                            </div>
-                            <div class="col-md-7 col-sm-12">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="carousel-box" class="d-flex" >
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="block">
-                                    <h3 class="">Tipologia di Ristorante</h3>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <div class="carousel-container">
-                                    <carousel :per-page="4" :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 3], [992, 5]]">
-                                        <slide v-for="(category, index) in categories" :key="index">
-                                            <a href="" @click.prevent="getCategory(category.name); scroll()">
-                                                <img :src="'http://localhost:8000/' + category.cover" alt="">
-                                                Tipologia: {{category.name}}
-                                            </a>
-                                        </slide>
-                                    </carousel>
+                                <div class="block mt-4">
+                                    <h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>
+                                    <div class="block box-cta">
+                                        <p>Sei un consumatore? Esplora i nostri gustosi ristoranti!</p>
+                                        <a :href="href" @click.prevent="scroll" class="btn btn-primary">
+                                            <slot>Esplora</slot>
+                                        </a>
+                                    </div>
+                                    <div class="block box-cta">
+                                        <p>Vuoi unirti a noi come ristoratore?</p>
+                                        <a :href="href" @click.prevent="scroll" class="btn btn-primary">
+                                            <slot>Registrati</slot>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="background">
+                                <img :src="'../images/general/jumbo.svg'" alt="jumbo-image">
+                            </div>
+                        </div>
                     </div>
-                </section>
+                </div>
         </section>
-        <section id="category" class="d-flex">
-                <div class="container-fluid">
+        <div class="carousel-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="">Top Categorie</h3>
+                        <carousel :perPage="4" :touchDrag="true" :paginationEnabled="false">
+                            <slide v-for="(category, index) in categories" :key="index">
+                                <a href="" @click.prevent="getCategory(category.name); scroll()">
+                                    <img :src="'http://localhost:8000/' + category.cover" alt="">
+                                    <p class="category-name">{{category.name}}</p>
+                                </a>
+                            </slide>
+                        </carousel>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section v-if="isVisible" id="category" class="d-flex">
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-3 col-sm-12">
-                            <div class="block">
-                                <h3>Hai selezionato</h3>
+                        <div class="col-sm-12">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h3 class="">Categorie Ristorante</h3>
+                                            <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 5], [992, 11]]">
+                                                <slide v-for="(category, index) in categories" :key="index">
+                                                    <a href="" @click.prevent="getCategory(category.name); scroll()">
+                                                        <img :src="'http://localhost:8000/' + category.cover" alt="">
+                                                        <p class="category-name">{{category.name}}</p>
+                                                    </a>
+                                                </slide>
+                                            </carousel>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-9 col-sm-12">
+                            <h3>Hai selezionato</h3>
                             <div class="cards-container d-flex flex-wrap">
                                 <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box m-3">
                                     <div class="card rounded-lg shadow p-3 bg-light" style="max-width: 18rem;">
@@ -82,7 +102,8 @@
         data () {
             return {
                 restaurantList: [],
-                href: '#category'
+                href: '#category',
+                isVisible: false,
             }
         },
         methods: {
@@ -97,7 +118,11 @@
                     this.restaurantList = response.data.restaurants;
                     });
             },
+            viewCategory(){
+                this.isVisible = true;
+            },
             scroll(){
+                this.viewCategory();
                 document.querySelector(this.href).scrollIntoView({behavior: 'smooth'});
             },
             getCategory(category){
@@ -107,6 +132,7 @@
             }
         },
         mounted () {
+            this.scroll();
         }
     }
 </script>
