@@ -12,14 +12,14 @@ class GlobalTableSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserTableSeeder::class,
+            // UserTableSeeder::class,
             RestaurantCategoryTableSeeder::class,
-            RestaurantTableSeeder::class,
-            OrderTableSeeder::class,
+            // RestaurantTableSeeder::class,
+            // OrderTableSeeder::class,
             DishCategoryTableSeeder::class,
-            MenuCategoryTableSeeder::class,
-            MenuTableSeeder::class,
-            DishTableSeeder::class,
+            // MenuCategoryTableSeeder::class,
+            // MenuTableSeeder::class,
+            // DishTableSeeder::class,
         ]);
     }
 }

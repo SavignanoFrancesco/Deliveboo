@@ -3,6 +3,9 @@
 @section('title', $restaurant->name)
 
 @section('content')
+  {{-- {{dd($dishes)}} --}}
+  {{-- {{dd($restaurant->user_id)}} --}}
+  {{-- {{dd($restaurant->dishes)}} --}}
     {{-- Descrizione -- Savignano (da completare per il 16/02) --}}
     {{-- Completare  Menu Restaurant Pubblica sia HTML che CSS che CARRELLO HTML/CSS/JS --}}
 
