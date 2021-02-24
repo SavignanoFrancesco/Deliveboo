@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @extends('layouts.partials.search')
+
     <h1>Dashboard</h1>
     <h2>{{Auth::user()->company_name}}</h2>
     <h3>Summary</h3>
