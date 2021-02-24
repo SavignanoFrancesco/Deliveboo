@@ -20,7 +20,7 @@ class CreateDishesTable extends Migration
             $table->string('cover')->nullable();
             $table->text('description');
             $table->text('ingredients');
-            $table->float('price', 6, 2);
+            $table->decimal('price', 9, 2);
             $table->tinyInteger('visibility')->nullable();
             $table->timestamps();
         });

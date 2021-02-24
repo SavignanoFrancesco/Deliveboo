@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <label>Prezzo</label>
                         <input type="text" name="price" class="form-control"
-                               placeholder="Prezzo..." value="{{ old('price', $dishes->price) }}" maxlength="3">
+                               placeholder="Prezzo..." value="{{ old('price', $dishes->price) }}" maxlength="6">
                     </div>
 
 
