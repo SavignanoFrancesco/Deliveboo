@@ -75,7 +75,7 @@
           </div>
           <div class="cart-card">
             <div class="cart-card-img">
-              <img :src="dish.cover" alt="">
+              <img :src="'../storage/'+dish.cover" alt="">
             </div>
             <div class="cart-card-info">
               <p>{{ dish.name }}:</p>
