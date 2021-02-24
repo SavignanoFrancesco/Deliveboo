@@ -23,3 +23,15 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+p {
+    margin: 0;
+}
+
+.block {
+    padding: $pd_md;
+    background-color: #fff;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+    box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+}

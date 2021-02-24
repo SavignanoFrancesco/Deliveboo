@@ -1,79 +1,66 @@
 #appTwo {
     height: 100%;
-    min-height: 100vh;
 
-    .block {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        border-radius: 16px;
-        padding: 16px;
-        background-color: #fff;
-    }
+    .jumbo {       
+        padding: 80px 0;
+        min-height: 65vh;
+        background: rgb(208,235,153);
+        background: -moz-linear-gradient(350deg, rgba(208,235,153,1) 50%, rgba(0,204,188,1) 51%);
+        background: -webkit-linear-gradient(350deg, rgba(208,235,153,1) 50%, rgba(0,204,188,1) 51%);
+        background: linear-gradient(350deg, rgba(208,235,153,1) 50%, rgba(0,204,188,1) 51%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d0eb99",endColorstr="#00ccbc",GradientType=1);
+        position: relative;
 
-    .jumbo {
-      min-height: 100vh;
-        background-image: url('../images/general/jumbo-background5.png');
-            background-position: right;
-            background-repeat: no-repeat;
-            background-size: cover;
-            h1 {
-                font-size: 56px;
-                text-transform: uppercase;
-                font-weight: bold;
-                color: darkslategray;
-            }
-
-            h3 {
-                font-weight: bold;
-                color: darkslategray;
-            }
-
-            p {
-                font-size: 16px;
-                font-weight: bold;
-                color: darkslategray;
-            }
-
-        .hero-area {
-            align-items:center;
-            padding-top: 150px;
-
-            .btn-cta {
-                background-color: #fb7855;
-            }
-
-            /*.block {
-                display: flex;
-                flex-direction: column;
-                justify-content: start;
-                width: 100%;
-                border-radius: 16px;
-                padding: 16px;
-                background-color: #fff;
-            }*/
-        }
-
-        .carousel-box {
+        .background {
+            position: absolute;
+            top: 30%;
+            left: 0;
             width: 100%;
-            .VueCarousel-wrapper {
-                display: flex;
-                align-items: center;
-                padding: 50px 0;
-            }
-
-            h3 {
-                font-size: 32px;
-                font-weight: bold;
-            }
+            height: calc(100% - 25%);
+            background-image: url(../images/general/jumbo.svg);
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-origin: content-box;
         }
-    }
 
-    .scroll-box {
-        width: 100%;
-        i {
-            font-size: 150px;
+        .info-section {
+            display: inline-block;
+            text-align: center;
+
+            h1 {
+                font-size: 48px;
+                text-transform: uppercase;
+                font-weight: 800;
+                color: white;
+            }    
+            p {
+                font-size: 24px;
+                color: white;
+            }
+        }  
+    }    
+
+    .carousel-container {
+        min-height: 35vh;
+        max-width: 100%;
+        padding: 20px 0;
+
+        .VueCarousel-wrapper {
+
+            .VueCarousel-inner {
+                text-align: center;
+
+                .VueCarousel-slide {
+                    img {
+                        max-width: 100%;
+                    }
+                    .category-name {
+                        text-transform: capitalize;
+                        color: black;
+                        font-weight: 800;
+                    }
+                }
+            } 
         }
     }
 
@@ -99,6 +86,4 @@
             }
         }
     }
-
-
 }
