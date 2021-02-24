@@ -38,15 +38,14 @@
 
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea name="address" class="form-control"
-                                  rows="10" placeholder="Address"
-                                  autocomplete="on"
-                                  required> {{ old('address', $restaurant->address) }} </textarea>
+                        <input type="text" name="address" class="form-control"
+                               maxlength="50" minlength="1" autocomplete="on"
+                               placeholder="Address" value="{{ old('address', $restaurant->address) }}">
                     </div>
 
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" name="phone" class="form-control"
+                        <input type="number" name="phone" class="form-control"
                                maxlength="20" minlength="1" autocomplete="on"
                                placeholder="Phone" value="{{ old('phone', $restaurant->phone) }}">
                     </div>

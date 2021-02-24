@@ -193,7 +193,7 @@
                         <div class="col-md-3 mb-3">
                             <label for="validation-tooltip-12">Password</label>
                             <input type="password" class="form-control" id="validation-tooltip-12" name="password"
-                                   required placeholder="Password" maxlength="8" minlength="1">
+                                   required placeholder="Password" maxlength="64" minlength="1">
                             <div class="valid-tooltip">
                                 Looks good!
                             </div>
@@ -206,7 +206,7 @@
                         <div class="col-md-3 mb-3">
                             <label for="validation-tooltip-13">Confirm Password</label>
                             <input type="password" class="form-control" id="validation-tooltip-13"
-                                   name="password_confirmation" required placeholder="Confirm password" maxlength="8"
+                                   name="password_confirmation" required placeholder="Confirm password" maxlength="64"
                                    minlength="1">
                             <div class="valid-tooltip">
                                 Looks good!
