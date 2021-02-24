@@ -49,10 +49,11 @@ class RestaurantController extends Controller
     {
         $request->validate([
             'name' => 'required|max:50',
-            'cover' => 'nullable|image|max:512',
+            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:512',
             'phone' => 'required|max:20',
             'email' => 'required|max:50|unique:restaurants,email',
             'address' => 'required',
+            'file' => true,
         ]);
 
         $form_data = $request->all();
