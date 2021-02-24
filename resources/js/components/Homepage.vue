@@ -8,7 +8,7 @@
                                 <div class="title">
                                     <h1>Deliveboo</h1>
                                 </div>
-                                <div class="block">
+                                <div class="block mt-4">
                                     <h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>
                                     <div class="block box-cta">
                                         <p>Sei un consumatore? Esplora i nostri gustosi ristoranti!</p>
@@ -33,12 +33,12 @@
                     </div>
                 </div>
         </section>
-        <section class="carousel-container">
+        <div class="carousel-container">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="">Tipologia di Ristorante</h3>
-                        <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 5], [992, 11]]">
+                        <h3 class="">Top Categorie</h3>
+                        <carousel :perPage="4" :touchDrag="true" :paginationEnabled="false">
                             <slide v-for="(category, index) in categories" :key="index">
                                 <a href="" @click.prevent="getCategory(category.name); scroll()">
                                     <img :src="'http://localhost:8000/' + category.cover" alt="">
@@ -49,6 +49,42 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <section v-if="isVisible" id="category" class="d-flex">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="carousel-container">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h3 class="">Categorie Ristorante</h3>
+                                            <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 5], [992, 11]]">
+                                                <slide v-for="(category, index) in categories" :key="index">
+                                                    <a href="" @click.prevent="getCategory(category.name); scroll()">
+                                                        <img :src="'http://localhost:8000/' + category.cover" alt="">
+                                                        <p class="category-name">{{category.name}}</p>
+                                                    </a>
+                                                </slide>
+                                            </carousel>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Hai selezionato</h3>
+                            <div class="cards-container d-flex flex-wrap">
+                                <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box m-3">
+                                    <div class="card rounded-lg shadow p-3 bg-light" style="max-width: 18rem;">
+                                        <div class="card-body">
+                                            <img class="img-fluid" :src="restaurant.cover" alt="img">
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title mt-3">{{restaurant.name}}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
     </div>    
 </template>
@@ -66,7 +102,8 @@
         data () {
             return {
                 restaurantList: [],
-                href: '#category'
+                href: '#category',
+                isVisible: false,
             }
         },
         methods: {
@@ -81,7 +118,11 @@
                     this.restaurantList = response.data.restaurants;
                     });
             },
+            viewCategory(){
+                this.isVisible = true;
+            },
             scroll(){
+                this.viewCategory();
                 document.querySelector(this.href).scrollIntoView({behavior: 'smooth'});
             },
             getCategory(category){
@@ -91,6 +132,7 @@
             }
         },
         mounted () {
+            this.scroll();
         }
     }
 </script>
