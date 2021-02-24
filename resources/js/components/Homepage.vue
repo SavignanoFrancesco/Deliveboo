@@ -1,26 +1,37 @@
 <template>
     <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
+        <section class="jumbo">
+            <div class="background"></div>
+            <div class="container d-flex justify-content-center align-items-center">
                     <div class="row">
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12">
                             <div class="info-section">
                                 <div class="title">
-                                    <h1>Titolo</h1>
-                                </div>
-                                <div class="block">
+                                    <h1>Deliveboo</h1>
                                     <p>Consegnamo i migliori piatti direttamente a casa tua!</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6">
-
-                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="carousel-container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="">Tipologia di Ristorante</h3>
+                        <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 5], [992, 11]]">
+                            <slide v-for="(category, index) in categories" :key="index">
+                                <a href="" @click.prevent="getCategory(category.name); scroll()">
+                                    <img :src="'http://localhost:8000/' + category.cover" alt="">
+                                    <p class="category-name">{{category.name}}</p>
+                                </a>
+                            </slide>
+                        </carousel>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>    
 </template>
 
