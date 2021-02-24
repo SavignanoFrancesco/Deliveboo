@@ -1,0 +1,9 @@
+main {
+    height: 100vh;
+    padding: 0px;
+    width: calc(100% - 100px);
+    // float: left;
+    margin-left: 100px;
+    position: relative;
+    overflow-y: auto;
+}

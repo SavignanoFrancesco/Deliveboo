@@ -1,0 +1,104 @@
+#appTwo {
+    height: 100%;
+    min-height: 100vh;
+
+    .block {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        border-radius: 16px;
+        padding: 16px;
+        background-color: #fff;
+    }
+
+    .jumbo {
+      min-height: 100vh;
+        background-image: url('../images/general/jumbo-background5.png');
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: cover;
+            h1 {
+                font-size: 56px;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: darkslategray;
+            }
+
+            h3 {
+                font-weight: bold;
+                color: darkslategray;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: bold;
+                color: darkslategray;
+            }
+
+        .hero-area {
+            align-items:center;
+            padding-top: 150px;
+
+            .btn-cta {
+                background-color: #fb7855;
+            }
+
+            /*.block {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                width: 100%;
+                border-radius: 16px;
+                padding: 16px;
+                background-color: #fff;
+            }*/
+        }
+
+        .carousel-box {
+            width: 100%;
+            .VueCarousel-wrapper {
+                display: flex;
+                align-items: center;
+                padding: 50px 0;
+            }
+
+            h3 {
+                font-size: 32px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .scroll-box {
+        width: 100%;
+        i {
+            font-size: 150px;
+        }
+    }
+
+    #category {
+        min-height: 100vh;
+        padding: 150px 0;
+
+        .filter-box {
+            padding: $pd_xl;
+            background-color: gray;
+        }
+
+        .card {
+            .card-body{
+                padding: 0;
+                img {
+                    border-radius: 16px;
+                }
+
+            }
+            .card-title {
+                margin: 0;
+            }
+        }
+    }
+
+
+}
