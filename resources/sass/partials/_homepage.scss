@@ -62,14 +62,11 @@
                 text-align: center;
 
                 .VueCarousel-slide {
-                    img {
-                        max-width: 100%;
-                    }
                     .category-name {
                         text-transform: capitalize;
                         color: black;
                         font-weight: 800;
-                    }
+                        }
                 }
             } 
         }
@@ -78,6 +75,7 @@
     #category {
         min-height: 100vh;
         padding: $pd_xxl $pd_0;
+        background-color: whitesmoke;
 
         .card-box {
             color: darkslategray;
