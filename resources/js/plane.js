@@ -81,7 +81,7 @@ $(document).ready(function(){
      });
     $(".close").click(function(){
        //$(".sidebar-link").css("display", "none");
-       $("nav").css("width", "96px");
+       $("nav").css("width", "88px");
        $(".text").css("display", "none");
        $(".hamburger").css("display", "block");
        $(".close").css("display", "none");
