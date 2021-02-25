@@ -27,10 +27,10 @@
 
           </div>
 
-          <div class="info-box-2">
+          <!-- <div class="info-box-2">
             <p> <span>Description: </span> {{dish.description}}</p>
             <p> <span>Ingredients: </span> {{dish.ingredients}}</p>
-          </div>
+          </div> -->
 
           <div class="cart-adder">
 

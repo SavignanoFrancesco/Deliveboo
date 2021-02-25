@@ -33,28 +33,35 @@
       cursor: pointer;
     }
 
-    .restaurant-cover{
-      width:100%;
-      border-bottom: 3px solid $bg_primary_color;
-      img{
-        width: 100%;
-        height: 32vh;
-        object-fit: cover;
-      }
-    }
     .restaurant{
       width: 100%;
       // border: 2px solid black;
       .container{
-        .restaurant-details{
-          h1{
-            font-size: $font-size-base * 3;
-          }
-          ul{
-            li{
-              span{
+        .restaurant-details-container{
+          width:100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .restaurant-details{
+            width:60%;
+            h1{
+              font-size: $font-size-base * 3;
+            }
+            ul{
+              li{
+                span{
 
+                }
               }
+            }
+          }
+          .restaurant-cover{
+            width: 40%;
+            border-bottom: 3px solid $bg_primary_color;
+            img{
+              width: 100%;
+
+              object-fit: cover;
             }
           }
         }
@@ -72,6 +79,7 @@
 
           // CARDS_CONTAINER
           .dish-cards-container{
+            padding-top: 32px;
             min-height: 100vh;
             display: flex;
             flex-wrap: wrap;
@@ -304,7 +312,7 @@
 
 @media only screen and (max-width: 1227px){
   #cart_comp{
-
+    position: relative;
     h1,h2,h3,h4{
 
     }
@@ -318,24 +326,27 @@
     i{
     }
 
-    .restaurant-cover{
-
-      img{
-
-      }
-    }
     .restaurant{
 
       .container{
-        .restaurant-details{
-          h1{
+        .restaurant-details-container{
+          .restaurant-details{
 
-          }
-          ul{
-            li{
-              span{
+            h1{
 
+            }
+            ul{
+              li{
+                span{
+
+                }
               }
+            }
+          }
+          .restaurant-cover{
+
+            img{
+
             }
           }
         }
@@ -348,6 +359,7 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+            padding-top: 16px;
             .dish-card{
               width: 100%;
               display: flex;
@@ -365,7 +377,7 @@
 
                 .contentBox{
                   // display: flex;
-
+                  width: auto;
                   .img-box{
                     img{
 
@@ -379,7 +391,7 @@
                   // border: 1px solid darken(white, 15);
                   // border-radius: 10px;
                   // background-color: rgba(white, 0.5);
-                  // width: 100%;
+                  width: auto;
                   // padding: 2px;
                 }
                 .cart-adder{
@@ -465,96 +477,109 @@
     i{
     }
 
-    .restaurant-cover{
-
-      img{
-
-      }
-    }
     .restaurant{
-
       .container{
-        .restaurant-details{
-          h1{
+        .restaurant-details-container{
+          position: relative;
+          width: 100%;
+          .restaurant-details{
+            padding: 24px;
+            z-index: 1;
+            width: 100%;
+            h1{
 
-          }
-          ul{
-            li{
-              span{
-
-              }
             }
-          }
-        }
-        //COMPONENT TEMPLATE CONTAINER
-        .component-container{
-
-          // CARDS_CONTAINER
-          .dish-cards-container{
-            display: block;
-            .dish-card{
-              display: block;
-              margin-bottom: 2px;
-              width: 100%;
-              // height: 300px;
-              .card-body{
-                flex-direction: column;
-
-                // width: 100%;
-                // padding: 0;
-                // margin: 0;
-                .contentBox{
-                  // display: flex;
-                  min-width: 100%;
-                  .img-box{
-                    img{
-
-                    }
-                  }
-                }
-                .cart-adder{
-
-                }
-              }
-            }
-
-
-          }
-
-          // SIDE-BAR-CART
-          .side-bar-cart,.side-bar-cart-active{
-
-            .cart-icon{
-
-              i{
-
-              }
-              .quantity{
-
+            ul{
+              li{
                 span{
 
                 }
               }
             }
-            .cart-list{
+          }
+          .restaurant-cover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+            img{
+              height: 200px;
+              width: 100%;
+              opacity: 0.6;
+            }
+          }
+        }
+          //COMPONENT TEMPLATE CONTAINER
+          .component-container{
 
-              li{
+            // CARDS_CONTAINER
+            .dish-cards-container{
+              display: block;
+              .dish-card{
+                display: block;
+                margin-bottom: 2px;
+                width: 100%;
+                // height: 300px;
+                .card-body{
+                  flex-direction: column;
 
-                .cart-card{
+                  // width: 100%;
+                  // padding: 0;
+                  // margin: 0;
+                  .contentBox{
+                    // display: flex;
+                    // min-width: 100%;
+                    .img-box{
+                      img{
 
-                  .cart-card-img{
-
-                    img{
-
+                      }
                     }
                   }
-                  .cart-card-info{
+                  .cart-adder{
 
-                    .dish-quantity{
+                  }
+                }
+              }
 
-                      .btn-group{
-                        i{
 
+            }
+
+            // SIDE-BAR-CART
+            .side-bar-cart,.side-bar-cart-active{
+
+              .cart-icon{
+
+                i{
+
+                }
+                .quantity{
+
+                  span{
+
+                  }
+                }
+              }
+              .cart-list{
+
+                li{
+
+                  .cart-card{
+
+                    .cart-card-img{
+
+                      img{
+
+                      }
+                    }
+                    .cart-card-info{
+
+                      .dish-quantity{
+
+                        .btn-group{
+                          i{
+
+                          }
                         }
                       }
                     }
@@ -562,11 +587,11 @@
                 }
               }
             }
-          }
-          .side-bar-cart-active{
+            .side-bar-cart-active{
 
-            .cart-icon{
+              .cart-icon{
 
+              }
             }
           }
         }
@@ -577,9 +602,9 @@
 
 //CART_COMP END
 }
-}
 
-@media only screen and (max-width: 720px){
+
+@media only screen and (max-width: 700px){
   nav{
     //display: none;
   }
@@ -606,25 +631,29 @@
     i{
     }
 
-    .restaurant-cover{
-
-      img{
-
-      }
-    }
     .restaurant{
       .container{
         padding: 0;
+        max-width: 100%;
         margin:0;
-        .restaurant-details{
-          padding-left: 20px;
-          h1{
-          }
-          ul{
-            li{
-              span{
+        .restaurant-details-container{
+          width: 100%;
+          .restaurant-details{
 
+            h1{
+
+            }
+            ul{
+              li{
+                span{
+
+                }
               }
+            }
+          }
+          .restaurant-cover{
+
+            img{
             }
           }
         }
@@ -640,7 +669,7 @@
               margin-bottom: 5px;
               margin-left: 0;
               // display: inline-block;
-              max-width: calc(100% - 5px);
+              max-width: 100%;
               // min-height: 410px;
               display: flex;
               align-items: center;
