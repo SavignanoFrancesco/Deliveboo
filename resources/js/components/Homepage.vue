@@ -18,7 +18,7 @@
                                     </div>
                                     <div class="block box-cta">
                                         <p>Vuoi unirti a noi come ristoratore?</p>
-                                        <a :href="href" @click.prevent="scroll" class="btn btn-primary">
+                                        <a href="http://localhost:8000/register" class="btn btn-primary">
                                             <slot>Registrati</slot>
                                         </a>
                                     </div>
@@ -76,7 +76,7 @@
                                 <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box m-3">
                                     <div class="card rounded-lg shadow p-3 bg-light" style="max-width: 18rem;">
                                         <div class="card-body">
-                                            <img class="img-fluid" :src="restaurant.cover" alt="img">
+                                            <img class="img-fluid" :src="'../storage/' + restaurant.cover" alt="img">
                                         </div>
                                     </div>
                                     <h5 class="card-title mt-3">{{restaurant.name}}</h5>
@@ -132,7 +132,7 @@
             }
         },
         mounted () {
-            this.scroll();
+
         }
     }
 </script>
