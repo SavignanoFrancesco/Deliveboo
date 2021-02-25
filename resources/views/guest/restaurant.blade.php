@@ -96,14 +96,11 @@
   </div> --}}
   <div id="cart_comp">
 
-    <div class="restaurant-cover">
-      <img class="" src=" {{asset('storage').'/'.$restaurant->cover}} " alt=" {{$restaurant->name}} ">
-    </div>
-
     <section class="restaurant">
         <div class="container">
             <div class="row">
 
+              <div class="restaurant-details-container">
                 <div class="restaurant-details">
                     {{-- <p>Restaurant Details</p> --}}
                     <h1> {{ $restaurant->name }} </h1>
@@ -118,6 +115,11 @@
                         {{-- Inserire qui una google maps del ristorante --}}
                     </div>
                 </div>
+
+                <div class="restaurant-cover">
+                  <img class="" src=" {{asset('storage').'/'.$restaurant->cover}} " alt=" {{$restaurant->name}} ">
+                </div>
+              </div>
             </div>
             {{-- {{dd($restaurant->categories)}} --}}
             {{-- aggiungo quantità --}}

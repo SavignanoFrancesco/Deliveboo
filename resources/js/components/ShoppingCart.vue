@@ -11,36 +11,32 @@
       >
 
         <div class="card-body">
-          <div class="contentBox">
+
+            <div class="img-box">
+              <img :src="'../storage/'+dish.cover" alt="">
+            </div>
 
 
-              <div class="img-box">
-                <img :src="'../storage/'+dish.cover" alt="">
+            <div class="info-box">
+              <h2 class="dish-header">{{ dish.name }}</h2>
+              <h3>{{ dish.price }}$</h3>
+              <h4>{{ dish.ingredients }}</h4>
+              <!-- <p class="dish-description">{{ dish.description }}</p> -->
+              <div class="cart-adder">
+
+                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                    <i class="fas fa-minus" ></i>
+                  </button>
+
+                  <span class="dish-quantity">{{ dish.quantity }}</span>
+
+                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                    <i class="fas fa-plus"></i>
+                  </button>
+
               </div>
+            </div>
 
-
-              <div class="info-box">
-                <h3 class="dish-header">{{ dish.name }}</h3>
-                <h2>{{ dish.price }}$</h2>
-                <!-- <p class="dish-description">{{ dish.description }}</p> -->
-              </div>
-
-          </div>
-
-          <div class="info-box-2">
-            <p> <span>Description: </span> {{dish.description}}</p>
-            <p> <span>Ingredients: </span> {{dish.ingredients}}</p>
-          </div>
-
-          <div class="cart-adder">
-
-              <i class="fas fa-minus" @click='updateCart(dish, "subtract");piece += 1;'></i>
-
-              <span class="dish-quantity">{{ dish.quantity }}</span>
-
-              <i class="fas fa-plus" @click='updateCart(dish, "add");piece += 1;'></i>
-
-          </div>
         </div>
 
       </div>
@@ -65,26 +61,31 @@
 
         <ul class='cart-list'>
           <li>
-            <h3 class="cart-title">Your wishes: <span>(Total price: {{this.totalPrice.toFixed(2)}}$)</span> </h3>
+            <h2 class="cart-title">Your wishes: <h3>(Total price: {{this.totalPrice.toFixed(2)}}$)</h3></h2>
           </li>
           <li
           v-for='dish in cart'
           >
-          <div @click="remove_from_cart(dish.id)">
+          <button type="button" name="button" @click="remove_from_cart(dish.id)" class="btn btn-danger">
             <i class="fas fa-trash-alt"></i>
-          </div>
+          </button>
           <div class="cart-card">
             <div class="cart-card-img">
               <img :src="'../storage/'+dish.cover" alt="">
             </div>
             <div class="cart-card-info">
-              <p>{{ dish.name }}:</p>
-              <p>{{dish.price}}$</p>
+              <h2>{{ dish.name }}:</h2>
+              <h3>{{dish.price}}$</h3>
               <div class="dish-quantity">
-                <span>x {{ dish.quantity }}</span>
+
                 <div class="btn-group">
-                  <i class="fas fa-minus" @click='updateCart(dish, "subtract");piece += 1;'></i>
-                  <i class="fas fa-plus" @click='updateCart(dish, "add");piece += 1;'></i>
+                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                    <i class="fas fa-minus" ></i>
+                  </button>
+                  <span>{{ dish.quantity }}</span>
+                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                    <i class="fas fa-plus"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -268,6 +269,6 @@ transition: all 0.5s ease;
 }
 
 .minimized {
-transform: rotateX(-720deg);
+transform: rotateX(-1080deg);
 }
 </style>
