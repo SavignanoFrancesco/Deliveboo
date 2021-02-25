@@ -13,7 +13,6 @@ nav{
   justify-content: center;
   overflow: hidden;
   .sidebar-top{
-    height: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -26,7 +25,7 @@ nav{
         left: 0;
         width: 100%;
         list-style-type: none;
-        margin-top: 20px;
+        margin-top: 100px;
         li{
           width: 100%;
           display: flex;
@@ -68,8 +67,14 @@ nav{
 }
 @media only screen and (max-width: 700px){
   nav{
-    left: -96px;
+    left: -90px;
+
+    .icon{
+    //  display: block;
+    }
   }.hamburger{
-    display: block;
+    right: 0;
+  }.close{
+    right: 0;
   }
 }
