@@ -34,11 +34,15 @@
 
           <div class="cart-adder">
 
-              <i class="fas fa-minus" @click='updateCart(dish, "subtract");piece += 1;'></i>
+              <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                <i class="fas fa-minus" ></i>
+              </button>
 
               <span class="dish-quantity">{{ dish.quantity }}</span>
 
-              <i class="fas fa-plus" @click='updateCart(dish, "add");piece += 1;'></i>
+              <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                <i class="fas fa-plus"></i>
+              </button>
 
           </div>
         </div>
@@ -70,9 +74,9 @@
           <li
           v-for='dish in cart'
           >
-          <div @click="remove_from_cart(dish.id)">
+          <button type="button" name="button" @click="remove_from_cart(dish.id)" class="btn btn-danger">
             <i class="fas fa-trash-alt"></i>
-          </div>
+          </button>
           <div class="cart-card">
             <div class="cart-card-img">
               <img :src="'../storage/'+dish.cover" alt="">
@@ -83,8 +87,13 @@
               <div class="dish-quantity">
                 <span>x {{ dish.quantity }}</span>
                 <div class="btn-group">
-                  <i class="fas fa-minus" @click='updateCart(dish, "subtract");piece += 1;'></i>
-                  <i class="fas fa-plus" @click='updateCart(dish, "add");piece += 1;'></i>
+                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                    <i class="fas fa-minus" ></i>
+                  </button>
+
+                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                    <i class="fas fa-plus"></i>
+                  </button>
                 </div>
               </div>
             </div>
