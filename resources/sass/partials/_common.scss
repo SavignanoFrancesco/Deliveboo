@@ -28,6 +28,10 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+h3 {
+    font-weight: $font_bold;
+}
+
 p {
     margin: 0;
 }

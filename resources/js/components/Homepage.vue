@@ -17,7 +17,7 @@
                                 <div class="block mt-4">
                                     <h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>
                                     <div class="block box-cta">
-                                        <p>Sei un consumatore? Esplora i nostri gustosi ristoranti!</p>
+                                        <p>Esplora i nostri gustosi ristoranti!</p>
                                         <a :href="href" @click.prevent="scroll" class="btn btn-primary">
                                             <slot>Esplora</slot>
                                         </a>
@@ -79,15 +79,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <h3>Hai selezionato</h3>
-                            <div class="cards-container d-flex flex-wrap">
-                                <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box m-3">
-                                    <div class="card rounded-lg shadow p-3 bg-light" style="max-width: 18rem;">
+                        </div>
+                        <div class="col-sm-12 py-6">
+                            <h3 class="my-3">Hai selezionato: </h3>
+                            <div class="cards-container d-flex flex-wrap align-items-baseline">
+                                <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box rounded mr-3 mb-3">
+                                    <div class="card rounded-lg bg-light">
                                         <div class="card-body">
                                             <img class="img-fluid" :src="'../storage/' + restaurant.cover" alt="img">
                                         </div>
+                                        <div class="restaurant-info">
+                                            <h5 class="restaurant-title my-2">{{restaurant.name}}</h5>
+                                            <p class="restaurant-text">Adress: <span>{{restaurant.address}}</span></p>
+                                            <p class="restaurant-text">Phone: <span>{{restaurant.phone}}</span></p>
+                                        </div>
                                     </div>
-                                    <h5 class="card-title mt-3">{{restaurant.name}}</h5>
                                 </a>
                             </div>
                         </div>
