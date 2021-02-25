@@ -30,6 +30,20 @@ nav{
        }
     }
     .sidebar-link{
+      .hamburger-button{
+        left: 0;
+        width: 100%;
+        i{
+          position: fixed;
+          text-align: center;
+          min-width: 88px;
+          height: 88px;
+          line-height: 88px;
+          font-size: $font_size_l;
+          color: $blue;
+          display: block;
+        }
+      }
       ul{
         display: flex;
         flex-direction: column;
