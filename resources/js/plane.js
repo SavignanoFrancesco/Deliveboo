@@ -75,14 +75,14 @@ $(document).ready(function(){
      $(".hamburger").click(function(){
       //$(".sidebar-link").css("display", "block");
       $("nav").css("width", "248px");
-      //$(".text").css("display", "inline-block");
+      $(".text").css("display", "block");
       $(".close").css("display", "block");
       $(".hamburger").css("display", "none");
      });
     $(".close").click(function(){
        //$(".sidebar-link").css("display", "none");
        $("nav").css("width", "96px");
-       //$(".text").css("display", "none");
+       $(".text").css("display", "none");
        $(".hamburger").css("display", "block");
        $(".close").css("display", "none");
      });
