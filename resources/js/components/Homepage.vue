@@ -26,8 +26,9 @@
                                     </div>
                                     <div class="block box-cta">
                                         <p>Vuoi unirti a noi come ristoratore?</p>
-                                        <a :href="href" @click.prevent="scroll" class="btn btn-primary">
-                                            <slot>Registrati</slot>
+                                        <a href="http://localhost:8000/register" class="btn btn-primary">
+                                            <slot v-if="flag_register">Registrati</slot>
+                                            <slot v-else>Dashboard</slot>
                                         </a>
                                     </div>
                                 </div>
@@ -59,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <section v-if="isVisible" id="category" class="d-flex">
+        <section id="category" class="d-flex">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -85,7 +86,7 @@
                                 <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box m-3">
                                     <div class="card rounded-lg shadow p-3 bg-light" style="max-width: 18rem;">
                                         <div class="card-body">
-                                            <img class="img-fluid" :src="restaurant.cover" alt="img">
+                                            <img class="img-fluid" :src="'../storage/' + restaurant.cover" alt="img">
                                         </div>
                                     </div>
                                     <h5 class="card-title mt-3">{{restaurant.name}}</h5>
@@ -107,15 +108,26 @@
         Carousel,
         Slide
         },
-        props:['categories'],
+        props:['categories','flag_register'],
         data () {
             return {
                 restaurantList: [],
                 href: '#category',
-                isVisible: false,
+                // flag_register: this.flag_register,
             }
         },
         methods: {
+            async getAllCategories(){
+                await axios
+                .get('http://localhost:8000/api/restaurants_by_category', {
+                    params: {
+                        category: 'all'
+                    }
+                })
+                .then((response) => {
+                    this.restaurantList = response.data.restaurants;
+                    });
+            },
             async apiRequest(){
                 await axios
                 .get('http://localhost:8000/api/restaurants_by_category', {
@@ -127,11 +139,7 @@
                     this.restaurantList = response.data.restaurants;
                     });
             },
-            viewCategory(){
-                this.isVisible = true;
-            },
             scroll(){
-                this.viewCategory();
                 document.querySelector(this.href).scrollIntoView({behavior: 'smooth'});
             },
             getCategory(category){
@@ -140,8 +148,11 @@
                 this.apiRequest();
             }
         },
+        beforeMount(){
+            this.getAllCategories();
+        },
         mounted () {
-            this.scroll();
+
         }
     }
 </script>
