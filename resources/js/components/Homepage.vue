@@ -43,7 +43,7 @@
                     </div>
                 </div>
         </section>
-        <div class="carousel-container">
+        <!--<div class="carousel-container">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <section id="category" class="d-flex">
                 <div class="container">
                     <div class="row">

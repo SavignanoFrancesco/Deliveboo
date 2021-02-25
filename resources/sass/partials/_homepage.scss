@@ -1,7 +1,10 @@
 #appTwo {
     height: 100%;
 
-    .jumbo {       
+    .jumbo {   
+        min-height: 100vh;
+        display: flex;
+        align-items: center;    
         padding: $pd_xxl $pd_0;
         background: #d0eb99;  /* fallback for old browsers */
         background: -webkit-linear-gradient(to bottom, #00ccbf, #d0eb99);  /* Chrome 10-25, Safari 5.1-6 */
