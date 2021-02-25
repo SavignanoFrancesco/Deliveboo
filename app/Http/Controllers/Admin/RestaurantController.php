@@ -53,7 +53,7 @@ class RestaurantController extends Controller
             'phone' => 'required|max:20',
             'email' => 'required|max:50|unique:restaurants,email',
             'address' => 'required',
-            'file' => true,
+            // 'file' => true,
         ]);
 
         $form_data = $request->all();
