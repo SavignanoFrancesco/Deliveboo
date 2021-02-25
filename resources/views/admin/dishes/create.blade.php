@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    @include('layouts.partials.dashnav')
+
+    <div class="container" id="register-dash-user">
         <div class="row justify-content-center">
             <div class="col-8 mx-auto">
                 <div class="d-flex justify-content-between align-items-center">
                     <h1>Crea piatto</h1>
-
                 </div>
                 <div>
                     @if ($errors->any())
@@ -27,9 +28,10 @@
                                placeholder="Inserisci il titolo" value="{{ old('name') }}" required>
                     </div>
 
-                   <div class="form-group">
+                    <div class="form-group">
                         <p>Dish cover image</p>
-                        <img class="w-25" src="{{ asset('images/general/no_cover.png') }}" alt="no cover">
+                        <img class="img-fluid" src="{{ asset('images/general/no_cover.png') }}" alt="no cover"
+                             width="50px">
                         <label class="d-block">Upload image</label>
                         <input type="file" class="form-control-file" name="cover">
                     </div>

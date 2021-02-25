@@ -15,11 +15,22 @@ nav{
   .sidebar-top{
     height: 50%;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    .sidebar-link{
-      ul{
+    align-items: flex-start;
+    justify-content: center;
+    //overflow-x: hidden;
+
+
+    overflow: hidden;
+    //font-size: $font_size_sm;
+    //font-weight: 200;
+    //position: absolute;
+
+
+
+    //.top-right{
+
+      .sidebar-top{
+        height: 50%;
         display: flex;
         flex-direction: column;
         position: absolute;

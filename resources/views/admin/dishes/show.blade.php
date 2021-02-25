@@ -2,29 +2,32 @@
 
 @section('content')
 
+    @include('layouts.partials.dashnav')
 
     <section id="card-single-item">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mx-auto">
-                        <div class="rounded rounded-t-lg overflow-hidden shadow max-w-xs my-3">
-
-                            <div class="flex justify-center -mt-8">
-                                <img src="{{asset('storage/' . $dishes->cover)}}"
-                                     class="rounded-full border-solid border-white border-2 -mt-3" width="100px">
-                            </div>
-                            <div class="text-center px-3 pb-6 pt-2">
-                                <h3 class="text-black text-sm bold font-sans">Nome prodotto:{{$dishes->name}}</h3>
-                                <p class="mt-2 font-sans font-light text-grey-dark">Prezzo: {{$dishes->price}} €</p>
-                                <p class="mt-2 font-sans font-light text-grey-dark">Ingredienti: {{$dishes->ingredients}}</p>
-                                <!-- <p class="mt-2 font-sans font-light text-grey-dark">Categorie: </p> -->
-                            </div>
-                            <div class="box-desc">
-                                <p>Descrizione:</p>
-                                <p>{{$dishes->description}}</p>
-                            </div>
+                <div class="col-lg-12 d-flex justify-content-center align-items-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{asset('storage/' . $dishes->cover)}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title text-capitalize">Nome: {{$dishes->name}}</h3>
+                            <p class="card-text mb-3">Descrizione:{{$dishes->description}}</p>
+                            <p class="card-text mb-3">Ingredienti: {{$dishes->ingredients}}</p>
+                            <p class="card-text mb-3">Prezzo: {{$dishes->price}}</p>
+                            <a href="{{route('admin.dish.edit', ['dish' => $dishes->slug])}}"
+                               class="btn btn-primary">Edit</a>
+                            <form method="POST" class="d-inline-block"
+                                  action="{{route('admin.dish.destroy', ['dish' => $dishes->id])}}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">
+                                    Delete
+                                </button>
+                            </form>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </section>
