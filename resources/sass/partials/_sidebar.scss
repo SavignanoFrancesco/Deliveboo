@@ -17,6 +17,17 @@ nav{
     align-items: center;
     justify-content: flex-start;
     width: 100%;
+    .close-sidebar{
+       display: none;
+       margin-left: 50px;
+       height: 88px;
+       width: 88px;
+       margin-top: 50px;
+       i{
+         color: $blue;
+         font-size: $font_size_xl;
+       }
+    }
     .sidebar-link{
       ul{
         display: flex;
@@ -65,16 +76,17 @@ nav{
     }
   }
 }
+.show{
+  width: 248px;
+}
+.show-p{
+  display: block;
+
+}
 @media only screen and (max-width: 700px){
   nav{
-    left: -90px;
-
-    .icon{
-    //  display: block;
-    }
+    display: none;
   }.hamburger{
-    right: 0;
-  }.close{
-    right: 0;
+    display: block;
   }
 }

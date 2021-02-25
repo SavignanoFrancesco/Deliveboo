@@ -3,6 +3,9 @@
 
 
 <div class="sidebar-top">
+  <div class="close-sidebar">
+    <i class="fas fa-times"></i>
+  </div>
   <div class="sidebar-link">
     <ul>
       <li><a href="{{ route('home') }}"><i class="icon fas fa-home"></i><p class="text">Homepage</p></a></li>
@@ -10,7 +13,7 @@
 
       @if (Route::has('login'))
         @auth
-          <li><a href="{{ url('/admin/user') }}"><i class="icon fas fa-user"></i> <p class="text">{{Auth::user()->company_name}}</p></a></li> 
+          <li><a href="{{ url('/admin/user') }}"><i class="icon fas fa-user"></i> <p class="text">{{Auth::user()->company_name}}</p></a></li>
           <li><a href="{{ route('login') }}"><i class="icon fas fa-qrcode"></i> <p class="text">Dashboard</p></a></li>
           <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <i class="icon fas fa-sign-out-alt"></i><p class="text">LogOut</p></a>
