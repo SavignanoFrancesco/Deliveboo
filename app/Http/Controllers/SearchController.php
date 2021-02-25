@@ -19,6 +19,8 @@ class SearchController extends Controller
 
 
             $output = '';
+            $local = '../storage/';
+            //$link = 'http://127.0.0.1:8000/admin/dish/'.$row->slug.'';
 
             if (count($data) > 0) {
 
@@ -26,7 +28,7 @@ class SearchController extends Controller
 
                 foreach ($data as $row) {
 
-                    $output .= '<li class="list-group-item"><img src=" '.$row->cover.' "><a href="">'.$row->name.'</a></li>';
+                    $output .= '<li class="list-group-item"><img width="50px" src=" '.$local.''.$row->cover.' "><a href="">'.$row->name.'</a></li>';
                 }
 
                 $output .= '</ul>';
