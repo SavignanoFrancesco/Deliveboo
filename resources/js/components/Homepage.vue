@@ -13,21 +13,20 @@
                             <div class="info-section">
                                 <div class="title">
                                     <h1>Deliveboo</h1>
+                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                        Porro eum suscipit hic ut quia numquam fuga praesentium nobis!</h4>
+                                    <!--<h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>-->
                                 </div>
-                                <div class="block mt-4">
-                                    <h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>
-                                    <div class="block box-cta">
-                                        <p>Sei un consumatore? Esplora i nostri gustosi ristoranti!</p>
-                                        <a :href="href" @click.prevent="scroll" class="btn btn-primary">
-                                            <slot>Esplora</slot>
-                                        </a>
-                                    </div>
-                                    <div class="block box-cta">
+                                <div class="block mt-3">
+                                    <div class="box-cta">
                                         <p v-if="flag_register">Vuoi unirti a noi come ristoratore?</p>
                                         <p v-else>Raggiungi la tua Dashboard!</p>
-                                        <a href="http://localhost:8000/register" class="btn btn-primary">
+                                        <a href="http://localhost:8000/register" class="btn btn-primary mr-3">
                                             <slot v-if="flag_register">Registrati</slot>
                                             <slot v-else>Dashboard</slot>
+                                        </a>
+                                        <a :href="href" @click.prevent="scroll" class="btn btn-outline-primary">
+                                            <slot>Esplora</slot>
                                         </a>
                                     </div>
                                 </div>
@@ -70,7 +69,9 @@
                                             <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 5], [992, 11]]">
                                                 <slide v-for="(category, index) in categories" :key="index">
                                                     <a href="" @click.prevent="getCategory(category.name); scroll()">
-                                                        <img :src="'http://localhost:8000/' + category.cover" alt="">
+                                                        <div class="slide-round">
+                                                            <img :src="'http://localhost:8000/' + category.cover" alt="">
+                                                        </div>
                                                         <p class="category-name">{{category.name}}</p>
                                                     </a>
                                                 </slide>
@@ -79,15 +80,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <h3>Hai selezionato</h3>
-                            <div class="cards-container d-flex flex-wrap">
-                                <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box m-3">
-                                    <div class="card rounded-lg shadow p-3 bg-light" style="max-width: 18rem;">
+                        </div>
+                        <div class="col-sm-12 py-6">
+                            <h3 class="my-3">Hai selezionato: </h3>
+                            <div class="cards-container d-flex flex-wrap align-items-baseline">
+                                <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box rounded mr-3 mb-3">
+                                    <div class="card rounded-lg bg-light">
                                         <div class="card-body">
                                             <img class="img-fluid" :src="'../storage/' + restaurant.cover" alt="img">
                                         </div>
+                                        <div class="restaurant-info">
+                                            <h5 class="restaurant-title my-2">{{restaurant.name}}</h5>
+                                            <p class="restaurant-text">Adress: <span>{{restaurant.address}}</span></p>
+                                            <p class="restaurant-text">Phone: <span>{{restaurant.phone}}</span></p>
+                                        </div>
                                     </div>
-                                    <h5 class="card-title mt-3">{{restaurant.name}}</h5>
                                 </a>
                             </div>
                         </div>

@@ -10,8 +10,6 @@
         background: -webkit-linear-gradient(to bottom, #00ccbf, #d0eb99);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, #00ccbf, #d0eb99); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-        position: relative;
-
         .background {
             min-width: 80%;
             padding: $pd_lg $pd_0;
@@ -25,11 +23,7 @@
 
             .title {
                 width: 100%;
-                text-align: center;
-            }
-
-            .box-cta {
-                margin: $m_md $m_0;
+                padding-top: 32px;
             }
 
             h1 {
@@ -39,14 +33,17 @@
                 text-shadow: 3px 3px 3px rgba(20, 20, 20, 0.2);
                 color: #fff;
             }
+
             h4 {
-                text-transform: uppercase;
+                font-size: 20px;
                 font-weight: $font_sbold;
                 padding: 8px 0;
                 color: darkslategray;
             }
+            
             p {
-                font-size: 16px;
+                font-size: 18px;
+                font-weight: 600;
                 color: darkslategray;
             }
         }  
@@ -62,14 +59,11 @@
                 text-align: center;
 
                 .VueCarousel-slide {
-                    img {
-                        max-width: 100%;
-                    }
                     .category-name {
                         text-transform: capitalize;
                         color: black;
                         font-weight: 800;
-                    }
+                        }
                 }
             } 
         }
@@ -78,22 +72,42 @@
     #category {
         min-height: 100vh;
         padding: $pd_xxl $pd_0;
+        background-color: whitesmoke;
 
-        .filter-box {
-            padding: $pd_xl;
-            background-color: gray;
-        }
+        .card-box {
+            color: darkslategray;
+            text-decoration: none;
+            transition: all .2s ease;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.10);
 
-        .card {
-            .card-body{
-                padding: 0;
-                img {
-                    border-radius: 16px;
+            .card {
+                max-width: 250px;
+                
+                .card-body{
+                    padding: 0;
+                    width: 100%;
+                    img {
+                        width: 100%;
+                        height: 125px;
+                        object-fit: cover;
+                    }
                 }
 
+                .restaurant-info {
+                    padding: 8px;
+
+                    .restaurant-title {
+                        margin: 0;
+                        color: black;
+                    }
+                }  
             }
-            .card-title {
-                margin: 0;
+
+            &:hover{
+                color: darkslategray;
+                text-decoration: none;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+                transform: scale(1.05);
             }
         }
     }
