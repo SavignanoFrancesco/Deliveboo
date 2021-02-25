@@ -1,17 +1,15 @@
 <template>
     <div>
         <section class="jumbo">
-            <div class="container">
-                    <div class="row justify-content-between align-items-center">
+            <div class="container container-md container-lg">
+                    <div class="row">
                     <div class="hamburger">
-
                         <i class="fas fa-bars"></i>
                       </div>
                       <div class="close">
                         <i class="fas fa-times"></i>
                       </div>
                         <div class="col-sm-12 col-md-6">
-
                             <div class="info-section">
                                 <div class="title">
                                     <h1>Deliveboo</h1>
@@ -25,7 +23,8 @@
                                         </a>
                                     </div>
                                     <div class="block box-cta">
-                                        <p>Vuoi unirti a noi come ristoratore?</p>
+                                        <p v-if="flag_register">Vuoi unirti a noi come ristoratore?</p>
+                                        <p v-else>Raggiungi la tua Dashboard!</p>
                                         <a href="http://localhost:8000/register" class="btn btn-primary">
                                             <slot v-if="flag_register">Registrati</slot>
                                             <slot v-else>Dashboard</slot>
@@ -34,8 +33,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6">
-
+                        <div class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center">
                             <div class="background">
                                 <img :src="'../images/general/jumbo.svg'" alt="jumbo-image">
                             </div>
