@@ -10,8 +10,6 @@
         background: -webkit-linear-gradient(to bottom, #00ccbf, #d0eb99);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, #00ccbf, #d0eb99); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-        position: relative;
-
         .background {
             min-width: 80%;
             padding: $pd_lg $pd_0;
@@ -25,7 +23,7 @@
 
             .title {
                 width: 100%;
-                padding-top: 32px
+                padding-top: 32px;
             }
 
             h1 {
@@ -35,12 +33,14 @@
                 text-shadow: 3px 3px 3px rgba(20, 20, 20, 0.2);
                 color: #fff;
             }
+
             h4 {
                 font-size: 20px;
                 font-weight: $font_sbold;
                 padding: 8px 0;
                 color: darkslategray;
             }
+            
             p {
                 font-size: 18px;
                 font-weight: 600;
