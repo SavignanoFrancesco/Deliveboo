@@ -13,14 +13,22 @@ nav{
   justify-content: center;
   overflow: hidden;
   .sidebar-top{
-    height: 50%;
     display: flex;
     flex-direction: column;
     position: absolute;
     left: 0;
     width: 100%;
-    list-style-type: none;
-    margin-top: 20px;
+    .close-sidebar{
+       display: none;
+       margin-left: 50px;
+       height: 88px;
+       width: 88px;
+       margin-top: 50px;
+       i{
+         color: $blue;
+         font-size: $font_size_xl;
+       }
+    }
     .sidebar-link{
       ul{
         display: flex;
@@ -29,7 +37,7 @@ nav{
         left: 0;
         width: 100%;
         list-style-type: none;
-        margin-top: 20px;
+        margin-top: 100px;
         li{
           width: 100%;
           display: flex;
@@ -70,9 +78,16 @@ nav{
     }
   }
 }
+.show{
+  width: 248px;
+}
+.show-p{
+  display: block;
+
+}
 @media only screen and (max-width: 700px){
   nav{
-    left: -96px;
+    display: none;
   }.hamburger{
     display: block;
   }

@@ -72,18 +72,42 @@ $(document).ready(function(){
     });
     // Funzione per la visibilità della sidebar
         // Francesco Bello
-     $(".hamburger").click(function(){
-      //$(".sidebar-link").css("display", "block");
-      $("nav").css("width", "248px");
-      $(".text").css("display", "block");
-      $(".close").css("display", "block");
-      $(".hamburger").css("display", "none");
-     });
-    $(".close").click(function(){
-       //$(".sidebar-link").css("display", "none");
-       $("nav").css("width", "88px");
-       $(".text").css("display", "none");
-       $(".hamburger").css("display", "block");
-       $(".close").css("display", "none");
-     });
+        $('nav').click(function () {
+          $('nav').toggleClass('show');
+          $(".text").css("display", "block");
+        });
+        $(".hamburger").click(function () {
+          $('nav').toggleClass('show-p');
+          $('nav').toggleClass('show');
+        });
+          //$('.text').css('display', 'block');
+          //$('.icon').css('display', 'block');
+
+  //      $("nav").click(function(){
+    //     $("nav").css("width", "248");
+      ///   $(".close-sidebar").css("display", "block");
+         //$(".text").css("display", "block");
+        //});
+        //$(".close-sidebar").click(function(){
+         //$("nav").css("width", "88");
+         //$(".close-sidebar").css("display", "none");
+         //$(".text").css("display", "none");
+        //});
+
+
+     //$(".hamburger").click(function(){
+       //$("nav").css("display", "block");
+      //$("nav").css("width", "248");
+      //$(".text").css("display", "block");
+      //$(".close").css("display", "block");
+      //$(".hamburger").css("display", "none");
+     //});
+
+    //$(".close").click(function(){
+      //$("nav").css("display", "none");
+       //$("nav").css("width", "88px");
+       //$(".text").css("display", "none");
+       //$(".hamburger").css("display", "block");
+       //$(".close").css("display", "none");
+     //});
 });
