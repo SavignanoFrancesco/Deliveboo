@@ -19,7 +19,8 @@
                                     <div class="block box-cta">
                                         <p>Vuoi unirti a noi come ristoratore?</p>
                                         <a href="http://localhost:8000/register" class="btn btn-primary">
-                                            <slot>Registrati</slot>
+                                            <slot v-if="flag_register">Registrati</slot>
+                                            <slot v-else>Dashboard</slot>
                                         </a>
                                     </div>
                                 </div>
@@ -86,7 +87,7 @@
                     </div>
                 </div>
         </section>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -98,11 +99,12 @@
         Carousel,
         Slide
         },
-        props:['categories'],
+        props:['categories','flag_register'],
         data () {
             return {
                 restaurantList: [],
                 href: '#category',
+                // flag_register: this.flag_register,
             }
         },
         methods: {
