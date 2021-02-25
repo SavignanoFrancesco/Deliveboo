@@ -15,22 +15,14 @@ nav{
   .sidebar-top{
     height: 50%;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    //overflow-x: hidden;
-
-
-    overflow: hidden;
-    //font-size: $font_size_sm;
-    //font-weight: 200;
-    //position: absolute;
-
-
-
-    //.top-right{
-
-      .sidebar-top{
-        height: 50%;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    list-style-type: none;
+    margin-top: 20px;
+    .sidebar-link{
+      ul{
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -60,7 +52,8 @@ nav{
               font-size: $font_size_l;
               color: $blue;
               display: block;
-            }p{
+            }
+            p{
               position: relative;
               padding: 0 10px;
               height: 88px;
