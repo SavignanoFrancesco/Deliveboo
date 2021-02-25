@@ -38,3 +38,28 @@ p {
     border-radius: 8px;
     box-shadow: 0 4px 12px 0px rgba(0,0,0,.25);
 }
+.close{
+   display: none;
+   position: absolute;
+   top: 0;
+   right: 0;
+   height: 96px;
+   width: 96px;
+   margin-top: 20px;
+   i{
+     color: $orange;
+     font-size: $font_size_xxl;
+   }
+}
+.hamburger{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 96px;
+  width: 96px;
+  margin-top: 20px;
+  i{
+    color: $orange;
+    font-size: $font_size_xxl;
+  }
+}
