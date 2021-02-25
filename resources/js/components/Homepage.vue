@@ -19,8 +19,8 @@
                                 </div>
                                 <div class="block mt-3">
                                     <div class="box-cta">
-                                        <p v-if="flag_register">Vuoi unirti a noi come ristoratore?</p>
-                                        <p v-else>Raggiungi la tua Dashboard!</p>
+                                        <p class="mb-2" v-if="flag_register">Vuoi unirti a noi come ristoratore?</p>
+                                        <p class="mb-2" v-else>Raggiungi la tua Dashboard!</p>
                                         <a href="http://localhost:8000/register" class="btn btn-primary mr-3">
                                             <slot v-if="flag_register">Registrati</slot>
                                             <slot v-else>Dashboard</slot>
