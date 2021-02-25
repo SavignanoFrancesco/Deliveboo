@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <section v-if="isVisible" id="category" class="d-flex">
+        <section id="category" class="d-flex">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -103,10 +103,20 @@
             return {
                 restaurantList: [],
                 href: '#category',
-                isVisible: false,
             }
         },
         methods: {
+            async getAllCategories(){
+                await axios
+                .get('http://localhost:8000/api/restaurants_by_category', {
+                    params: {
+                        category: 'all'
+                    }
+                })
+                .then((response) => {
+                    this.restaurantList = response.data.restaurants;
+                    });
+            },
             async apiRequest(){
                 await axios
                 .get('http://localhost:8000/api/restaurants_by_category', {
@@ -118,11 +128,7 @@
                     this.restaurantList = response.data.restaurants;
                     });
             },
-            viewCategory(){
-                this.isVisible = true;
-            },
             scroll(){
-                this.viewCategory();
                 document.querySelector(this.href).scrollIntoView({behavior: 'smooth'});
             },
             getCategory(category){
@@ -130,6 +136,9 @@
                 this.category = category;
                 this.apiRequest();
             }
+        },
+        beforeMount(){
+            this.getAllCategories();
         },
         mounted () {
 
