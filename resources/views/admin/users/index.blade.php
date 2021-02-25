@@ -2,8 +2,9 @@
 
 @section('content')
 
+    @include('layouts.partials.dashnav')
 
-    <section id="user-card">
+    <section id="user-card mt-5">
         <div class="container">
             <div class="row">
 
@@ -13,7 +14,7 @@
                             @if($users->cover)
                                 <img class="card-img-top" src="..." alt="Card image cap">
                             @else
-                                <img class="card-img-top" src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="Card image cap">
+                                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppkoKsaYMuIoNLDH7O8ePOacLPG1mKXtEng&usqp=CAU" alt="Card image cap">
                             @endif
                             <div class="card-body">
                                 <h5 class="card-title">Name: {{$users->owner_name}}</h5>

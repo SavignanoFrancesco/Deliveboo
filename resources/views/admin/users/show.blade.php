@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('layouts.partials.dashnav')
+
     <section id="user-data">
         <div class="container">
             <div class="row">
@@ -23,8 +25,8 @@
                             <p href="#" class="list-group-item"><strong>IBAN:</strong> {{$users->iban}}</p>
                             <p href="#" class="list-group-item"><strong>Email:</strong> {{$users->email}}</p>
                         </div>
-                        <div class="box-btn">
-                            <a href="{{route('admin.user.edit', ['user' => $users->id])}}" class="btn btn-danger">Modifica</a>
+                        <div class="box-btn mt-3">
+                            <a href="{{route('admin.user.edit', ['user' => $users->id])}}" class="btn btn-warning">Modifica</a>
                         </div>
                     </div>
                 </div>

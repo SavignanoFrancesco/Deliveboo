@@ -21,8 +21,8 @@
 </head>
 <body>
 <div>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="position: fixed">
-        <div class="container d-flex flex-column">
+    <div class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="">
+        <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Deliveboo') }}
             </a>
@@ -95,12 +95,12 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </div>
 
 
-    <main class="py-4">
+
         @yield('content')
-    </main>
+
 </div>
 
 <script src=" {{ asset('js/app.js') }} " charset="utf-8"></script>

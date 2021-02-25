@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+
+    @include('layouts.partials.dashnav')
+
+    <div class="container" id="register-dash-user">
         <div class="row justify-content-center">
             <div class="col-8 mx-auto">
                 <div class="d-flex justify-content-between align-items-center">
