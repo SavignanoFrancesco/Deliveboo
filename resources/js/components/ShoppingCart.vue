@@ -12,8 +12,6 @@
 
         <div class="card-body">
 
-
-
             <div class="img-box">
               <img :src="'../storage/'+dish.cover" alt="">
             </div>
@@ -39,14 +37,6 @@
               </div>
             </div>
 
-
-
-          <!-- <div class="info-box-2">
-            <p> <span>Description: </span> {{dish.description}}</p>
-            <p> <span>Ingredients: </span> {{dish.ingredients}}</p>
-          </div> -->
-
-
         </div>
 
       </div>
@@ -71,7 +61,7 @@
 
         <ul class='cart-list'>
           <li>
-            <h3 class="cart-title">Your wishes: <span>(Total price: {{this.totalPrice.toFixed(2)}}$)</span> </h3>
+            <h2 class="cart-title">Your wishes: <h3>(Total price: {{this.totalPrice.toFixed(2)}}$)</h3></h2>
           </li>
           <li
           v-for='dish in cart'
@@ -84,15 +74,15 @@
               <img :src="'../storage/'+dish.cover" alt="">
             </div>
             <div class="cart-card-info">
-              <p>{{ dish.name }}:</p>
-              <p>{{dish.price}}$</p>
+              <h2>{{ dish.name }}:</h2>
+              <h3>{{dish.price}}$</h3>
               <div class="dish-quantity">
-                <span>x {{ dish.quantity }}</span>
+
                 <div class="btn-group">
                   <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
                     <i class="fas fa-minus" ></i>
                   </button>
-
+                  <span>{{ dish.quantity }}</span>
                   <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
                     <i class="fas fa-plus"></i>
                   </button>
@@ -279,6 +269,6 @@ transition: all 0.5s ease;
 }
 
 .minimized {
-transform: rotateX(-720deg);
+transform: rotateX(-1080deg);
 }
 </style>
