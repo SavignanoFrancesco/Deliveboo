@@ -13,21 +13,20 @@
                             <div class="info-section">
                                 <div class="title">
                                     <h1>Deliveboo</h1>
+                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                        Porro eum suscipit hic ut quia numquam fuga praesentium nobis!</h4>
+                                    <!--<h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>-->
                                 </div>
-                                <div class="block mt-4">
-                                    <h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>
-                                    <div class="block box-cta">
-                                        <p>Esplora i nostri gustosi ristoranti!</p>
-                                        <a :href="href" @click.prevent="scroll" class="btn btn-primary">
-                                            <slot>Esplora</slot>
-                                        </a>
-                                    </div>
-                                    <div class="block box-cta">
+                                <div class="block mt-3">
+                                    <div class="box-cta">
                                         <p v-if="flag_register">Vuoi unirti a noi come ristoratore?</p>
                                         <p v-else>Raggiungi la tua Dashboard!</p>
-                                        <a href="http://localhost:8000/register" class="btn btn-primary">
+                                        <a href="http://localhost:8000/register" class="btn btn-primary mr-3">
                                             <slot v-if="flag_register">Registrati</slot>
                                             <slot v-else>Dashboard</slot>
+                                        </a>
+                                        <a :href="href" @click.prevent="scroll" class="btn btn-outline-primary">
+                                            <slot>Esplora</slot>
                                         </a>
                                     </div>
                                 </div>
