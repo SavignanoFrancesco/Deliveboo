@@ -11,40 +11,42 @@
       >
 
         <div class="card-body">
-          <div class="contentBox">
 
 
-              <div class="img-box">
-                <img :src="'../storage/'+dish.cover" alt="">
+
+            <div class="img-box">
+              <img :src="'../storage/'+dish.cover" alt="">
+            </div>
+
+
+            <div class="info-box">
+              <h2 class="dish-header">{{ dish.name }}</h2>
+              <h3>{{ dish.price }}$</h3>
+              <h4>{{ dish.ingredients }}</h4>
+              <!-- <p class="dish-description">{{ dish.description }}</p> -->
+              <div class="cart-adder">
+
+                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                    <i class="fas fa-minus" ></i>
+                  </button>
+
+                  <span class="dish-quantity">{{ dish.quantity }}</span>
+
+                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                    <i class="fas fa-plus"></i>
+                  </button>
+
               </div>
+            </div>
 
 
-              <div class="info-box">
-                <h3 class="dish-header">{{ dish.name }}</h3>
-                <h2>{{ dish.price }}$</h2>
-                <!-- <p class="dish-description">{{ dish.description }}</p> -->
-              </div>
-
-          </div>
 
           <!-- <div class="info-box-2">
             <p> <span>Description: </span> {{dish.description}}</p>
             <p> <span>Ingredients: </span> {{dish.ingredients}}</p>
           </div> -->
 
-          <div class="cart-adder">
 
-              <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
-                <i class="fas fa-minus" ></i>
-              </button>
-
-              <span class="dish-quantity">{{ dish.quantity }}</span>
-
-              <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
-                <i class="fas fa-plus"></i>
-              </button>
-
-          </div>
         </div>
 
       </div>
