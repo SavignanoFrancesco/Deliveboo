@@ -7,6 +7,9 @@
     <i class="fas fa-times"></i>
   </div>
   <div class="sidebar-link">
+    <div class="hamburger-button">
+      <i class="fas fa-bars"></i>
+    </div>
     <ul>
       <li><a href="{{ route('home') }}"><i class="icon fas fa-home"></i><p class="text">Homepage</p></a></li>
       <li><a href="{{ route('contacts') }}"><i class="icon far fa-envelope"></i><p class="text">Contact Us</p></a></li>
