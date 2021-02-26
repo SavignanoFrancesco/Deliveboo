@@ -94,10 +94,11 @@
     </section> --}}
     {{-- <shopping-cart></shopping-cart>
   </div> --}}
+  <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
   <div id="cart_comp">
-    <div class="hamburger">
-        <i class="fas fa-bars"></i>
-      </div>
+
 
     <div class="restaurant-cover">
       <img class="" src=" {{asset('storage').'/'.$restaurant->cover}} " alt=" {{$restaurant->name}} ">

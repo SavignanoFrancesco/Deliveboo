@@ -74,11 +74,14 @@ $(document).ready(function(){
         // Francesco Bello
         $('.hamburger-button').click(function () {
           $('nav').toggleClass('show');
-          $(".text").css("display", "block");
+          $(".text").css('display', 'block');
         });
         $(".hamburger").click(function () {
-          $('nav').toggleClass('show-p');
-          $('nav').toggleClass('show');
+          $(".text").css('display', 'block');
+          $('nav').toggleClass('show-p')
+                  .toggleClass('show');
+          //$('nav').toggleClass('transition');
+
         });
           //$('.text').css('display', 'block');
           //$('.icon').css('display', 'block');
