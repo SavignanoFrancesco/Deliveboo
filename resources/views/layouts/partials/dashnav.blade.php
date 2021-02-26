@@ -23,7 +23,12 @@
                                 <i class="fas fa-home fa-2x"></i>
                             </div>
                             <div class="box-title">
-                                <h3><a href="{{ route('home') }}">Vai al sito</a></h3>
+                              {{-- WORKAROUND HREF --}}
+                              @php
+                                $href = 'http://localhost:8000/restaurant/'.$restaurant[0]->slug;
+                              @endphp
+                                <h3><a href="{{$href}}">Vai al tuo ristorante</a></h3>
+                                {{-- <h3><a href="{{ route('home') }}">Vai al sito</a></h3> --}}
                             </div>
                             <div class="box-content">
                                 <p>descrizione</p>

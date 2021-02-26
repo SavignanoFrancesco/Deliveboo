@@ -5,7 +5,11 @@
 @section('content')
   {{-- {{dd($dishes)}} --}}
   {{-- {{dd($restaurant->user_id)}} --}}
-  {{-- {{dd($restaurant->dishes)}} --}}
+  @foreach ($dishes_category as $value)
+    {{$value->id}}
+    {{$value->name}}
+  @endforeach
+  {{-- {{dd($dishes_category[0]->name)}} --}}
     {{-- Descrizione -- Savignano (da completare per il 16/02) --}}
     {{-- Completare  Menu Restaurant Pubblica sia HTML che CSS che CARRELLO HTML/CSS/JS --}}
 

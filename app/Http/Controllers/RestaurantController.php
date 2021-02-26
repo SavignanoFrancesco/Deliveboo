@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Dish;
+use App\DishCategory;
 // use App\Menu;
 use App\User;
 
@@ -19,10 +20,11 @@ class RestaurantController extends Controller
 
             // $menus = Menu::where('restaurant_id', $restaurant->id)->get()->unique('menu_category_id');
             // $dishes = $restaurant->dishes;
-            // $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+            $dishes_category = DishCategory::where('id', $restaurant->dishes[0]->dish_category_id)->get();
             // dd($dishes);
 
-            return view('guest.restaurant', ['slug'=> $restaurant->slug], compact('restaurant'));
+            return view('guest.restaurant', ['slug'=> $restaurant->slug], compact('restaurant','dishes_category'));
+            // return view('guest.restaurant', ['slug'=> $restaurant->slug], compact('restaurant'));Category
         } else {
             abort(404);
         }
