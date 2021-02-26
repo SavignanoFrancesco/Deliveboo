@@ -72,7 +72,7 @@ $(document).ready(function(){
     });
     // Funzione per la visibilità della sidebar
         // Francesco Bello
-        $('nav').click(function () {
+        $('.hamburger-button').click(function () {
           $('nav').toggleClass('show');
           $(".text").css("display", "block");
         });
