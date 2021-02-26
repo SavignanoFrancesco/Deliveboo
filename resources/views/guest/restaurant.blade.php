@@ -5,6 +5,7 @@
 @section('content')
   {{-- {{dd($dishes)}} --}}
   {{-- {{dd($restaurant->user_id)}} --}}
+  {{dd($dishes_category)}}
   @foreach ($dishes_category as $value)
     {{$value->id}}
     {{$value->name}}

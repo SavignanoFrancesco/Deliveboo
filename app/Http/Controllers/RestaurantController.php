@@ -20,7 +20,7 @@ class RestaurantController extends Controller
 
             // $menus = Menu::where('restaurant_id', $restaurant->id)->get()->unique('menu_category_id');
             // $dishes = $restaurant->dishes;
-            $dishes_category = DishCategory::where('id', $restaurant->dishes[0]->dish_category_id)->get();
+            $dishes_category = DishCategory::all();
             // dd($dishes);
 
             return view('guest.restaurant', ['slug'=> $restaurant->slug], compact('restaurant','dishes_category'));
