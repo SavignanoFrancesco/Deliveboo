@@ -73,7 +73,7 @@
             {{--FINE SPAGHETTI PHP --}}
 
             {{-- VUE COMPONENT --}}
-            <shopping-cart :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_dishes_with_category_names }}" :dish_categories = "{{$json_dishes_categories}}"></shopping-cart>
+            <shopping-cart :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_dishes_with_category_names }}" :dish_categories = "{{ $json_dishes_categories }}"></shopping-cart>
 
         </div>
     </section>
