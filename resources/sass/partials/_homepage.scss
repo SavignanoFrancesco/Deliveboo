@@ -74,6 +74,10 @@
         padding: $pd_xxl $pd_0;
         background-color: whitesmoke;
 
+        .cat-selected {
+            text-transform: capitalize;
+        }
+
         .card-box {
             color: darkslategray;
             text-decoration: none;

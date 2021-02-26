@@ -62,25 +62,21 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="carousel-container">
-                                <div class="container">
-                                    <div class="row">
-                                        <h3 class="">Categorie Ristorante</h3>
-                                        <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 5], [992, 11]]">
-                                            <slide v-for="(category, index) in categories" :key="index">
-                                                <a href="" @click.prevent="getCategory(category.name); scroll()">
-                                                    <div class="slide-round">
-                                                        <img :src="'http://localhost:8000/' + category.cover" alt="">
-                                                    </div>
-                                                    <p class="category-name">{{category.name}}</p>
-                                                </a>
-                                            </slide>
-                                        </carousel>
-                                    </div>
-                                </div>
+                                <h3 class="">Categorie Ristorante</h3>
+                                <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 5], [992, 11]]">
+                                    <slide v-for="(category, index) in categories" :key="index">
+                                        <a href="" @click.prevent="getCategory(category.name); scroll()">
+                                            <div class="slide-round">
+                                                <img :src="'http://localhost:8000/' + category.cover" alt="">
+                                            </div>
+                                            <p class="category-name">{{category.name}}</p>
+                                        </a>
+                                    </slide>
+                                </carousel>
                             </div>
                         </div>
                         <div class="col-sm-12 py-6">
-                            <h3 class="my-3">Hai selezionato: </h3>
+                            <h3 class="my-3">Hai selezionato: <span class="cat-selected">{{catSelected}}</span></h3>
                             <div class="cards-container d-flex flex-wrap align-items-baseline">
                                 <a :href="'http://localhost:8000/restaurant/' + restaurant.slug" v-for="(restaurant, index) in restaurantList" :key="index" class="card-box rounded mr-3 mb-3">
                                     <div class="card rounded-lg bg-light">
@@ -116,7 +112,7 @@
             return {
                 restaurantList: [],
                 href: '#category',
-                // flag_register: this.flag_register,
+                catSelected: 'Tutte'
             }
         },
         methods: {
@@ -148,6 +144,7 @@
             getCategory(category){
                 this.restaurantList = [];
                 this.category = category;
+                this.catSelected = category;
                 this.apiRequest();
             }
         },
