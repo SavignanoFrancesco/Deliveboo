@@ -103,14 +103,11 @@
 
 <script>
 export default {
-  props: ['dishes', 'dishes_categories', 'flag_restaurant'],
+  props: ['dishes', 'flag_restaurant'],
   data: function() {
     return {
       //JSON DEI DISHES
       json_dishes: this.dishes,
-
-      //JSON DELLE CATEGORIE
-      json_dishes_categories: this.dishes_categories,
 
       //flag per toggle del carrello
       show_cart: false,
@@ -134,7 +131,7 @@ export default {
     //Before mount tutto ok
   },
   mounted() {
-    console.log('CATEGORIE: ',this.dishes_categories);
+    console.log('dishes: ', this.json_dishes);
     // console.log('dishes: ',this.dishes);
     // console.log('json_dishes: ',this.json_dishes);
     // controlllo se il componente funziona
@@ -167,10 +164,9 @@ export default {
         for (var key of Object.keys(this.json_dishes[i])) {
 
           //rimuovo le proprieta inutili al carrello
-          if((key = 'restaurant_id') || (key = 'dish_category_id') || (key = 'created_at') || (key = 'updated_at')){
+          if((key = 'restaurant_id') || (key = 'created_at') || (key = 'updated_at')){
             // delete this.json_dishes[i].cover;
             delete this.json_dishes[i].restaurant_id;
-            delete this.json_dishes[i].dish_category_id;
             delete this.json_dishes[i].created_at;
             delete this.json_dishes[i].updated_at;
           }
