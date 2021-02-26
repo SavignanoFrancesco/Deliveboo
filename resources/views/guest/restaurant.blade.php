@@ -56,10 +56,9 @@
 
                 for ($j = 0; $j < count($array_dishes_categories); $j++) {
 
-                  //sostituisco id con nome
+                  // aggiungo nome categoria piatto
                   if ($dishes_array[$i]['dish_category_id'] == $array_dishes_categories[$j]['id']) {
                     $dishes_array[$i]['dish_category_name'] = $array_dishes_categories[$j]['name'];
-                    // unset($array_dishes_categories[$j]['id']);
                   }
 
                 }
@@ -69,7 +68,6 @@
               // traduco da array a json per il componente
               $json_dishes_categories = json_encode($array_dishes_categories);
               $json_dishes_with_category_names = json_encode($dishes_array);
-              // dd($array_dishes_categories);
 
             @endphp
             {{--FINE SPAGHETTI PHP --}}
@@ -80,5 +78,5 @@
         </div>
     </section>
   </div>
-  
+
 @endsection()

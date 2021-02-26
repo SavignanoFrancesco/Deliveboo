@@ -66,7 +66,7 @@
           <li
           v-for='dish in cart'
           >
-          <button type="button" name="button" @click="remove_from_cart(dish.id)" class="btn btn-danger">
+          <button type="button" name="button" @click="removeProductFromCart(dish.id)" class="btn btn-danger">
             <i class="fas fa-trash-alt"></i>
           </button>
           <div class="cart-card">
@@ -126,12 +126,7 @@ export default {
 
   },
   beforeMount() {
-    //restrutturazione JSON per togliere dati inutili
-    // this.struct_json();
-    // console.log('beforeMount: ');
-    // console.log('This dishes: ',this.dishes);
-    // console.log('This json dishes: ',this.json_dishes);
-    //Before mount tutto ok
+
   },
   mounted() {
     console.log('DISHES: ', this.json_dishes);
@@ -144,19 +139,19 @@ export default {
 
     //controllo se è cambiato il ristorante
     if (localStorage.check_restaurant == this.check_restaurant) {
-      this.take_data_from_localStorage();
+      this.takeDataFromLocalStorage();
     }else{
       localStorage.clear();
     }
 
-    this.check_flag_restaurant();
+    this.checkFlagRestaurant();
 
   },
   methods: {
-    check_flag_restaurant(){
+    checkFlagRestaurant(){
       localStorage.check_restaurant = this.check_restaurant;
     },
-    take_data_from_localStorage(){
+    takeDataFromLocalStorage(){
 
       //se esiste shopping_cart in local storage
       if (localStorage.shopping_cart) {
@@ -210,7 +205,7 @@ export default {
       // console.log(this.cart);
 
     },
-    remove_from_cart(id){
+    removeProductFromCart(id){
       //itero i dishes
       for (var i = 0; i < this.json_dishes.length; i++) {
         //matching id
