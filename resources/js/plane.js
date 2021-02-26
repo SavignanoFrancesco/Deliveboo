@@ -77,8 +77,9 @@ $(document).ready(function(){
           $(".text").css("display", "block");
         });
         $(".hamburger").click(function () {
-          $('nav').toggleClass('show-p');
-          $('nav').toggleClass('show');
+          $(".text").css("display", "block");
+          $('nav').toggleClass('show-p')
+                    .toggleClass('show');
         });
           //$('.text').css('display', 'block');
           //$('.icon').css('display', 'block');
