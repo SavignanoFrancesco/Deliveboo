@@ -16,16 +16,16 @@ return [
         // 'seafood' => 'images/restaurant_categories/seafood.png',
         // 'sushi' => 'images/restaurant_categories/sushi.png',
 
-        'italian' => 'images/restaurant_categories/italian.png',
-        'japanese' => 'images/restaurant_categories/japanese.png',
-        'chinese' => 'images/restaurant_categories/chinese.png',
+        'italiano' => 'images/restaurant_categories/italian.png',
+        'giapponese' => 'images/restaurant_categories/japanese.png',
+        'cinese' => 'images/restaurant_categories/chinese.png',
         'fastfood' => 'images/restaurant_categories/fastfood.png',
-        'american' => 'images/restaurant_categories/american.png',
+        'americano' => 'images/restaurant_categories/american.png',
         'pizza' => 'images/restaurant_categories/pizza.png',
         'sushi' => 'images/restaurant_categories/sushi.png',
-        'vegan' => 'images/restaurant_categories/vegan.png',
-        'desserts' => 'images/restaurant_categories/desserts.png',
-        'seafood' => 'images/restaurant_categories/seafood.png',
+        'vegano' => 'images/restaurant_categories/vegan.png',
+        'dolci' => 'images/restaurant_categories/desserts.png',
+        'pesce' => 'images/restaurant_categories/seafood.png',
 
     ],
 
