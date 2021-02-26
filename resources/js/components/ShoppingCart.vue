@@ -103,11 +103,14 @@
 
 <script>
 export default {
-  props: ['dishes', 'flag_restaurant'],
+  props: ['dishes', 'dish_categories', 'flag_restaurant'],
   data: function() {
     return {
       //JSON DEI DISHES
       json_dishes: this.dishes,
+
+      //JSON DELLE DISH_CATEGORIES
+      json_dish_categories: this.dish_categories,
 
       //flag per toggle del carrello
       show_cart: false,
@@ -115,7 +118,7 @@ export default {
       //flag per verificare se il ristorante è cambiato e cancellare storage
       check_restaurant: this.flag_restaurant,
 
-      piece:1,
+      piece: 1,
 
       cart_total_price: 0,
 
@@ -124,14 +127,16 @@ export default {
   },
   beforeMount() {
     //restrutturazione JSON per togliere dati inutili
-    this.struct_json();
+    // this.struct_json();
     // console.log('beforeMount: ');
     // console.log('This dishes: ',this.dishes);
     // console.log('This json dishes: ',this.json_dishes);
     //Before mount tutto ok
   },
   mounted() {
-    console.log('dishes: ', this.json_dishes);
+    console.log('DISHES: ', this.json_dishes);
+    console.log('DISH_CATEGORIES: ', this.json_dish_categories);
+    // console.log('DISH_CATEGORIES_PROP: ', this.dish_categories);
     // console.log('dishes: ',this.dishes);
     // console.log('json_dishes: ',this.json_dishes);
     // controlllo se il componente funziona
@@ -145,38 +150,13 @@ export default {
     }
 
     this.check_flag_restaurant();
-    // console.log('Mounted: ');
-    // console.log('This dishes: ',this.dishes);
-    // console.log('This json dishes: ',this.json_dishes);
-    // console.log(this.json_dishes);
-
-    console.log('here: ',this.cart);
 
   },
   methods: {
-
     check_flag_restaurant(){
       localStorage.check_restaurant = this.check_restaurant;
     },
-    struct_json(){
-      //itero json_dishes
-      for (var i = 0; i < this.json_dishes.length; i++) {
-        for (var key of Object.keys(this.json_dishes[i])) {
-
-          //rimuovo le proprieta inutili al carrello
-          if((key = 'restaurant_id') || (key = 'created_at') || (key = 'updated_at')){
-            // delete this.json_dishes[i].cover;
-            delete this.json_dishes[i].restaurant_id;
-            delete this.json_dishes[i].created_at;
-            delete this.json_dishes[i].updated_at;
-          }
-
-        }
-      }
-    },
     take_data_from_localStorage(){
-      // console.log(JSON.stringify(this.json_dishes));
-      // console.log(JSON.stringify(localStorage.shopping_cart));
 
       //se esiste shopping_cart in local storage
       if (localStorage.shopping_cart) {
