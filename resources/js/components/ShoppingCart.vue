@@ -103,11 +103,14 @@
 
 <script>
 export default {
-  props: ['dishes', 'flag_restaurant'],
+  props: ['dishes', 'dishes_categories', 'flag_restaurant'],
   data: function() {
     return {
       //JSON DEI DISHES
       json_dishes: this.dishes,
+
+      //JSON DELLE CATEGORIE
+      json_dishes_categories: this.dishes_categories,
 
       //flag per toggle del carrello
       show_cart: false,
@@ -131,8 +134,9 @@ export default {
     //Before mount tutto ok
   },
   mounted() {
-    console.log('dishes: ',this.dishes);
-    console.log('json_dishes: ',this.json_dishes);
+    console.log('CATEGORIE: ',this.dishes_categories);
+    // console.log('dishes: ',this.dishes);
+    // console.log('json_dishes: ',this.json_dishes);
     // controlllo se il componente funziona
     // alert('component working!');
 
