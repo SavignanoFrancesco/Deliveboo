@@ -22,10 +22,9 @@ class RestaurantController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $restaurants = Restaurant::where('user_id', $user_id)->get();
-        $restaurant = Restaurant::all();
+        $restaurants = Restaurant::all();
 
-        return view('admin.restaurants.index', compact('restaurants','restaurant'));
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -36,8 +35,9 @@ class RestaurantController extends Controller
     public function create()
     {
         $categories = RestaurantCategory::all();
+        $restaurant = Restaurant::all();
 
-        return view('admin.restaurants.create', compact('categories'));
+        return view('admin.restaurants.create', compact('categories','restaurant'));
     }
 
     /**
