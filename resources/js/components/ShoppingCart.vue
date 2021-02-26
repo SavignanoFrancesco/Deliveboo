@@ -1,49 +1,49 @@
 <template>
 
   <div class="component-container">
-    <!-- DISHES CARDS -->
-    <section class="dish-cards-container">
 
-      <!-- da aggiungere v-if visibility -->
-      <div class="dish-card"
-      v-for='(dish, index) in json_dishes'
-      :key='index'
-      >
+    <!-- <h2>{{dish_category}}</h2> -->
+    <div class="dish-categories">
+      <!-- DISHES CARDS -->
+      <div class="dish-cards-container" v-for='dish_category in json_dish_categories'>
+        <!-- da aggiungere v-if visibility -->
+        <div class="dish-card" v-for='dish in json_dishes' v-if="dish.dish_category_name == dish_category.name">
+          <!-- <p>{{dish.dish_category_name}}</p> -->
+          <div class="card-body">
 
-        <div class="card-body">
-
-            <div class="img-box">
-              <img :src="'../storage/'+dish.cover" alt="">
-            </div>
-
-
-            <div class="info-box">
-              <h2 class="dish-header">{{ dish.name }}</h2>
-              <h3>{{ dish.price }}$</h3>
-              <h4>{{ dish.ingredients }}</h4>
-              <!-- <p class="dish-description">{{ dish.description }}</p> -->
-              <div class="cart-adder">
-
-                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
-                    <i class="fas fa-minus" ></i>
-                  </button>
-
-                  <span class="dish-quantity">{{ dish.quantity }}</span>
-
-                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
-                    <i class="fas fa-plus"></i>
-                  </button>
-
+              <div class="img-box">
+                <img :src="'../storage/'+dish.cover" alt="">
               </div>
-            </div>
+
+
+              <div class="info-box">
+                <h2 class="dish-header">{{ dish.name }}</h2>
+                <h3>{{ dish.price }}$</h3>
+                <h4>{{ dish.ingredients }}</h4>
+                <!-- <p class="dish-description">{{ dish.description }}</p> -->
+                <div class="cart-adder">
+
+                    <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                      <i class="fas fa-minus" ></i>
+                    </button>
+
+                    <span class="dish-quantity">{{ dish.quantity }}</span>
+
+                    <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                      <i class="fas fa-plus"></i>
+                    </button>
+
+                </div>
+              </div>
+
+          </div>
 
         </div>
 
+        <div class="space-for-icon-mobile"></div>
+
       </div>
-
-      <div class="space-for-icon-mobile"></div>
-
-    </section>
+    </div>
 
     <!-- SIDEBAR CART -->
     <div :class="show_cart ? 'side-bar-cart-active' : 'side-bar-cart'">
