@@ -24,11 +24,12 @@
                             </div>
                             <div class="box-title">
                               {{-- WORKAROUND HREF --}}
-                              @php
+                              {{-- @php
                                 $href = 'http://localhost:8000/restaurant/'.$restaurant[0]->slug;
                               @endphp
-                                <h3><a href="{{$href}}">Vai al tuo ristorante</a></h3>
-                                {{-- <h3><a href="{{ route('home') }}">Vai al sito</a></h3> --}}
+                              <h3><a href="{{$href}}">Vai al tuo ristorante</a></h3>  --}}
+
+                              <h3><a href="{{ route('restaurant',['slug' => $restaurant[0]->slug]) }}">Vai al tuo ristorante</a></h3>
                             </div>
                             <div class="box-content">
                                 <p>descrizione</p>
