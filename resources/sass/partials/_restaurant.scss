@@ -87,11 +87,12 @@
 
           .dish-categories{
             width: 100vw;
+            padding-top: 32px;
             // display: flex;
             // flex-direction: column;
             // CARDS_CONTAINER
             .dish-cards-container{
-              padding-top: 32px;
+              // padding-top: 32px;
               display: flex;
               flex-wrap: wrap;
               // margin: 0 auto;
