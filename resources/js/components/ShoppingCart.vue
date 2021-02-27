@@ -5,9 +5,12 @@
     <!-- <h2>{{dish_category}}</h2> -->
     <div class="dish-categories">
       <!-- DISHES CARDS -->
-      <div class="dish-cards-container" v-for='dish_category in json_dish_categories'>
+      <div class="dish-cards-container" v-for='dish_category in dish_categories_assembled'>
+
+        <h2>{{dish_category}}</h2>
+
         <!-- da aggiungere v-if visibility -->
-        <div class="dish-card" v-for='dish in json_dishes' v-if="dish.dish_category_name == dish_category.name">
+        <div class="dish-card" v-for='dish in json_dishes' v-if="dish.dish_category_name == dish_category">
           <!-- <p>{{dish.dish_category_name}}</p> -->
           <div class="card-body">
 
@@ -112,6 +115,8 @@ export default {
       //JSON DELLE DISH_CATEGORIES
       json_dish_categories: this.dish_categories,
 
+      dish_categories_assembled: [],
+
       //flag per toggle del carrello
       show_cart: false,
 
@@ -127,6 +132,7 @@ export default {
   },
   beforeMount() {
 
+    this.groupDishCategories();
   },
   mounted() {
     console.log('DISHES: ', this.json_dishes);
@@ -148,6 +154,30 @@ export default {
 
   },
   methods: {
+    groupDishCategories(){
+      //raggruppo senza bevande per pusharle in fondo
+      for (var i = 0; i < this.json_dishes.length; i++) {
+        if ( (!this.dish_categories_assembled.includes(this.json_dishes[i].dish_category_name)
+        &&  (this.json_dishes[i].dish_category_name != 'acqua')
+        &&  (this.json_dishes[i].dish_category_name != 'drinks')
+        &&  (this.json_dishes[i].dish_category_name != 'beer')
+        &&  (this.json_dishes[i].dish_category_name != 'red wine')
+        &&  (this.json_dishes[i].dish_category_name != 'white wine')
+       )) {
+          this.dish_categories_assembled.push(this.json_dishes[i].dish_category_name);
+          // string.charAt(0).toUpperCase() + string.slice(1)
+        }
+      }
+      //pusho le bibite in fondo all'array
+      for (var i = 0; i < this.json_dishes.length; i++) {
+        if (!this.dish_categories_assembled.includes(this.json_dishes[i].dish_category_name)) {
+          this.dish_categories_assembled.push(this.json_dishes[i].dish_category_name);
+          // string.charAt(0).toUpperCase() + string.slice(1)
+        }
+      }
+      console.log('CATEGORIES ASSEMBLED: ', this.dish_categories_assembled);
+
+    },
     checkFlagRestaurant(){
       localStorage.check_restaurant = this.check_restaurant;
     },
