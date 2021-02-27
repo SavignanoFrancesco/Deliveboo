@@ -69,8 +69,10 @@ class DishController extends Controller
             'cover' => 'nullable|image|max:512'
         ]);
 
+
         $form_data = $request->all();
-        $form_data['restaurant_id'] = Auth::user()->id;
+        $form_data['restaurant_id'] = Auth::user()->restaurants->id;
+        $new_dish = new Dish();
 
         if ($form_data['name'] != $dish->name) {
             $slug = Str::slug($form_data['name']);
@@ -92,12 +94,8 @@ class DishController extends Controller
         };
 
 
-        $new_dish = new Dish();
-
         $new_dish->fill($form_data);
-
         $new_dish->save();
-
 
         return redirect()->route('admin.dish.index');
     }

@@ -20,7 +20,7 @@ class DishTableSeeder extends Seeder
         $restaurants = Restaurant::all();
 
         foreach ($restaurants as $restaurant) {
-            for ($i=0; $i < 10; $i++) {
+            for ($i=0; $i < 2; $i++) {
                 $new_dish = new Dish();
                 $new_dish->name = $faker->words(3, true);
                 $new_dish->description = $faker->paragraph(5, false);

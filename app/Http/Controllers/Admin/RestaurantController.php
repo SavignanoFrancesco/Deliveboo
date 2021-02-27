@@ -54,7 +54,7 @@ class RestaurantController extends Controller
             'phone' => 'required|max:20',
             'email' => 'required|max:50|unique:restaurants,email',
             'address' => 'required',
-            // 'file' => true,
+
         ]);
 
         $form_data = $request->all();
@@ -62,6 +62,7 @@ class RestaurantController extends Controller
         $restaurant = new Restaurant();
 
         $slug = Str::slug($form_data['name']);
+
         if ($restaurant->slug != $slug) {
             $slug_base = $slug;
             $slug_check = Restaurant::where('slug', $slug)->first();
