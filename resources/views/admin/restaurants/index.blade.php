@@ -4,6 +4,7 @@
 
     @include('layouts.partials.dashnav')
 
+    @if($restaurants->isEmpty())
     <section id="create-dish">
         <div class="container">
             <div class="row">
@@ -17,7 +18,7 @@
             </div>
         </div>
     </section>
-
+    @endif
     <section id="dash-restaurant-cards-container" class="p-5">
         <div class="container">
             <div class="row">
