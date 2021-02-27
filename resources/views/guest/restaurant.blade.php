@@ -66,14 +66,14 @@
               }
 
               // traduco da array a json per il componente
-              $json_dishes_categories = json_encode($array_dishes_categories);
+              // $json_dishes_categories = json_encode($array_dishes_categories);
               $json_dishes_with_category_names = json_encode($dishes_array);
 
             @endphp
             {{--FINE SPAGHETTI PHP --}}
 
             {{-- VUE COMPONENT --}}
-            <shopping-cart :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_dishes_with_category_names }}" :dish_categories = "{{ $json_dishes_categories }}"></shopping-cart>
+            <shopping-cart :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_dishes_with_category_names }}"></shopping-cart>
 
         </div>
     </section>

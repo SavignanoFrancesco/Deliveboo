@@ -106,14 +106,14 @@
 
 <script>
 export default {
-  props: ['dishes', 'dish_categories', 'flag_restaurant'],
+  props: ['dishes', 'flag_restaurant'],
   data: function() {
     return {
       //JSON DEI DISHES
       json_dishes: this.dishes,
 
       //JSON DELLE DISH_CATEGORIES
-      json_dish_categories: this.dish_categories,
+      // json_dish_categories: this.dish_categories,
 
       dish_categories_assembled: [],
 
@@ -136,7 +136,7 @@ export default {
   },
   mounted() {
     console.log('DISHES: ', this.json_dishes);
-    console.log('DISH_CATEGORIES: ', this.json_dish_categories);
+    // console.log('DISH_CATEGORIES: ', this.json_dish_categories);
     // console.log('DISH_CATEGORIES_PROP: ', this.dish_categories);
     // console.log('dishes: ',this.dishes);
     // console.log('json_dishes: ',this.json_dishes);
