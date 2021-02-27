@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
+    <div id="register_page">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header"><h2>{{ __('Register') }}</h2></div>
 
                     {{-- Per far funzionare i tooltips è necessario installare Popper - https://popper.js.org/ --}}
                     <div class="card-body">

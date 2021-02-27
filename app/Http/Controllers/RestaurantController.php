@@ -14,6 +14,7 @@ class RestaurantController extends Controller
     public function show($slug){
         // dd($slug);
         $restaurant = Restaurant::where('slug', $slug)->first();
+
         // dd($restaurant->dishes);
         // dd($restaurant->id);
         if ($restaurant) {
