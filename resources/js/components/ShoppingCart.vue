@@ -5,42 +5,44 @@
     <!-- <h2>{{dish_category}}</h2> -->
     <div class="dish-categories">
       <!-- DISHES CARDS -->
-      <div class="dish-cards-container" v-for='dish_category in dish_categories_assembled'>
+      <div class="dish-categories-container" v-for='dish_category in dish_categories_assembled'>
 
-        <h2>{{dish_category}}</h2>
+        <h2 class="dish-category-title">{{dish_category}}</h2>
 
-        <!-- da aggiungere v-if visibility -->
-        <div class="dish-card" v-for='dish in json_dishes' v-if="dish.dish_category_name == dish_category">
-          <!-- <p>{{dish.dish_category_name}}</p> -->
-          <div class="card-body">
+        <div class="dish-cards-container">
+          <!-- da aggiungere v-if visibility -->
+          <div class="dish-card" v-for='dish in json_dishes' v-if="dish.dish_category_name == dish_category">
+            <!-- <p>{{dish.dish_category_name}}</p> -->
+            <div class="card-body">
 
-              <div class="img-box">
-                <img :src="'../storage/'+dish.cover" alt="">
-              </div>
-
-
-              <div class="info-box">
-                <h2 class="dish-header">{{ dish.name }}</h2>
-                <h3>{{ dish.price }}$</h3>
-                <h4>{{ dish.ingredients }}</h4>
-                <!-- <p class="dish-description">{{ dish.description }}</p> -->
-                <div class="cart-adder">
-
-                    <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
-                      <i class="fas fa-minus" ></i>
-                    </button>
-
-                    <span class="dish-quantity">{{ dish.quantity }}</span>
-
-                    <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
-                      <i class="fas fa-plus"></i>
-                    </button>
-
+                <div class="img-box">
+                  <img :src="'../storage/'+dish.cover" alt="">
                 </div>
-              </div>
+
+
+                <div class="info-box">
+                  <h2 class="dish-header">{{ dish.name }}</h2>
+                  <h3>{{ dish.price }}$</h3>
+                  <h4>{{ dish.ingredients }}</h4>
+                  <!-- <p class="dish-description">{{ dish.description }}</p> -->
+                  <div class="cart-adder">
+
+                      <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                        <i class="fas fa-minus" ></i>
+                      </button>
+
+                      <span class="dish-quantity">{{ dish.quantity }}</span>
+
+                      <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                        <i class="fas fa-plus"></i>
+                      </button>
+
+                  </div>
+                </div>
+
+            </div>
 
           </div>
-
         </div>
 
         <div class="space-for-icon-mobile"></div>
@@ -115,6 +117,7 @@ export default {
       //JSON DELLE DISH_CATEGORIES
       // json_dish_categories: this.dish_categories,
 
+      //array di categorie raccolte dai dishes
       dish_categories_assembled: [],
 
       //flag per toggle del carrello
@@ -123,15 +126,14 @@ export default {
       //flag per verificare se il ristorante è cambiato e cancellare storage
       check_restaurant: this.flag_restaurant,
 
+      //per transition carrello
       piece: 1,
-
-      cart_total_price: 0,
 
     };
 
   },
   beforeMount() {
-
+    //raccolgo categorie piatti ristorante
     this.groupDishCategories();
   },
   mounted() {
@@ -143,7 +145,7 @@ export default {
     // controlllo se il componente funziona
     // alert('component working!');
 
-    //controllo se è cambiato il ristorante
+    //controllo se è cambiato il ristorante, se è cambiato ressetto local storage
     if (localStorage.check_restaurant == this.check_restaurant) {
       this.takeDataFromLocalStorage();
     }else{
@@ -165,7 +167,7 @@ export default {
         &&  (this.json_dishes[i].dish_category_name != 'white wine')
        )) {
           this.dish_categories_assembled.push(this.json_dishes[i].dish_category_name);
-          // string.charAt(0).toUpperCase() + string.slice(1)
+
         }
       }
       //pusho le bibite in fondo all'array
@@ -207,7 +209,7 @@ export default {
 
       //scorro il JSON prodotti
       for (var i = 0; i < this.json_dishes.length; i++) {
-        // console.log(this.json_dishes[i].id === dish.id);
+
         //quando trovo l'id del prodotto cliccato sul DOM
         if (this.json_dishes[i].id === dish.id) {
           // console.log();
@@ -224,7 +226,7 @@ export default {
           }else{
             //aggiungi uno alla proproetà 'quantità' del prodotto clickato
             this.json_dishes[i].quantity++;
-            // console.log('HERE: ', this.json_dishes[i]);
+
           }
 
         }

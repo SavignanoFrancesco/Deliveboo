@@ -1,14 +1,5 @@
-  // [v-cloak]::before{
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100vh;
-  //   height: 100vw;
-  //   background-color: black;
-  //   z-index: 1000;
-  // }
 
-  #cart_comp{
+#cart_comp{
     // MARGINE PER SIDEBAR CARRELLO
     margin-right: 72px;
     // background: url("../images/general/jumbo-background5.png");
@@ -19,6 +10,19 @@
     h1,h2,h3,h4{
       font-weight: $font_bold;
       color: $font_primary_color;
+      text-transform: capitalize;
+    }
+    h2, .dish-category-title{
+      font-size: $font_size_sm * 1.5;
+      opacity: 0.8;
+    }
+    h3{
+      font-size: $font_size_sm * 1.2;
+      opacity: 0.7;
+    }
+    h4{
+      font-size: $font_size_sm * 1.1;
+      opacity: 0.5;
     }
 
     ul{
@@ -46,7 +50,7 @@
           justify-content: space-between;
           .restaurant-details{
             width:60%;
-            // padding: 24px;
+            padding: 24px;
             h1{
               font-size: $font_size_xl;
               opacity: 0.9;
@@ -128,18 +132,18 @@
                     align-items: flex-start;
                     width: calc(100% - 124px);
                     padding: 5px;
-                    h2{
-                      font-size: $font_size_sm * 1.5;
-                      opacity: 0.8;
-                    }
-                    h3{
-                      font-size: $font_size_sm * 1.2;
-                      opacity: 0.7;
-                    }
-                    h4{
-                      font-size: $font_size_sm * 1.1;
-                      opacity: 0.5;
-                    }
+                    // h2{
+                    //   font-size: $font_size_sm * 1.5;
+                    //   opacity: 0.8;
+                    // }
+                    // h3{
+                    //   font-size: $font_size_sm * 1.2;
+                    //   opacity: 0.7;
+                    // }
+                    // h4{
+                    //   font-size: $font_size_sm * 1.1;
+                    //   opacity: 0.5;
+                    // }
                     .cart-adder{
                       display:flex;
                       align-items: center;
@@ -262,6 +266,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                margin: 0 5px;
                 .fa-trash-alt{
                   font-size: $font_size_sm;
                   // padding:  4px 7px;
@@ -285,6 +290,7 @@
                       height: 116px;
                       object-fit: cover;
                       object-position: center;
+                      border-radius: 4px;
                     }
                   }
                   .cart-card-info{
@@ -654,6 +660,155 @@
 //CART_COMP END
 }
 
+@media only screen and (max-width: 992px){
+  #cart_comp{
+
+    h1,h2,h3,h4{
+
+    }
+
+    ul{
+      li{
+
+      }
+    }
+
+    i{
+    }
+
+    .restaurant{
+      .container{
+        .restaurant-details-container{
+          flex-direction: column-reverse;
+          align-items: center;
+          text-align: center;
+          .restaurant-details{
+            // padding: 24px;
+            // z-index: 1;
+            // width: 100%;
+            h1{
+
+            }
+            ul{
+              li{
+                span{
+
+                }
+              }
+            }
+          }
+          .restaurant-cover{
+            // position: absolute;
+            // top: 0;
+            // left: 0;
+            width: 100%;
+            // z-index: 0;
+            img{
+              // height: 200px;
+              width: 60%;
+              // opacity: 0.6;
+            }
+          }
+        }
+          //COMPONENT TEMPLATE CONTAINER
+          .component-container{
+
+            .dish-categories{
+              // CARDS_CONTAINER
+              .dish-category-title{
+                width: 100%;
+                text-align: center;
+              }
+              .dish-cards-container{
+                display: flex;
+                justify-content: center;
+                .dish-card{
+                  // display: block;
+                  // margin-bottom: 2px;
+                  // width: 100%;
+                  // height: 300px;
+                  .card-body{
+                    // flex-direction: column;
+
+                    // width: 100%;
+                    // padding: 0;
+                    // margin: 0;
+                    .contentBox{
+                      // display: flex;
+                      // min-width: 100%;
+                      .img-box{
+                        img{
+
+                        }
+                      }
+                    }
+                    .cart-adder{
+
+                    }
+                  }
+                }
+
+
+              }
+            }
+
+            // SIDE-BAR-CART
+            .side-bar-cart,.side-bar-cart-active{
+
+              .cart-icon{
+
+                i{
+
+                }
+                .quantity{
+
+                  span{
+
+                  }
+                }
+              }
+              .cart-list{
+
+                li{
+
+                  .cart-card{
+
+                    .cart-card-img{
+
+                      img{
+
+                      }
+                    }
+                    .cart-card-info{
+
+                      .dish-quantity{
+
+                        .btn-group{
+                          i{
+
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .side-bar-cart-active{
+
+              .cart-icon{
+
+              }
+            }
+          }
+        }
+      }
+
+      // RESTAURANT END
+    }
+
+//CART_COMP END
+}
 
 @media only screen and (max-width: 700px){
   nav{
@@ -784,7 +939,7 @@
             .cart-icon{
               position: fixed;
               bottom: 10px;
-              right: 5%;
+              right: 32px;
               width: 100%;
               // border: 1px solid black;
 
