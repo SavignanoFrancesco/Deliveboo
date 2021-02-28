@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('layouts.partials.dashnav')
+    {{-- @include('layouts.partials.dashnav') --}}
 
     <section id="user-card mt-5">
         <div class="container">
@@ -30,5 +30,3 @@
         </div>
     </section>
 @endsection
-
-

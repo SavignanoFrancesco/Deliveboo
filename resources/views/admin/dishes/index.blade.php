@@ -4,15 +4,15 @@
 
     @include('layouts.partials.dashnav')
 
-    @if($restaurant->isEmpty())
-        <div class="container">
+    {{-- @if($restaurant->isEmpty()) --}}
+        {{-- <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1>Devi creare prima un ristorante</h1>
                 </div>
             </div>
-        </div>
-    @else
+        </div> --}}
+    {{-- @else --}}
         <section id="create-dish">
             <div class="container">
                 <div class="row">
@@ -54,7 +54,5 @@
                 </div>
             </div>
         </section>
-    @endif
+    {{-- @endif --}}
 @endsection
-
-

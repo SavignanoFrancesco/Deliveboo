@@ -4,7 +4,7 @@
 
     @include('layouts.partials.dashnav')
 
-
+    {{-- {{dd($restaurant)}} --}}
     <!--
     <h1>Dashboard</h1>
     <h2>{{Auth::user()->company_name}}</h2>

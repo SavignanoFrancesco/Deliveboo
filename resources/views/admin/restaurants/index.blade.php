@@ -3,9 +3,9 @@
 @section('content')
 
     @include('layouts.partials.dashnav')
-
-    @if($restaurants->isEmpty())
-    <section id="create-dish">
+    {{-- {{dd($restaurant)}} --}}
+    {{-- @if($restaurant->isEmpty()) --}}
+    {{-- <section id="create-dish">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -17,12 +17,12 @@
                 </div>
             </div>
         </div>
-    </section>
-    @endif
+    </section> --}}
+    {{-- @endif --}}
     <section id="dash-restaurant-cards-container" class="p-5">
         <div class="container">
             <div class="row">
-                @foreach($restaurants as $restaurant)
+                {{-- @foreach($restaurants as $restaurant) --}}
                     <div class="col-lg-4">
                         <div class="card" style="width: 18rem;">
                             <img src="{{asset('storage/' . $restaurant->cover)}}" class="card-img-top" alt="...">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                {{-- @endforeach --}}
             </div>
         </div>
     </section>

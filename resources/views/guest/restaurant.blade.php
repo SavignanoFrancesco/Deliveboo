@@ -4,6 +4,8 @@
 
 @section('content')
 
+  {{-- {{dd($restaurant)}} --}}
+
   <div id="cart_comp">
 
     <section class="restaurant">

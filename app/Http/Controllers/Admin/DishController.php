@@ -22,7 +22,8 @@ class DishController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::all();
+        $user_id = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
         $dishes = Dish::where('restaurant_id', Auth::user()->id)->get();
         $data = [
             'dishes' => $dishes,
@@ -40,7 +41,8 @@ class DishController extends Controller
     {
         $dishes = Dish::all();
         $categories = DishCategory::all();
-        $restaurant = Restaurant::all();
+        $user_id = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
 
         $data = [
             'restaurant' => $restaurant,
@@ -110,10 +112,13 @@ class DishController extends Controller
     {
 
         $dishes = Dish::where('slug', $slug)->first();
+        $user_id = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
 
         if ($dishes) {
             $data = [
                 'dishes' => $dishes,
+                'restaurant' => $restaurant,
             ];
             return view('admin.dishes.show', $data);
         }
@@ -131,12 +136,15 @@ class DishController extends Controller
 
         $categories = DishCategory::all();
         $dishes = Dish::where('slug', $slug)->first();
+        $user_id = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
 
 
         if ($dishes) {
             $data = [
                 'dishes' => $dishes,
                 'categories' => $categories,
+                'restaurant' => $restaurant,
             ];
 
             return view('admin.dishes.edit', $data);

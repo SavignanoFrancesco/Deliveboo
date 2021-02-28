@@ -24,13 +24,12 @@
                             </div>
                             <div class="box-title">
                               {{-- WORKAROUND HREF --}}
-                              {{-- @php
-                                $href = 'http://localhost:8000/restaurant/'.$restaurant[0]->slug;
-                              @endphp--}}
-                              <h3><a href="{{route('home')}}">Vai al tuo ristorante</a></h3>  
-
-                              {{-- <h3><a href="{{ route('restaurant',['slug' => $restaurant[0]->slug]) }}">Vai al tuo ristorante</a></h3>
-                              {{dd($restaurant[0]->slug)}}--}}
+                              @if ($restaurant)
+                                {{-- {{dd($restaurant)}} --}}
+                                <h3><a href="{{ route('restaurant',['slug' => $restaurant->slug]) }}">Vai al tuo ristorante</a></h3>
+                              @else
+                                <h3><a href="{{route('home')}}">Visita il sito</a></h3>
+                              @endif
                             </div>
                             <div class="box-content">
                                 <p>descrizione</p>
@@ -60,7 +59,11 @@
                                 <i class="fas fa-utensils fa-2x"></i>
                             </div>
                             <div class="box-title">
+                              @if ($restaurant)
                                 <h3><a href="{{route('admin.restaurant.index')}}">Ristoranti</a></h3>
+                              @else
+                                <h3><a href="{{route('admin.restaurant.create')}}">Ristoranti</a></h3>
+                              @endif
                             </div>
                             <div class="box-content">
                                 <p>descrizione</p>
@@ -68,21 +71,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="main-box">
-                        <div class="box-contain">
-                            <div class="box-img mb-2">
-                                <i class="fas fa-pizza-slice fa-2x"></i>
-                            </div>
-                            <div class="box-title">
-                                <h3><a href="{{route('admin.dish.index')}}">Dishes</a></h3>
-                            </div>
-                            <div class="box-content">
-                                <p>descrizione</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{-- {{dd($restaurant)}} --}}
+                @if ($restaurant)
+                  <div class="col-lg-3">
+                      <div class="main-box">
+                          <div class="box-contain">
+                              <div class="box-img mb-2">
+                                  <i class="fas fa-pizza-slice fa-2x"></i>
+                              </div>
+                              <div class="box-title">
+                                  <h3><a href="{{route('admin.dish.index')}}">Dishes</a></h3>
+                              </div>
+                              <div class="box-content">
+                                  <p>descrizione</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                @endif
             </div>
         </div>
     </div>

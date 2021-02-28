@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('layouts.partials.dashnav')
+    {{-- @include('layouts.partials.dashnav') --}}
 
     <section id="user-data">
         <div class="container">
