@@ -4,7 +4,7 @@
 
 @section('content')
 
-  {{-- {{dd($restaurant)}} --}}
+  {{-- {{dd($restaurant->dishes)}} --}}
 
   <div id="cart_comp">
 
@@ -33,9 +33,10 @@
                 </div>
               </div>
             </div>
-
             {{--INIZIO SPAGHETTI PHP --}}
             @php
+
+
 
               // strutturazione array associativo id_categoria => nome_categoria}
               $array_dishes_categories = $dishes_category->toArray();
@@ -71,11 +72,13 @@
               // $json_dishes_categories = json_encode($array_dishes_categories);
               $json_dishes_with_category_names = json_encode($dishes_array);
 
+              $dishes_length = count($restaurant->dishes);
             @endphp
             {{--FINE SPAGHETTI PHP --}}
 
             {{-- VUE COMPONENT --}}
-            <shopping-cart :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_dishes_with_category_names }}"></shopping-cart>
+            {{-- {{dd(count($restaurant->dishes))}} --}}
+            <shopping-cart :dishes_length="{{$dishes_length}}" :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_dishes_with_category_names }}"></shopping-cart>
 
         </div>
     </section>

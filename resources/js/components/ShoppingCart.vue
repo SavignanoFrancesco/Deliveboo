@@ -97,7 +97,7 @@
           </div>
           </li>
           <li class="space-for-icon-mobile-cart w-100 d-flex justify-content-center">
-          
+
           </li>
         </ul>
 
@@ -110,7 +110,7 @@
 
 <script>
 export default {
-  props: ['dishes', 'flag_restaurant'],
+  props: ['dishes', 'flag_restaurant', 'dishes_length'],
   data: function() {
     return {
       //JSON DEI DISHES
@@ -139,7 +139,8 @@ export default {
     this.groupDishCategories();
   },
   mounted() {
-    console.log('DISHES: ', this.json_dishes);
+    console.log('storage_dishes.length: ', JSON.parse(localStorage.shopping_cart).length);
+    console.log('dishes_length: ',this.dishes_length);
     // console.log('DISH_CATEGORIES: ', this.json_dish_categories);
     // console.log('DISH_CATEGORIES_PROP: ', this.dish_categories);
     // console.log('dishes: ',this.dishes);
@@ -148,7 +149,7 @@ export default {
     // alert('component working!');
 
     //controllo se è cambiato il ristorante, se è cambiato ressetto local storage
-    if (localStorage.check_restaurant == this.check_restaurant) {
+    if ((localStorage.check_restaurant == this.check_restaurant) && (JSON.parse(localStorage.shopping_cart).length == this.dishes.length)) {
       this.takeDataFromLocalStorage();
     }else{
       localStorage.clear();
@@ -162,11 +163,7 @@ export default {
       //raggruppo senza bevande per pusharle in fondo
       for (var i = 0; i < this.json_dishes.length; i++) {
         if ( (!this.dish_categories_assembled.includes(this.json_dishes[i].dish_category_name)
-        &&  (this.json_dishes[i].dish_category_name != 'acqua')
-        &&  (this.json_dishes[i].dish_category_name != 'drinks')
-        &&  (this.json_dishes[i].dish_category_name != 'beer')
-        &&  (this.json_dishes[i].dish_category_name != 'red wine')
-        &&  (this.json_dishes[i].dish_category_name != 'white wine')
+        &&  (this.json_dishes[i].dish_category_name != 'bevande')
        )) {
           this.dish_categories_assembled.push(this.json_dishes[i].dish_category_name);
 
@@ -188,7 +185,7 @@ export default {
     takeDataFromLocalStorage(){
 
       //se esiste shopping_cart in local storage
-      if (localStorage.shopping_cart) {
+      if ((localStorage.shopping_cart)) {
         this.json_dishes = JSON.parse(localStorage.shopping_cart);
       }
 
@@ -234,8 +231,11 @@ export default {
         }
 
       }
-      //salvataggio dei dishes
+      //controllo se il ristoratore ha aggiunto o tolto piatti
+
       localStorage.shopping_cart = JSON.stringify(this.json_dishes);
+
+      //salvataggio dei dishes
       // console.log(this.cart);
 
     },
