@@ -1,49 +1,54 @@
 <template>
 
   <div class="component-container">
-    <!-- DISHES CARDS -->
-    <section class="dish-cards-container">
 
-      <!-- da aggiungere v-if visibility -->
-      <div class="dish-card"
-      v-for='(dish, index) in json_dishes'
-      :key='index'
-      >
+    <!-- <h2>{{dish_category}}</h2> -->
+    <div class="dish-categories">
+      <!-- DISHES CARDS -->
+      <div class="dish-categories-container" v-for='dish_category in dish_categories_assembled'>
 
-        <div class="card-body">
+        <h2 class="dish-category-title">{{dish_category}}</h2>
 
-            <div class="img-box">
-              <img :src="'../storage/'+dish.cover" alt="">
+        <div class="dish-cards-container">
+          <!-- da aggiungere v-if visibility -->
+          <div class="dish-card" v-for='dish in json_dishes' v-if="dish.dish_category_name == dish_category">
+            <!-- <p>{{dish.dish_category_name}}</p> -->
+            <div class="card-body">
+
+                <div class="img-box">
+                  <img :src="'../storage/'+dish.cover" alt="">
+                </div>
+
+
+                <div class="info-box">
+                  <h2 class="dish-header">{{ dish.name }}</h2>
+                  <h3>{{ dish.price }}$</h3>
+                  <h4>{{ dish.ingredients }}</h4>
+                  <!-- <p class="dish-description">{{ dish.description }}</p> -->
+                  <div class="cart-adder">
+
+                      <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                        <i class="fas fa-minus" ></i>
+                      </button>
+
+                      <span class="dish-quantity">{{ dish.quantity }}</span>
+
+                      <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                        <i class="fas fa-plus"></i>
+                      </button>
+
+                  </div>
+                </div>
+
             </div>
 
-
-            <div class="info-box">
-              <h2 class="dish-header">{{ dish.name }}</h2>
-              <h3>{{ dish.price }}$</h3>
-              <h4>{{ dish.ingredients }}</h4>
-              <!-- <p class="dish-description">{{ dish.description }}</p> -->
-              <div class="cart-adder">
-
-                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
-                    <i class="fas fa-minus" ></i>
-                  </button>
-
-                  <span class="dish-quantity">{{ dish.quantity }}</span>
-
-                  <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
-                    <i class="fas fa-plus"></i>
-                  </button>
-
-              </div>
-            </div>
-
+          </div>
         </div>
 
+        <div class="space-for-icon-mobile"></div>
+
       </div>
-
-      <div class="space-for-icon-mobile"></div>
-
-    </section>
+    </div>
 
     <!-- SIDEBAR CART -->
     <div :class="show_cart ? 'side-bar-cart-active' : 'side-bar-cart'">
@@ -66,7 +71,7 @@
           <li
           v-for='dish in cart'
           >
-          <button type="button" name="button" @click="remove_from_cart(dish.id)" class="btn btn-danger">
+          <button type="button" name="button" @click="removeProductFromCart(dish.id)" class="btn btn-danger">
             <i class="fas fa-trash-alt"></i>
           </button>
           <div class="cart-card">
@@ -91,7 +96,9 @@
             </div>
           </div>
           </li>
-          <li class="space-for-icon-mobile-cart"></li>
+          <li class="space-for-icon-mobile-cart w-100 d-flex justify-content-center">
+          
+          </li>
         </ul>
 
       </div>
@@ -109,74 +116,76 @@ export default {
       //JSON DEI DISHES
       json_dishes: this.dishes,
 
+      //JSON DELLE DISH_CATEGORIES
+      // json_dish_categories: this.dish_categories,
+
+      //array di categorie raccolte dai dishes
+      dish_categories_assembled: [],
+
       //flag per toggle del carrello
       show_cart: false,
 
       //flag per verificare se il ristorante è cambiato e cancellare storage
       check_restaurant: this.flag_restaurant,
 
-      piece:1,
-
-      cart_total_price: 0,
+      //per transition carrello
+      piece: 1,
 
     };
 
   },
   beforeMount() {
-    //restrutturazione JSON per togliere dati inutili
-    this.struct_json();
-    // console.log('beforeMount: ');
-    // console.log('This dishes: ',this.dishes);
-    // console.log('This json dishes: ',this.json_dishes);
-    //Before mount tutto ok
+    //raccolgo categorie piatti ristorante
+    this.groupDishCategories();
   },
   mounted() {
-    console.log('dishes: ',this.dishes);
-    console.log('json_dishes: ',this.json_dishes);
+    console.log('DISHES: ', this.json_dishes);
+    // console.log('DISH_CATEGORIES: ', this.json_dish_categories);
+    // console.log('DISH_CATEGORIES_PROP: ', this.dish_categories);
+    // console.log('dishes: ',this.dishes);
+    // console.log('json_dishes: ',this.json_dishes);
     // controlllo se il componente funziona
     // alert('component working!');
 
-    //controllo se è cambiato il ristorante
+    //controllo se è cambiato il ristorante, se è cambiato ressetto local storage
     if (localStorage.check_restaurant == this.check_restaurant) {
-      this.take_data_from_localStorage();
+      this.takeDataFromLocalStorage();
     }else{
       localStorage.clear();
     }
 
-    this.check_flag_restaurant();
-    // console.log('Mounted: ');
-    // console.log('This dishes: ',this.dishes);
-    // console.log('This json dishes: ',this.json_dishes);
-    // console.log(this.json_dishes);
-
-    console.log('here: ',this.cart);
+    this.checkFlagRestaurant();
 
   },
   methods: {
-
-    check_flag_restaurant(){
-      localStorage.check_restaurant = this.check_restaurant;
-    },
-    struct_json(){
-      //itero json_dishes
+    groupDishCategories(){
+      //raggruppo senza bevande per pusharle in fondo
       for (var i = 0; i < this.json_dishes.length; i++) {
-        for (var key of Object.keys(this.json_dishes[i])) {
-
-          //rimuovo le proprieta inutili al carrello
-          if((key = 'restaurant_id') || (key = 'dish_category_id') || (key = 'created_at') || (key = 'updated_at')){
-            // delete this.json_dishes[i].cover;
-            delete this.json_dishes[i].restaurant_id;
-            delete this.json_dishes[i].dish_category_id;
-            delete this.json_dishes[i].created_at;
-            delete this.json_dishes[i].updated_at;
-          }
+        if ( (!this.dish_categories_assembled.includes(this.json_dishes[i].dish_category_name)
+        &&  (this.json_dishes[i].dish_category_name != 'acqua')
+        &&  (this.json_dishes[i].dish_category_name != 'drinks')
+        &&  (this.json_dishes[i].dish_category_name != 'beer')
+        &&  (this.json_dishes[i].dish_category_name != 'red wine')
+        &&  (this.json_dishes[i].dish_category_name != 'white wine')
+       )) {
+          this.dish_categories_assembled.push(this.json_dishes[i].dish_category_name);
 
         }
       }
+      //pusho le bibite in fondo all'array
+      for (var i = 0; i < this.json_dishes.length; i++) {
+        if (!this.dish_categories_assembled.includes(this.json_dishes[i].dish_category_name)) {
+          this.dish_categories_assembled.push(this.json_dishes[i].dish_category_name);
+          // string.charAt(0).toUpperCase() + string.slice(1)
+        }
+      }
+      console.log('CATEGORIES ASSEMBLED: ', this.dish_categories_assembled);
+
     },
-    take_data_from_localStorage(){
-      // console.log(JSON.stringify(this.json_dishes));
-      // console.log(JSON.stringify(localStorage.shopping_cart));
+    checkFlagRestaurant(){
+      localStorage.check_restaurant = this.check_restaurant;
+    },
+    takeDataFromLocalStorage(){
 
       //se esiste shopping_cart in local storage
       if (localStorage.shopping_cart) {
@@ -202,7 +211,7 @@ export default {
 
       //scorro il JSON prodotti
       for (var i = 0; i < this.json_dishes.length; i++) {
-        // console.log(this.json_dishes[i].id === dish.id);
+
         //quando trovo l'id del prodotto cliccato sul DOM
         if (this.json_dishes[i].id === dish.id) {
           // console.log();
@@ -219,7 +228,7 @@ export default {
           }else{
             //aggiungi uno alla proproetà 'quantità' del prodotto clickato
             this.json_dishes[i].quantity++;
-            // console.log('HERE: ', this.json_dishes[i]);
+
           }
 
         }
@@ -230,7 +239,7 @@ export default {
       // console.log(this.cart);
 
     },
-    remove_from_cart(id){
+    removeProductFromCart(id){
       //itero i dishes
       for (var i = 0; i < this.json_dishes.length; i++) {
         //matching id
