@@ -66,7 +66,7 @@
 
         <ul class='cart-list'>
           <li>
-            <h2 class="cart-title">Your wishes: <h3>(Total price: {{this.totalPrice.toFixed(2)}}$)</h3></h2>
+            <h2 class="cart-title">Carrello: <h3>(Total price: {{this.totalPrice.toFixed(2)}}€)</h3></h2>
           </li>
           <li
           v-for='dish in cart'
@@ -80,7 +80,7 @@
             </div>
             <div class="cart-card-info">
               <h2>{{ dish.name }}:</h2>
-              <h3>{{dish.price}}$</h3>
+              <h3>{{dish.price}}€</h3>
               <div class="dish-quantity">
 
                 <div class="btn-group">

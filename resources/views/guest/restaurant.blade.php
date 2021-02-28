@@ -18,8 +18,8 @@
                     <h1> {{ $restaurant->name }} </h1>
 
                     <ul class="list-unstyled">
-                        <li>Address: <span> {{ $restaurant->address }} </span> </li>
-                        <li>Phone Number: <span> {{ $restaurant->phone }} </span></li>
+                        <li>Indirizzo: <span> {{ $restaurant->address }} </span> </li>
+                        <li>Telefono: <span> {{ $restaurant->phone }} </span></li>
                         <li>E-mail: <span> {{ $restaurant->email }} </span></li>
                     </ul>
 

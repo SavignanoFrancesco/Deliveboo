@@ -13,14 +13,13 @@
                     </div>
                     <div class="box-content">
                         <div class="list-group">
-                            <p href="#" class="list-group-item active"><strong>Owner name:</strong> {{$users->owner_name}}</p>
-                            <p href="#" class="list-group-item"><strong>Owner lastname:</strong> {{$users->owner_lastname}}</p>
-                            <p href="#" class="list-group-item"><strong>City:</strong> {{$users->city}}</p>
+                            <p href="#" class="list-group-item active"><strong>Nome Proprietario:</strong> {{$users->owner_name}}</p>
+                            <p href="#" class="list-group-item"><strong>Cognome Proprietario:</strong> {{$users->owner_lastname}}</p>
+                            <p href="#" class="list-group-item"><strong>Città:</strong> {{$users->city}}</p>
                             <p href="#" class="list-group-item"><strong>Cap:</strong> {{$users->cap}}</p>
-                            <p href="#" class="list-group-item"><strong>Phone:</strong> {{$users->phone}}</p>
-                            <p href="#" class="list-group-item"><strong>Address:</strong> {{$users->address}}</p>
-                            <p href="#" class="list-group-item"><strong>Date of Birth:</strong> {{$users->dob}}</p>
-                            <p href="#" class="list-group-item"><strong>Address:</strong> {{$users->address}}</p>
+                            <p href="#" class="list-group-item"><strong>Telefono:</strong> {{$users->phone}}</p>
+                            <p href="#" class="list-group-item"><strong>Indirizzo:</strong> {{$users->address}}</p>
+                            <p href="#" class="list-group-item"><strong>Data di nascita:</strong> {{$users->dob}}</p>
                             <p href="#" class="list-group-item"><strong>Piva:</strong> {{$users->piva}}</p>
                             <p href="#" class="list-group-item"><strong>IBAN:</strong> {{$users->iban}}</p>
                             <p href="#" class="list-group-item"><strong>Email:</strong> {{$users->email}}</p>

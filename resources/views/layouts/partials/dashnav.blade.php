@@ -32,7 +32,7 @@
                               @endif
                             </div>
                             <div class="box-content">
-                                <p>descrizione</p>
+                                <p>Descrizione</p>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                 <i class="fas fa-user fa-2x"></i>
                             </div>
                             <div class="box-title">
-                                <h3><a href="{{ route('admin.user.index')}}">User</a></h3>
+                                <h3><a href="{{ route('admin.user.index')}}">Utente</a></h3>
                             </div>
                             <div class="box-content">
                                 <p>descrizione</p>
@@ -80,7 +80,7 @@
                                   <i class="fas fa-pizza-slice fa-2x"></i>
                               </div>
                               <div class="box-title">
-                                  <h3><a href="{{route('admin.dish.index')}}">Dishes</a></h3>
+                                  <h3><a href="{{route('admin.dish.index')}}">Piatti</a></h3>
                               </div>
                               <div class="box-content">
                                   <p>descrizione</p>

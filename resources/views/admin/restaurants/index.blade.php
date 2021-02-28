@@ -30,15 +30,15 @@
                                 <h3 class="card-title text-capitalize">{{$restaurant->name}}</h3>
                                 <p class="card-text mb-3">{{$restaurant->description}}</p>
                                 <a href="{{ route('admin.restaurant.edit', ['restaurant' => $restaurant->slug]) }}"
-                                   class="btn btn-primary">Edit</a>
+                                   class="btn btn-primary">Modifica</a>
                                 <a href="{{ route('admin.restaurant.show', ['restaurant' => $restaurant->slug]) }}"
-                                   class="btn btn-warning">Show</a>
+                                   class="btn btn-warning">Mostra</a>
                                 <form method="POST" class="d-inline-block"
                                       action="{{ route('admin.restaurant.destroy', ['restaurant' => $restaurant->slug]) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">
-                                        Delete
+                                        Elimina
                                     </button>
                                 </form>
                             </div>

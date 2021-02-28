@@ -15,11 +15,11 @@
                                 <div class="box-content">
                                     <div class="list-group">
                                         <p href="#" class="list-group-item active">
-                                            <strong>Name:</strong> {{$restaurant->name}}</p>
+                                            <strong>Nome:</strong> {{$restaurant->name}}</p>
                                         <p href="#" class="list-group-item">
-                                            <strong>Address:</strong> {{$restaurant->address}}</p>
+                                            <strong>Indirizzo:</strong> {{$restaurant->address}}</p>
                                         <p href="#" class="list-group-item">
-                                            <strong>Phone:</strong> {{$restaurant->phone}}</p>
+                                            <strong>Telefono:</strong> {{$restaurant->phone}}</p>
                                         <p href="#" class="list-group-item">
                                             <strong>Email:</strong> {{$restaurant->email}}</p>
                                     </div>

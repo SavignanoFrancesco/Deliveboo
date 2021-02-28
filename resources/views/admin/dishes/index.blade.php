@@ -37,14 +37,14 @@
                             <div class="card-body">
                                 <h3 class="card-title text-capitalize">{{$dish->name}}</h3>
                                 <p class="card-text mb-3">{{$dish->description}}</p>
-                                <a href="{{route('admin.dish.edit', ['dish' => $dish->slug])}}" class="btn btn-primary">Edit</a>
-                                <a href="{{route('admin.dish.show', ['dish' => $dish->slug])}}" class="btn btn-warning">Show</a>
+                                <a href="{{route('admin.dish.edit', ['dish' => $dish->slug])}}" class="btn btn-primary">Modifica</a>
+                                <a href="{{route('admin.dish.show', ['dish' => $dish->slug])}}" class="btn btn-warning">Mostra</a>
                                 <form method="POST" class="d-inline-block"
                                       action="{{route('admin.dish.destroy', ['dish' => $dish->id])}}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">
-                                        Delete
+                                        Elimina
                                     </button>
                                 </form>
                             </div>

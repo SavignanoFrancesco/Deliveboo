@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-8 mx-auto">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h1>Create Restaurant</h1>
+                    <h1>Crea Ristorante</h1>
                 </div>
                 <div>
                     @if ($errors->any())
@@ -25,27 +25,27 @@
                     @csrf
                     @method('POST')
                     <div class="form-group">
-                        <label>Restaurant name</label>
+                        <label>Nome Ristorante</label>
                         <input type="text" name="name" class="form-control"
                                placeholder="Restaurant name" value="{{ old('name') }}" maxlength="50" minlength="1" required autocomplete="on">
                     </div>
 
                     <div class="form-group">
-                        <p>Store cover image</p>
+                        <p>Immagine Ristorante</p>
                         <img class="w-25" src="{{ asset('images/general/no_cover.png') }}" alt="no cover">
-                        <label class="d-block">Upload image</label>
+                        <label class="d-block">Carica immagine</label>
                         <input type="file" class="form-control-file" name="cover">
                     </div>
 
                     <div class="form-group">
-                        <label>Address</label>
+                        <label>Indirizzo</label>
                         <input type="text" name="address" class="form-control"
                                maxlength="50" minlength="1" autocomplete="on"
                                placeholder="Address" value="{{ old('address') }}">
                     </div>
 
                     <div class="form-group">
-                        <label>Phone</label>
+                        <label>Telefono</label>
                         <input type="number" name="phone" class="form-control"
                                maxlength="20" minlength="1" autocomplete="on"
                                placeholder="Phone" value="{{ old('phone') }}">
@@ -74,7 +74,7 @@
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">
-                            Save restaurant
+                            Salva Ristorante
                         </button>
                     </div>
                 </form>

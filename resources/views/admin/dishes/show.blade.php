@@ -16,13 +16,13 @@
                             <p class="card-text mb-3">Ingredienti: {{$dishes->ingredients}}</p>
                             <p class="card-text mb-3">Prezzo: {{$dishes->price}}</p>
                             <a href="{{route('admin.dish.edit', ['dish' => $dishes->slug])}}"
-                               class="btn btn-primary">Edit</a>
+                               class="btn btn-primary">Modifica</a>
                             <form method="POST" class="d-inline-block"
                                   action="{{route('admin.dish.destroy', ['dish' => $dishes->id])}}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
-                                    Delete
+                                    Elimina
                                 </button>
                             </form>
                         </div>

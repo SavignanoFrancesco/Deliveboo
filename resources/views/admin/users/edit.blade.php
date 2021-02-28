@@ -28,7 +28,7 @@
                     @method('PUT')
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
-                            <label for="validation-tooltip-01">Company Name</label>
+                            <label for="validation-tooltip-01">Nome Azienda</label>
                             <input type="text" class="form-control" id="validation-tooltip-01" name="company_name"
                                    value="{{ old('company_name', $users->company_name) }}" required placeholder="Company Name" maxlength="50"
                                    minlength="1" autocomplete="on">
@@ -45,7 +45,7 @@
 
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validation-tooltip-02">Owner name</label>
+                            <label for="validation-tooltip-02">Nome Proprietario</label>
                             <input type="text" class="form-control" id="validation-tooltip-02" name="owner_name"
                                    value="{{ old('owner_name', $users->owner_name) }}" required placeholder="Owner Name" maxlength="50"
                                    minlength="1" autocomplete="on">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="validation-tooltip-03">Owner lastname</label>
+                            <label for="validation-tooltip-03">Cognome Proprietario</label>
                             <input type="text" class="form-control" id="validation-tooltip-03" name="owner_lastname"
                                    value="{{ old('owner_lastname', $users->owner_lastname) }}" required placeholder="Owner lastname"
                                    maxlength="50" minlength="1" autocomplete="on">
@@ -76,7 +76,7 @@
 
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="validation-tooltip-04">City</label>
+                            <label for="validation-tooltip-04">Città</label>
                             <input type="text" class="form-control" id="validation-tooltip-04" name="city"
                                    value="{{ old('city', $users->city) }}" required placeholder="City" maxlength="50" minlength="1"
                                    autocomplete="on">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validation-tooltip-06">Phone number</label>
+                            <label for="validation-tooltip-06">Telefono</label>
                             <input type="text" class="form-control" id="validation-tooltip-06"
                                    value="{{ old('phone', $users->phone) }}" name="phone" required placeholder="Phone number"
                                    maxlength="30" minlength="1" autocomplete="on">
@@ -120,7 +120,7 @@
 
                     <div class="form-row">
                         <div class="col-md-8 mb-3">
-                            <label for="validation-tooltip-07">Address</label>
+                            <label for="validation-tooltip-07">Indirizzo</label>
                             <input type="text" class="form-control" id="validation-tooltip-07"
                                    value="{{ old('address', $users->address) }}" name="address" required placeholder="Address"
                                    maxlength="50" minlength="1" autocomplete="on">
@@ -134,7 +134,7 @@
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validation-tooltip-08">Date of Birth</label>
+                            <label for="validation-tooltip-08">Data di nascita</label>
                             <input type="date" class="form-control" id="validation-tooltip-08" value="{{ old('dob', $users->dob) }}"
                                    name="dob" required placeholder="Date of Birth" autocomplete="on">
                             <div class="valid-tooltip">
@@ -207,7 +207,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="validation-tooltip-13">Confirm Password</label>
+                            <label for="validation-tooltip-13">Conferma Password</label>
                             <input type="password" class="form-control" id="validation-tooltip-13"
                                    name="password_confirmation" required placeholder="Confirm password" maxlength="64"
                                    minlength="1">

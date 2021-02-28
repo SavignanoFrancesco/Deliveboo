@@ -29,10 +29,10 @@
                     </div>
 
                     <div class="form-group">
-                        <p>Dish cover image</p>
+                        <p>Immagine Piatto</p>
                         <img class="img-fluid" src="{{ asset('images/general/no_cover.png') }}" alt="no cover"
                              width="50px">
-                        <label class="d-block">Upload image</label>
+                        <label class="d-block">Carica immagine</label>
                         <input type="file" class="form-control-file" name="cover">
                     </div>
 

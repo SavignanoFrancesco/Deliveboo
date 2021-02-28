@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-8 mx-auto">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h1>Edit Restaurant: {{ $restaurant->name }} </h1>
+                    <h1>Modifica Ristorante: {{ $restaurant->name }} </h1>
                 </div>
                 <div>
                     @if ($errors->any())
@@ -25,13 +25,13 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label>Restaurant name</label>
+                        <label>Nome Ristorante</label>
                         <input type="text" name="name" class="form-control"
                                placeholder="Restaurant name" value="{{ old('name', $restaurant->name) }}" maxlength="50" minlength="1" required autocomplete="on">
                     </div>
 
                     <div class="form-group">
-                        <p>Store cover image</p>
+                        <p>Immagine Ristorante</p>
                         @if ($restaurant->cover)
                             <img src="{{ asset('storage/' . $restaurant->cover) }}" alt="">
                         @endif
@@ -40,14 +40,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Address</label>
+                        <label>Indirizzo</label>
                         <input type="text" name="address" class="form-control"
                                maxlength="50" minlength="1" autocomplete="on"
                                placeholder="Address" value="{{ old('address', $restaurant->address) }}">
                     </div>
 
                     <div class="form-group">
-                        <label>Phone</label>
+                        <label>Telefono</label>
                         <input type="number" name="phone" class="form-control"
                                maxlength="20" minlength="1" autocomplete="on"
                                placeholder="Phone" value="{{ old('phone', $restaurant->phone) }}">
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="d-block">Restaurant categories</label>
+                        <label class="d-block">Categoria Ristorante</label>
                             @foreach ($catogories as $category)
                                     @if (old('restaurant_category_id') === null)
                                         <input type="checkbox" name="restaurant_category_id[]" value="{{ $category->id }}" {{
@@ -76,7 +76,7 @@
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">
-                            Save restaurant
+                            Salva Ristorante
                         </button>
                     </div>
                 </form>
