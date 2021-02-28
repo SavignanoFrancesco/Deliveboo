@@ -96,7 +96,9 @@
             </div>
           </div>
           </li>
-          <li class="space-for-icon-mobile-cart"></li>
+          <li class="space-for-icon-mobile-cart w-100 d-flex justify-content-center">
+          
+          </li>
         </ul>
 
       </div>
