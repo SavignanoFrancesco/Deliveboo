@@ -11,30 +11,54 @@
                         </div>
                         <div class="col-sm-3">
                             <h3>Links</h3>
-                            <ul>
-                                <li>Home</li>
-                                <li>Ristoranti</li>
-                                <li>Login-in</li>
-                                <li>Sign-up</li>
-                            </ul>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <a href="{{route('home')}}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/#category">Ristoranti</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Contact Us</a>
+                                    </li>
+                                    <li>
+                                        @auth
+                                        <a href="{{route('login')}}">Dashboard</a>
+                                        @else
+                                        <a href="{{route('register')}}">Sign Up</a>
+                                        @endauth
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="col-sm-3">
-                            <h3>About us</h3>
-                            <ul>
-                                <li>Home</li>
-                                <li>Ristoranti</li>
-                                <li>Login-in</li>
-                                <li>Sign-up</li>
-                            </ul>
+                            <h3>Our Github</h3>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <a href="https://github.com/SavignanoFrancesco">Francesco Savignano</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/FrancescoBello">Francesco Bello</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/carmine19">Carmine Pepiciello</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/ghillahill">Alberto Bertollo</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="col-sm-3">
-                            <h3>Social</h3>
-                            <ul>
-                                <li><i class="fab fa-js-square"></i></li>
-                                <li><i class="fab fa-laravel"></i></li>
-                                <li><i class="fab fa-bootstrap"></i></li>
-                                <li><i class="fab fa-github"></i></li>
-                            </ul>
+                            <h3>Tech Stack</h3>
+                            <div class="social d-flex">
+                                <i class="fab fa-js-square"></i>
+                                <i class="fab fa-laravel"></i>
+                                <i class="fab fa-bootstrap"></i>
+                                <i class="fab fa-github"></i>
+                            </div>
                         </div>
                     </div>
                 </footer>

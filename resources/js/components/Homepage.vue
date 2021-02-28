@@ -63,7 +63,7 @@
                         <div class="col-sm-12">
                             <div class="carousel-container">
                                 <h3 class="">Categorie Ristorante</h3>
-                                <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[768, 5], [992, 11]]">
+                                <carousel :touchDrag="true" paginationActiveColor="#FF7F50" paginationColor="#778899" :perPageCustom="[[320, 4], [992, 11]]">
                                     <slide v-for="(category, index) in categories" :key="index">
                                         <a href="" @click.prevent="getCategory(category.name); scroll()">
                                             <div class="slide-round">

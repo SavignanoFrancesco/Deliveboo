@@ -4,5 +4,27 @@
 
     footer {
         padding: 16px 0;
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .social {
+            font-size: 32px;
+
+            i {
+                margin-right: 16px;
+            }
+        }
     }
+
 }
