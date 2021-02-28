@@ -66,7 +66,7 @@
 
         <ul class='cart-list'>
           <li>
-            <h2 class="cart-title">Carrello: <h3>(Total price: {{this.totalPrice.toFixed(2)}}€)</h3></h2>
+            <h2 class="cart-title">Carrello: <h3>Totale: {{this.totalPrice.toFixed(2)}}€</h3></h2>
           </li>
           <li
           v-for='dish in cart'
@@ -110,14 +110,13 @@
 
 <script>
 export default {
-  props: ['dishes', 'flag_restaurant', 'dishes_length'],
+  props: ['dishes', 'flag_restaurant'],
   data: function() {
     return {
       //JSON DEI DISHES
       json_dishes: this.dishes,
 
-      //JSON DELLE DISH_CATEGORIES
-      // json_dish_categories: this.dish_categories,
+      local_storage_good: false,
 
       //array di categorie raccolte dai dishes
       dish_categories_assembled: [],
@@ -135,30 +134,76 @@ export default {
 
   },
   beforeMount() {
+
     //raccolgo categorie piatti ristorante
     this.groupDishCategories();
+
+    this.compareLocalStorage();
+
   },
   mounted() {
-    console.log('storage_dishes.length: ', JSON.parse(localStorage.shopping_cart).length);
-    console.log('dishes_length: ',this.dishes_length);
+    // console.log('storage_dishes.length: ', JSON.parse(localStorage.shopping_cart).length);
+    // console.log('dishes_length: ',this.dishes_length);
     // console.log('DISH_CATEGORIES: ', this.json_dish_categories);
     // console.log('DISH_CATEGORIES_PROP: ', this.dish_categories);
     // console.log('dishes: ',this.dishes);
     // console.log('json_dishes: ',this.json_dishes);
     // controlllo se il componente funziona
     // alert('component working!');
-
-    //controllo se è cambiato il ristorante, se è cambiato ressetto local storage
-    if ((localStorage.check_restaurant == this.check_restaurant) && (JSON.parse(localStorage.shopping_cart).length == this.dishes.length)) {
-      this.takeDataFromLocalStorage();
-    }else{
-      localStorage.clear();
-    }
-
-    this.checkFlagRestaurant();
-
   },
   methods: {
+    compareLocalStorage(){
+
+      // controllo se è salvata la lista di piatti in local storage
+      if (localStorage.shopping_cart) {
+
+        var storage_dishes = JSON.parse(localStorage.shopping_cart);
+        // controllo se il ristoratore ha tolto o aggiunto piatti
+        if (storage_dishes.length == this.dishes.length) {
+          //itero i piatti e controllo se il ristoratore ha fatto delle modifiche
+          var counter = 0;
+          for (var i = 0; i < this.dishes.length; i++) {
+
+            // controllo elemento per elemento
+            for (var key in this.dishes[i]) {
+              if (this.dishes[i].hasOwnProperty(key)) {
+
+                // console.log('dishes: ', key + ' -> ' + this.dishes[i][key]);
+                // console.log(' rispetto a  ');
+                // console.log('storage_dishes: ', key + ' -> ' + storage_dishes[i][key]);
+                // console.log((this.dishes[i][key] == storage_dishes[i][key]));
+
+                //se è cambiato un valore rispetto a quello nel local storage(la quantità scelta dall'utente può cambiare)
+                if (!(this.dishes[i][key] == storage_dishes[i][key]) && (key != 'quantity')) {
+                  counter++;
+                }
+
+              }
+            }
+
+
+          }
+          //counter è la quantità di differenze
+          if (counter == 0) {
+            this.local_storage_good = true;
+          }else {
+            this.local_storage_good = false;
+          }
+          // console.log('se counter è 0 non ha trovato differenze. counter: ',counter);
+
+        }
+      }
+
+      //controllo se è cambiato il ristorante, se è cambiato ressetto local storage
+      if ((localStorage.check_restaurant == this.check_restaurant) && (this.local_storage_good)) {
+        this.takeDataFromLocalStorage();
+      }else{
+        localStorage.clear();
+      }
+
+      this.checkFlagRestaurant();
+
+    },
     groupDishCategories(){
       //raggruppo senza bevande per pusharle in fondo
       for (var i = 0; i < this.json_dishes.length; i++) {

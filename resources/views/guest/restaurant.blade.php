@@ -78,7 +78,7 @@
 
             {{-- VUE COMPONENT --}}
             {{-- {{dd(count($restaurant->dishes))}} --}}
-            <shopping-cart :dishes_length="{{$dishes_length}}" :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_dishes_with_category_names }}"></shopping-cart>
+            <shopping-cart :flag_restaurant="{{ $restaurant->id }}" :dishes="{{ $json_dishes_with_category_names }}"></shopping-cart>
 
         </div>
     </section>
