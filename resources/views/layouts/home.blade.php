@@ -28,7 +28,10 @@
         {{-- contenuto della pagina --}}
         <main>
             @yield('content')
+            @include('layouts.partials.footer')
         </main>
+
+        
 
         {{-- contenuto del carrello --}}
         {{-- <aside>
