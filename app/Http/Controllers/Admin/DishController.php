@@ -24,7 +24,7 @@ class DishController extends Controller
     {
         $user_id = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user_id)->first();
-        $dishes = Dish::where('restaurant_id', Auth::user()->id)->get();
+        $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
         $data = [
             'dishes' => $dishes,
             'restaurant' => $restaurant
