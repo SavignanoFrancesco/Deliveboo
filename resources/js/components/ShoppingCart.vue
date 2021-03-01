@@ -43,7 +43,37 @@
 
             <!-- MODALE PIATTO -->
             <div class="dish-modal" v-if="show_modal">
+              <div class="dish-modal-body">
+                <div class="close-modal">
+                  <i class="fas fa-times" @click="showModal()"></i>
+                </div>
 
+                  <div class="dish-details">
+                    <div class="img-box">
+                      <img :src="'../storage/'+dish.cover" alt="">
+                    </div>
+
+                    <div class="info-box">
+                      <h2 class="dish-header">{{ dish.name }}</h2>
+                      <h3>{{ dish.price }}$</h3>
+                      <h4>{{ dish.ingredients }}</h4>
+                      <h4>{{ dish.description}}</h4>
+                      <div class="cart-adder">
+
+                          <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                            <i class="fas fa-minus" ></i>
+                          </button>
+
+                          <span class="dish-quantity">{{ dish.quantity }}</span>
+
+                          <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                            <i class="fas fa-plus"></i>
+                          </button>
+
+                      </div>
+                    </div>
+                  </div>
+              </div>
             </div>
 
           <!-- END DISH CARD -->
