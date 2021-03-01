@@ -50,23 +50,23 @@
 
                   <div class="dish-details">
                     <div class="img-box">
-                      <img :src="'../storage/'+dishes[modal_index].cover" alt="">
+                      <img :src="'../storage/' + dishes[modal_index].cover" alt="">
                     </div>
 
                     <div class="info-box">
-                      <h2 class="dish-header">{{ dish.name }}</h2>
+                      <h2 class="dish-header">{{ dishes[modal_index].name }}</h2>
                       <h3>{{ dishes[modal_index].price }}$</h3>
                       <h4>{{ dishes[modal_index].ingredients }}</h4>
                       <h4>{{ dishes[modal_index].description}}</h4>
                       <div class="cart-adder">
 
-                          <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
+                          <button type="button" name="button" class="btn btn-primary" @click='updateCart(json_dishes[modal_index], "subtract");piece += 1;'>
                             <i class="fas fa-minus" ></i>
                           </button>
 
                           <span class="dish-quantity">{{ json_dishes[modal_index].quantity }}</span>
 
-                          <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
+                          <button type="button" name="button" class="btn btn-primary" @click='updateCart(json_dishes[modal_index], "add");piece += 1;'>
                             <i class="fas fa-plus"></i>
                           </button>
 
@@ -307,6 +307,8 @@ export default {
 
       //rimuovo i prodotti da lcalstorage per inserirli aggiornati più avanti
       localStorage.removeItem('shopping_cart');
+
+      // alert(this.json_dishes[this.modal_index].quantity);
 
       //scorro il JSON prodotti
       for (var i = 0; i < this.json_dishes.length; i++) {
