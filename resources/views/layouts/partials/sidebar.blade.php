@@ -12,7 +12,7 @@
     </div>
     <ul>
       <li><a href="{{ route('home') }}"><i class="icon fas fa-home"></i><p class="text">Homepage</p></a></li>
-      <li><a href="{{ route('contacts') }}"><i class="icon far fa-envelope"></i><p class="text">Contact Us</p></a></li>
+      <li><a href="{{ route('contacts') }}"><i class="icon far fa-envelope"></i><p class="text">Contattaci</p></a></li>
 
       @if (Route::has('login'))
         @auth
@@ -27,7 +27,7 @@
        @else
         <li><a href="{{ route('login') }}"><i class="icon fas fa-sign-in-alt"></i><p class="text">LogIn</p></a></li>
         @if (Route::has('register'))
-          <li><a href="{{ route('register') }}"><i class="icon fas fa-user-plus"></i><p class="text">Register</p></a></li>
+          <li><a href="{{ route('register') }}"><i class="icon fas fa-user-plus"></i><p class="text">Registrati</p></a></li>
 
         @endif
         @endauth

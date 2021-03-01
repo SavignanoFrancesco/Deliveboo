@@ -95,19 +95,19 @@ nav{
     }
   }
 }
-.transition{
-  transition: width 0.5s ease;
-}
+
 .show{
   width: 256px;
 }
 .show-p{
   display: block;
-
+}
+.left{
+  left: 0;
 }
 @media only screen and (max-width: 700px){
   nav{
-    display: none;
+    left: -96px;
     .hamburger-button{
       display: none;
     }
