@@ -5,13 +5,13 @@
     <!-- <h2>{{dish_category}}</h2> -->
     <div class="dish-categories">
       <!-- DISHES CARDS -->
-      <div class="dish-categories-container" v-for='dish_category in dish_categories_assembled'>
+      <div class="dish-categories-container" v-for='dish_category in dish_categories_assembled' v-if="">
 
         <h2 class="dish-category-title">{{dish_category}}</h2>
 
         <div class="dish-cards-container">
           <!-- da aggiungere v-if visibility -->
-          <div class="dish-card" v-for='(dish, index) in dishes' v-if="dish.dish_category_name == dish_category">
+          <div class="dish-card" v-for='(dish, index) in dishes' v-if="dish.dish_category_name == dish_category && dish.visibility">
 
             <div class="card-body">
 
@@ -250,15 +250,14 @@ export default {
       //raggruppo senza bevande per pusharle in fondo
       for (var i = 0; i < this.json_dishes.length; i++) {
         if ( (!this.dish_categories_assembled.includes(this.json_dishes[i].dish_category_name)
-        &&  (this.json_dishes[i].dish_category_name != 'bevande')
-       )) {
+        &&  (this.json_dishes[i].dish_category_name != 'bevande') ) && this.json_dishes[i].visibility) {
           this.dish_categories_assembled.push(this.json_dishes[i].dish_category_name);
 
         }
       }
       //pusho le bibite in fondo all'array
       for (var i = 0; i < this.json_dishes.length; i++) {
-        if (!this.dish_categories_assembled.includes(this.json_dishes[i].dish_category_name)) {
+        if (!this.dish_categories_assembled.includes(this.json_dishes[i].dish_category_name) && this.json_dishes[i].visibility) {
           this.dish_categories_assembled.push(this.json_dishes[i].dish_category_name);
           // string.charAt(0).toUpperCase() + string.slice(1)
         }

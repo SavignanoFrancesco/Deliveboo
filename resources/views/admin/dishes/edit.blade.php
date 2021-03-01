@@ -71,6 +71,21 @@
                         </select>
                     </div>
 
+
+                      <div class="form-group">
+                        <label>visibilità</label>
+                        <select class="form-control" name="visibility">
+                            <option
+                                value="1" {{ $dishes->visibility == true ? 'selected=selected' : '' }}>
+                                visibile
+                            </option>
+                            <option
+                                value="0" {{ $dishes->visibility == false ? 'selected=selected' : '' }} >
+                                non visibile
+                            </option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label>Prezzo</label>
                         <input type="text" name="price" class="form-control"

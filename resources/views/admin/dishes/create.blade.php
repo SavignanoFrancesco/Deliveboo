@@ -66,6 +66,24 @@
                         </select>
                     </div>
 
+                    <div class="form-group">
+                        <label>visibilità</label>
+                        <select class="form-control" name="visibility">
+                            <option
+                                value="1" >
+                                visibile
+                            </option>
+
+                            <option
+                                value="0" >
+                                non visibile
+                            </option>
+
+                        </select>
+                    </div>
+
+
+
 
                     <div class="form-group mb-5 mt-5">
                         <label>Prezzo</label>
