@@ -11,7 +11,7 @@
 
         <div class="dish-cards-container">
           <!-- da aggiungere v-if visibility -->
-          <div class="dish-card" v-for='(dish, index) in dishes' v-if="dish.dish_category_name == dish_category && dish.visibility">
+          <div class="dish-card" v-for='(dish, index) in json_dishes' v-if="dish.dish_category_name == dish_category && dish.visibility">
 
             <div class="card-body">
 
