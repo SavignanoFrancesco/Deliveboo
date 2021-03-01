@@ -11,7 +11,7 @@
 
         <div class="dish-cards-container">
           <!-- da aggiungere v-if visibility -->
-          <div class="dish-card" v-for='dish in json_dishes' v-if="dish.dish_category_name == dish_category">
+          <div class="dish-card" v-for='(dish, index) in dishes' v-if="dish.dish_category_name == dish_category">
 
             <div class="card-body">
 
@@ -23,7 +23,7 @@
                   <h2 class="dish-header">{{ dish.name }}</h2>
                   <h3>{{ dish.price }}$</h3>
                   <h4>{{ dish.ingredients }}</h4>
-                  <a class="btn btn-link" @click="showModal()">Info</a>
+                  <a class="btn btn-link" @click="showModal(index)">Info</a>
                   <div class="cart-adder">
 
                       <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
@@ -45,26 +45,26 @@
             <div class="dish-modal" v-if="show_modal">
               <div class="dish-modal-body">
                 <div class="close-modal">
-                  <i class="fas fa-times" @click="showModal()"></i>
+                  <i class="fas fa-times" @click="showModal(dish_index)"></i>
                 </div>
 
                   <div class="dish-details">
                     <div class="img-box">
-                      <img :src="'../storage/'+dish.cover" alt="">
+                      <img :src="'../storage/'+dishes[modal_index].cover" alt="">
                     </div>
 
                     <div class="info-box">
                       <h2 class="dish-header">{{ dish.name }}</h2>
-                      <h3>{{ dish.price }}$</h3>
-                      <h4>{{ dish.ingredients }}</h4>
-                      <h4>{{ dish.description}}</h4>
+                      <h3>{{ dishes[modal_index].price }}$</h3>
+                      <h4>{{ dishes[modal_index].ingredients }}</h4>
+                      <h4>{{ dishes[modal_index].description}}</h4>
                       <div class="cart-adder">
 
                           <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
                             <i class="fas fa-minus" ></i>
                           </button>
 
-                          <span class="dish-quantity">{{ dish.quantity }}</span>
+                          <span class="dish-quantity">{{ dishes[modal_index].quantity }}</span>
 
                           <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
                             <i class="fas fa-plus"></i>
@@ -111,11 +111,11 @@
           </button>
           <div class="cart-card">
             <div class="cart-card-img">
-              <img :src="'../storage/'+dish.cover" alt="">
+              <img :src="'../storage/'+ dish.cover" alt="">
             </div>
             <div class="cart-card-info">
               <h2>{{ dish.name }}:</h2>
-              <h3>{{dish.price}}€</h3>
+              <h3>{{ dish.price }}€</h3>
               <div class="dish-quantity">
 
                 <div class="btn-group">
@@ -162,6 +162,9 @@ export default {
 
       //flag per toggle del carrello
       show_modal: false,
+
+      //flag per toggle del carrello
+      modal_index: 0,
 
       //flag per verificare se il ristorante è cambiato e cancellare storage
       check_restaurant: this.flag_restaurant,
@@ -292,7 +295,9 @@ export default {
       localStorage.show_modal = JSON.stringify(this.show_modal);
     },
     //toggle per la visibility del modale piatto
-    showModal(){
+    showModal(index){
+      this.modal_index = index;
+      // alert(this.modal_index);
       this.show_modal = !this.show_modal;
       localStorage.show_modal = JSON.stringify(this.show_modal);
       this.show_cart = false;
