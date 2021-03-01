@@ -5,7 +5,7 @@
     <!-- <h2>{{dish_category}}</h2> -->
     <div class="dish-categories">
       <!-- DISHES CARDS -->
-      <div class="dish-categories-container" v-for='dish_category in dish_categories_assembled'>
+      <div class="dish-categories-container" v-for='dish_category in dish_categories_assembled' v-if="groupDishCategories()">
 
         <h2 class="dish-category-title">{{dish_category}}</h2>
 
