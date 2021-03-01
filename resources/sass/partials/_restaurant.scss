@@ -41,7 +41,7 @@
       width: 100%;
       // border: 2px solid black;
       .container{
-        // max-width: 960px;
+
         .restaurant-details-container{
           // background: linear-gradient(to bottom, #3490dc, lightblue,darken(white,2));
           width:100%;
@@ -66,7 +66,7 @@
                 }
               }
             }
-            
+
           }
           .restaurant-cover{
             width: 40%;
@@ -840,13 +840,16 @@
     }
 
     .restaurant{
-      .container{
-
+      .container, .container-sm{
+        max-width: 100% !important;
+        padding: 0;
+        margin: 0;
         .restaurant-details-container{
           flex-direction: column-reverse;
           align-items: center;
           text-align: center;
           .restaurant-details{
+            width: 100vw;
             text-align: center;
             h1{
               text-align: center;
@@ -871,7 +874,7 @@
         }
         //COMPONENT TEMPLATE CONTAINER
         .component-container{
-          // width: 100vw;
+          width: 100vw;
           // margin: 0;
           // CARDS_CONTAINER
           .dish-cards-container{
