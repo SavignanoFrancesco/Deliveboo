@@ -19,12 +19,11 @@
                   <img :src="'../storage/'+dish.cover" alt="">
                 </div>
 
-
                 <div class="info-box">
                   <h2 class="dish-header">{{ dish.name }}</h2>
                   <h3>{{ dish.price }}$</h3>
                   <h4>{{ dish.ingredients }}</h4>
-                  <a class="btn btn-link" @click="showCart()">Info</a>
+                  <a class="btn btn-link" @click="showModal()">Info</a>
                   <div class="cart-adder">
 
                       <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
@@ -43,10 +42,11 @@
             </div>
 
             <!-- MODALE PIATTO -->
-            <div class="dish-modal">
+            <div class="dish-modal" v-if="show_modal">
 
             </div>
 
+          <!-- END DISH CARD -->
           </div>
         </div>
 
@@ -121,6 +121,7 @@ export default {
       //JSON DEI DISHES
       json_dishes: this.dishes,
 
+      //flag per vedere se prendere i dati da local storage o no
       local_storage_good: false,
 
       //array di categorie raccolte dai dishes
@@ -247,17 +248,25 @@ export default {
         this.show_cart = JSON.parse(localStorage.show_cart);
       }
 
+      //se esiste show_cart in local storage
+      if (localStorage.show_modal && !(this.show_cart)) {
+        this.show_modal = JSON.parse(localStorage.show_modal);
+      }
+
     },
     //toggle per la visibility del carrello
     showCart(){
       this.show_cart = !this.show_cart;
       localStorage.show_cart = JSON.stringify(this.show_cart);
+      this.show_modal = false;
+      localStorage.show_modal = JSON.stringify(this.show_modal);
     },
     //toggle per la visibility del modale piatto
-    showCart(){
+    showModal(){
       this.show_modal = !this.show_modal;
-      alert(this.show_modal);
       localStorage.show_modal = JSON.stringify(this.show_modal);
+      this.show_cart = false;
+      localStorage.show_cart = JSON.stringify(this.show_cart);
     },
     //funzione per aggiungere o togliere quantity di un prodotto da aquistare
     updateCart(dish, updateType){
