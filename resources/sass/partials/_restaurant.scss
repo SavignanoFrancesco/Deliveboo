@@ -103,6 +103,7 @@
               flex-wrap: wrap;
               // margin: 0 auto;
               justify-content: flex-start;
+              min-height: 220px;
 
               .dish-card{
                 display: flex;
@@ -121,8 +122,8 @@
 
                   .img-box{
                     img{
-                      width: 116px;
-                      height: 116px;
+                      width: 140px;
+                      height: 140px;
                       object-fit: cover;
                       object-position: center;
                     }
@@ -133,19 +134,10 @@
                     justify-content: space-around;
                     align-items: flex-start;
                     width: calc(100% - 124px);
-                    padding: 5px;
-                    // h2{
-                    //   font-size: $font_size_sm * 1.5;
-                    //   opacity: 0.8;
-                    // }
-                    // h3{
-                    //   font-size: $font_size_sm * 1.2;
-                    //   opacity: 0.7;
-                    // }
-                    // h4{
-                    //   font-size: $font_size_sm * 1.1;
-                    //   opacity: 0.5;
-                    // }
+                    padding: 10px;
+                    .btn-link{
+                      padding: 0;
+                    }
                     .cart-adder{
                       display:flex;
                       align-items: center;
@@ -178,7 +170,56 @@
                     }
                   }
                 }
+                .dish-modal{
+                  position: fixed;
+                  width: 100vw;
+                  height: 100vh;
+                  top: 0;
+                  left: 0;
+                  background: rgba(0,0,0,0.3);
 
+                  .dish-modal-body{
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                    top: 50%;
+                    left: 50%;
+                    height: 60vh;
+                    width: 30vw;
+                    background-color: white;
+                    z-index: 50;
+                    .close-modal{
+                      position: absolute;
+                      top: -5px;;
+                      right: 0;
+                      margin: 5px;
+                      padding: 0;
+                      display: inline-block;
+                      font-size: $font_size_sm * 1.5;
+                      color: rgba(0,0,0,0.3);
+                      i{
+                        cursor: pointer;
+                      }
+                    }
+                    .dish-details{
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: space-around;
+                      height: 100%;
+                      width: 100%;
+                      .img-box{
+                        img{
+                          width: 140px;
+                          height: 140px;
+                          object-fit: cover;
+                          object-position: center;
+                        }
+                      }
+                    }
+
+                  }
+                }
+              // END DISH CARD
               }
 
 
