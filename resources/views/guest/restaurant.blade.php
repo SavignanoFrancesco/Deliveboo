@@ -57,9 +57,14 @@
   {{-- {{dd($restaurant->dishes)}} --}}
   {{-- {{dd($restaurant->categories->toArray())}} --}}
   <div id="cart_comp">
+    <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
 
     <section class="restaurant">
+
         <div class="container">
+
             <div class="row">
 
               <div class="restaurant-details-container">

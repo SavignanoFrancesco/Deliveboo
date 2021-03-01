@@ -77,9 +77,11 @@ $(document).ready(function(){
           $(".text").css("display", "block");
         });
         $(".hamburger").click(function () {
+          ('nav').animate({width: '256px'});
+          //$('nav').toggleClass('transition');
           $(".text").css("display", "block");
           $('nav').toggleClass('show-p')
-                    .toggleClass('show');
+                //  .toggleClass('show');
         });
           //$('.text').css('display', 'block');
           //$('.icon').css('display', 'block');

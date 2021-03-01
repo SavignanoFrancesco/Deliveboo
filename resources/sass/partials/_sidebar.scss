@@ -51,7 +51,7 @@ nav{
         left: 0;
         width: 100%;
         list-style-type: none;
-        margin-top: 100px;
+        margin-top: 150px;
         li{
           width: 100%;
           display: flex;
@@ -63,25 +63,29 @@ nav{
             width: 100%;
             display: flex;
             align-items: center;
-            color: $blue;
+            //color:#00ccbc;
+            color: #007E8A;
             text-align: center;
             i{
               position: relative;
               text-align: center;
               min-width: 88px;
               height: 88px;
-              line-height: 88px;
+              //line-height: 88px;
               font-size: $font_size_l;
-              color: $blue;
+              //color:#00ccbc;
+              color: #007E8A;
               display: block;
             }
             p{
+              width: 100%;
               position: relative;
               height: 88px;
-              line-height: 88px;
+              margin-left: 10px;
+              //line-height: 88px;
               text-align: start;
-              white-space: nowrap;
-              color: $blue;
+              //white-space: nowrap;
+              color: #007E8A;
               font-size: $font_size_md;
               display: none;
             }
@@ -91,14 +95,17 @@ nav{
     }
   }
 }
+.transition{
+  transition: width 0.5s ease;
+}
 .show{
-  width: 248px;
+  width: 256px;
 }
 .show-p{
   display: block;
 
 }
-@media only screen and (max-width: 720px){
+@media only screen and (max-width: 700px){
   nav{
     display: none;
     .hamburger-button{

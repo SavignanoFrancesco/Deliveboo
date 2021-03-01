@@ -3,9 +3,9 @@
 
 
 <div class="sidebar-top">
-  <div class="close-sidebar">
+  {{--<div class="close-sidebar">
     <i class="fas fa-times"></i>
-  </div>
+  </div>--}}
   <div class="sidebar-link">
     <div class="hamburger-button">
       <i class="fas fa-bars"></i>
