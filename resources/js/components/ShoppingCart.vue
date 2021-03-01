@@ -64,7 +64,7 @@
                             <i class="fas fa-minus" ></i>
                           </button>
 
-                          <span class="dish-quantity">{{ dishes[modal_index].quantity }}</span>
+                          <span class="dish-quantity">{{ json_dishes[modal_index].quantity }}</span>
 
                           <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "add");piece += 1;'>
                             <i class="fas fa-plus"></i>
