@@ -12,7 +12,7 @@
         <div class="dish-cards-container">
           <!-- da aggiungere v-if visibility -->
           <div class="dish-card" v-for='dish in json_dishes' v-if="dish.dish_category_name == dish_category">
-            <!-- <p>{{dish.dish_category_name}}</p> -->
+
             <div class="card-body">
 
                 <div class="img-box">
@@ -24,7 +24,7 @@
                   <h2 class="dish-header">{{ dish.name }}</h2>
                   <h3>{{ dish.price }}$</h3>
                   <h4>{{ dish.ingredients }}</h4>
-                  <!-- <p class="dish-description">{{ dish.description }}</p> -->
+                  <a class="btn btn-link" @click="showCart()">Info</a>
                   <div class="cart-adder">
 
                       <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
@@ -39,6 +39,11 @@
 
                   </div>
                 </div>
+
+            </div>
+
+            <!-- MODALE PIATTO -->
+            <div class="dish-modal">
 
             </div>
 
@@ -123,6 +128,9 @@ export default {
 
       //flag per toggle del carrello
       show_cart: false,
+
+      //flag per toggle del carrello
+      show_modal: false,
 
       //flag per verificare se il ristorante è cambiato e cancellare storage
       check_restaurant: this.flag_restaurant,
@@ -244,6 +252,12 @@ export default {
     showCart(){
       this.show_cart = !this.show_cart;
       localStorage.show_cart = JSON.stringify(this.show_cart);
+    },
+    //toggle per la visibility del modale piatto
+    showCart(){
+      this.show_modal = !this.show_modal;
+      alert(this.show_modal);
+      localStorage.show_modal = JSON.stringify(this.show_modal);
     },
     //funzione per aggiungere o togliere quantity di un prodotto da aquistare
     updateCart(dish, updateType){
