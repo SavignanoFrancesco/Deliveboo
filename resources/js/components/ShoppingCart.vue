@@ -186,7 +186,7 @@
                </div>
            </div>
            <button class="" @click.prevent="checkCreditCard">Check</button>
-           <button v-if="credit_card" class="" type='submit' value="Submit">Submit</button>
+           <button v-if="credit_card" class="" type='submit' value="Submit" @click.prevent="alrt">Submit</button>
         </form>
         </div>
 
@@ -272,6 +272,10 @@ export default {
     // alert('component working!');
   },
   methods: {
+    alrt(){
+    alert('ok');
+    window.location.href = 'http://localhost:8000/';
+    },
     paymentSubmit(e) {
       e.preventDefault();
                 let currentObj = this;
@@ -313,7 +317,7 @@ export default {
      this.proceed = !this.proceed;
      braintree.client.create({
             //inserire tokenization del proprio account
-            authorization: "sandbox_csqf8p58_jscy3g85t9nv768x"
+            authorization: "sandbox_x69h4b4m_zyvj6svb8sp5858q"
         })
         .then(clientInstance => {
             let options = {
