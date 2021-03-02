@@ -21,7 +21,7 @@
 </head>
 <body>
 <div>
-    <div class="navbar navbar-expand-md shadow-sm" style="" id="app2">
+    <div class="navbar navbar-expand-md" style="" id="app2">
         <div class="container"><h2>
                  <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Deliveboo') }}
