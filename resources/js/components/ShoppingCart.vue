@@ -140,13 +140,13 @@
             </div>
             <p id="success"></p>
             <form @submit.prevent="paymentSubmit">
-             <div class="form-group">
+             <!-- <div class="form-group">
                  <label for="amount">Amount</label>
                  <div class="input-group">
                      <div class="input-group-prepend"><span class="input-group-text">$</span></div>
                      <input type="number" id="amount" class="form-control" placeholder="Enter Amount">
                  </div>
-             </div>
+             </div> -->
               <hr />
              <div class="form-group">
                  <label>Credit Card Number</label>
