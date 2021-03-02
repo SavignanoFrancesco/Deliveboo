@@ -16,8 +16,8 @@
 
     <div id="dasboard-panel-bottom">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 mb-2">
                     <div class="main-box">
                         <div class="box-contain">
                             <div class="box-img mb-2">
@@ -38,8 +38,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="main-box">
+                <div class="col-lg-3 mb-2">
+                    <div class="main-box {{ (request()->is('admin/user*')) ? 'active-2' : '' }}">
                         <div class="box-contain">
                             <div class="box-img mb-2">
                                 <i class="fas fa-user fa-2x"></i>
@@ -53,8 +53,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="main-box">
+                <div class="col-lg-3 mb-2">
+                    <div class="main-box {{ (request()->is('admin/restaurant*')) ? 'active-2' : '' }}">
                         <div class="box-contain">
                             <div class="box-img mb-2">
                                 <i class="fas fa-utensils fa-2x"></i>
@@ -74,8 +74,8 @@
                 </div>
                 {{-- {{dd($restaurant)}} --}}
                 @if ($restaurant)
-                  <div class="col-lg-3">
-                      <div class="main-box">
+                  <div class="col-lg-3 mb-2">
+                      <div class="main-box {{ (request()->is('admin/dish*')) ? 'active-2' : '' }}">
                           <div class="box-contain">
                               <div class="box-img mb-2">
                                   <i class="fas fa-pizza-slice fa-2x"></i>
