@@ -17,22 +17,41 @@ class PaymentController extends Controller
 
       $nonceFromTheClient = $request->nonce;
       $total_price = $request->totalprice;
-      // dd($request->totalprice);
+      $guest_firstName = $request->firstName;
+      $guest_lastName = $request->lastName;
+      $guest_phone = $request->phone;
+      $guest_email = $request->email;
+      $guest_address = $request->streetAddress;
+      $guest_postalCode = $request->postCode;
+      
 
       $result = $gateway->transaction()->sale([
-        'firstName' => 'Alberto',
-        'lastName' => 'Bertollo',
-        'email' => 'mike.jones@example.com',
-        'phone' => '281.330.8004',
         'amount' => $total_price,
         'paymentMethodNonce' => $nonceFromTheClient,
+        'customer' => [
+            'firstName' => $guest_firstName,
+            'lastName' => $guest_lastName,
+            'phone' => $guest_phone,
+            'email' => $guest_email
+          ],
+          'billing' => [
+            'firstName' => $guest_firstName,
+            'lastName' => $guest_lastName,
+            'streetAddress' => $guest_address,
+            'locality' => 'BoolNation',
+            'postalCode' => $guest_postalCode
+          ],
+          'shipping' => [
+            'firstName' => $guest_firstName,
+            'lastName' => $guest_lastName,
+            'streetAddress' => $guest_address,
+            'locality' => 'BoolNation',
+            'postalCode' => $guest_postalCode
+          ],
         'options' => [
-          'submitForSettlement' => True,
-          'storeInVaultOnSuccess' => True,
-          'storeInVault' => True
+          'submitForSettlement' => True
         ]
       ]);
-
 
       return response()->json([$request->all()]);
     }
