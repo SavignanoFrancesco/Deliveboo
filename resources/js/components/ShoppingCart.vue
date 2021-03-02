@@ -189,7 +189,7 @@
                </div>
            </div>
            <button class="btn btn-success" @click.prevent="checkCreditCard">Verifica</button>
-           <button v-if="credit_card" class="btn btn-success" type='submit' value="Submit" @click.prevent="alrt()">Submit</button>
+           <button v-if="credit_card" class="btn btn-success" type='submit' value="Submit">Submit</button>
            <div class="alert alert-success my-2" v-if="nonce">
             Successfully generated nonce.
           </div>
@@ -281,10 +281,10 @@ export default {
     // alert('component working!');
   },
   methods: {
-    alrt(){
-      alert('ok');
-      window.location.href = 'http://localhost:8000/';
-    },
+    // alrt(){
+    //   alert('ok');
+    //   window.location.href = 'http://localhost:8000/';
+    // },
     paymentSubmit(e) {
       e.preventDefault();
                 let currentObj = this;
@@ -300,6 +300,9 @@ export default {
                 })
                 .then(function (response) {
                     currentObj.output = response.data;
+                    //sweetalert
+                    alert('ok');
+                    window.location.href = 'http://localhost:8000/';
                 })
                 .catch(function (error) {
                     currentObj.output = error;
