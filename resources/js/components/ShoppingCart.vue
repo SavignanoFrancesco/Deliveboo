@@ -21,7 +21,7 @@
 
                 <div class="info-box">
                   <h2 class="dish-header">{{ dish.name }}</h2>
-                  <h3>{{ dish.price }}$</h3>
+                  <h3>{{ dish.price }}€</h3>
                   <h4>{{ dish.ingredients }}</h4>
                   <a class="btn btn-link" @click="showModal(index);show_cart = false;proceed = false">Info</a>
                   <div class="cart-adder">
