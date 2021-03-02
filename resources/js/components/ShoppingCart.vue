@@ -229,7 +229,7 @@ export default {
   mounted() {
     braintree.client.create({
            //inserire tokenization del proprio account
-           authorization: "sandbox_csqf8p58_jscy3g85t9nv768x"
+           authorization: "sandbox_zj6wdtxb_k54tfzv4g5h3mtyk"
        })
        .then(clientInstance => {
            let options = {
