@@ -239,6 +239,7 @@
             transition: all 1s ease;
             width: 88px;
             min-height: 100vh;
+            padding: 0 32px;
             background-color: darken(white, 3);
             position: fixed;
             right:0;
@@ -308,9 +309,9 @@
               }
               button.btn{
                 padding:6px;
-                border-radius: 50%;
-                width: 20px;
-                height: 20px;
+                //border-radius: 50%;
+                //width: 20px;
+                //height: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -401,7 +402,7 @@
             // border-bottom-left-radius: 4%;
             .cart-icon{
               align-self:flex-start;
-              margin-left: 5px;
+              //margin-left: 5px;
             }
           }
         }
