@@ -12,7 +12,7 @@
       color: $font_primary_color;
       text-transform: capitalize;
     }
-    h2, .dish-category-title{
+    h2 {
       font-size: $font_size_sm * 1.5;
       opacity: 0.8;
     }
@@ -37,6 +37,10 @@
       cursor: pointer;
     }
 
+    .dish-category-title {
+        font-size: 24px;
+    }
+
     .restaurant{
       width: 100%;
       // border: 2px solid black;
@@ -49,10 +53,11 @@
           align-items: center;
           justify-content: space-between;
           .restaurant-details{
-            width:60%;
+            width:55%;
             padding: 24px;
+            line-height: 1.6;
             h1{
-              font-size: $font_size_xl;
+              font-size: 38px;
               opacity: 0.9;
             }
             ul{
@@ -69,13 +74,13 @@
 
           }
           .restaurant-cover{
-            width: 40%;
+            width: 45%;
             // border-bottom: 3px solid $bg_primary_color;
             padding: 24px;
             img{
               box-shadow: 0px 0px 17px -1px rgba(0,0,0,0.51);
               border-radius: 2px;
-              height: 300px;
+              //height: 300px;
               width: 100%;
               object-fit: cover;
             }
@@ -261,10 +266,10 @@
               // border-radius: 50%;
               z-index: 20;
               i{
-                color: #3490dc;
+                color: #007e8a;
                 font-size: 40px;
                 &:hover{
-                  color: darken(#3490dc, 8);
+                  color: darken(#007e8a, 8);
                 }
               }
               .quantity{
@@ -748,7 +753,7 @@
             // z-index: 0;
             img{
               // height: 200px;
-              width: 60%;
+              width: 80%;
               // opacity: 0.6;
             }
           }
@@ -908,9 +913,10 @@
           }
           .restaurant-cover{
             width: 100%;
-            img{
-
-            }
+            margin-top: 88px;
+            //img{
+                
+            //}
           }
         }
         //COMPONENT TEMPLATE CONTAINER
@@ -985,7 +991,7 @@
             .cart-icon{
               position: fixed;
               bottom: 10px;
-              right: 32px;
+              right: 56px;
               width: 100%;
               // border: 1px solid black;
 
