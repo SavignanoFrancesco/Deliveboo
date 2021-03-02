@@ -21,7 +21,7 @@
 
                 <div class="info-box">
                   <h2 class="dish-header">{{ dish.name }}</h2>
-                  <h3>{{ dish.price }}$</h3>
+                  <h3>{{ dish.price }}€</h3>
                   <h4>{{ dish.ingredients }}</h4>
                   <a class="btn btn-link" @click="showModal(index);show_cart = false;proceed = false">Info</a>
                   <div class="cart-adder">
@@ -103,7 +103,7 @@
           <li>
             <h2 class="cart-title">Carrello: <h3>Totale: {{this.totalPrice.toFixed(2)}}€</h3></h2>
           </li>
-          <li
+          <li class="mb-3"
           v-for='dish in cart'
           >
           <button type="button" name="button" @click="removeProductFromCart(dish.id)" class="btn btn-danger">
@@ -132,33 +132,33 @@
           </div>
           </li>
           <li class="space-for-icon-mobile-cart w-100 d-flex justify-content-center">
-            <button class="btn" @click="proceedMethod()" v-if="!proceed">Procedi al pagamento</button>
+            <button class="btn btn-success" @click="proceedMethod()" v-if="!proceed">Procedi al pagamento</button>
           </li>
         </ul>
 
-        <div class="credit-card-dropin" v-show="proceed">
-          <button class="btn" @click="proceed = !proceed" v-if="proceed">Torna indietro</button>
+        <div class="credit-card-dropin p-4" v-show="proceed">
+          <button class="btn btn-primary mb-3" @click="proceed = !proceed" v-if="proceed">Torna indietro</button>
           <h2 class="cart-title">Carrello: <h3>Totale: {{this.totalPrice.toFixed(2)}}€</h3></h2>
-          <div class="customer-info d-flex flex-column align-items-center">
-            <h3>Nome</h3>
+          <div class="customer-info d-flex flex-column align-items-baseline">
+            <h3 class="mt-2 mb-1">Nome</h3>
             <input type="text" v-model="customer_fname">
-            <h3>Cognome</h3>
+            <h3 class="mt-2 mb-1">Cognome</h3>
             <input type="text" v-model="customer_lname">
-            <h3>Telefono</h3>
+            <h3 class="mt-2 mb-1">Telefono</h3>
             <input type="number" v-model="customer_phone">
-            <h3>E-mail</h3>
+            <h3 class="mt-2 mb-1">E-mail</h3>
             <input type="email" v-model="customer_email">
-            <h3>Indirizzo</h3>
+            <h3 class="mt-2 mb-1">Indirizzo</h3>
             <input type="text" v-model="customer_address">
-            <h3>CAP</h3>
+            <h3 class="mt-2 mb-1">CAP</h3>
             <input type="number" v-model="customer_postal_code">
           </div>
-          <div class="alert alert-success" v-if="nonce">
+         <!-- <div class="alert alert-success my-2" v-if="nonce">
             Successfully generated nonce.
           </div>
-          <div class="alert alert-danger" v-if="error">
+          <div class="alert alert-danger my-2" v-if="error">
             {{ error }}
-          </div>
+          </div>-->
           <p id="success"></p>
           <form @submit.prevent="paymentSubmit">
            <!-- <div class="form-group">
@@ -170,23 +170,32 @@
            </div> -->
             <hr />
            <div class="form-group">
-               <label>Credit Card Number</label>
+              <!-- <label>Credit Card Number</label>-->
+                <h3>Numero Carta di Credito</h3>
                <div id="creditCardNumber" class="form-control"></div>
            </div>
            <div class="form-group">
                <div class="row">
                    <div class="col-6">
-                       <label>Expire Date</label>
+                        <!-- <label>Expire Date</label>-->
+                       <h3>Data Scadenza</h3>
                        <div id="expireDate" class="form-control"></div>
                    </div>
                    <div class="col-6">
-                       <label>CVV</label>
+                      <!--  <label>CVV</label>-->
+                       <h3>CVV</h3>
                        <div id="cvv" class="form-control"></div>
                    </div>
                </div>
            </div>
-           <button class="" @click.prevent="checkCreditCard">Check</button>
-           <button v-if="credit_card" class="" type='submit' value="Submit">Submit</button>
+           <button class="btn btn-success" @click.prevent="checkCreditCard">Verifica</button>
+           <button v-if="credit_card" class="btn btn-success" type='submit' value="Submit">Submit</button>
+           <div class="alert alert-success my-2" v-if="nonce">
+            Successfully generated nonce.
+          </div>
+          <div class="alert alert-danger my-2" v-if="error">
+            {{ error }}
+          </div>
         </form>
         </div>
 
