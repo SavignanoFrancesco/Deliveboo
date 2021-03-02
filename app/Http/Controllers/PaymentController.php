@@ -16,16 +16,17 @@ class PaymentController extends Controller
       ]);
 
       $nonceFromTheClient = $request->nonce;
+      $total_price = $request->totalprice;
+      // dd($request->totalprice);
 
       $result = $gateway->transaction()->sale([
-        'amount' => '10.00',
+        'amount' => $total_price,
         'paymentMethodNonce' => $nonceFromTheClient,
         'options' => [
           'submitForSettlement' => True
         ]
       ]);
 
-      dd($result);
 
       return response()->json([$request->all()]);
     }

@@ -228,6 +228,7 @@ export default {
   },
   mounted() {
     braintree.client.create({
+           //inserire tokenization del proprio account
            authorization: "sandbox_csqf8p58_jscy3g85t9nv768x"
        })
        .then(clientInstance => {
@@ -281,6 +282,7 @@ export default {
                 let currentObj = this;
                 axios.post('/payment', {
                     nonce: this.nonce,
+                    totalprice: this.totalPrice,
                 })
                 .then(function (response) {
                     currentObj.output = response.data;
