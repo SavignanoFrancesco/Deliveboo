@@ -144,11 +144,13 @@
             <h3>Cognome</h3>
             <input type="text" v-model="customer_lname">
             <h3>Telefono</h3>
-            <input type="text" v-model="customer_phone">
+            <input type="number" v-model="customer_phone">
             <h3>E-mail</h3>
-            <input type="text" v-model="customer_email">
+            <input type="email" v-model="customer_email">
             <h3>Indirizzo</h3>
             <input type="text" v-model="customer_address">
+            <h3>CAP</h3>
+            <input type="number" v-model="customer_postal_code">
           </div>
           <div class="alert alert-success" v-if="nonce">
             Successfully generated nonce.
@@ -214,6 +216,7 @@ export default {
       customer_email: '',
       customer_address: '',
       customer_phone: '',
+      customer_postal_code: '',
       // <input type="text" v-model="customer_fname">
       // <input type="text" v-model="customer_lname">
       // <input type="text" v-model="customer_email">
@@ -318,6 +321,7 @@ export default {
                     lastName: this.customer_lname,
                     email: this.customer_email,
                     streetAddress: this.customer_address,
+                    postalCode: this.customer_postal_code,
                     phone: this.customer_phone,
                 })
                 .then(function (response) {

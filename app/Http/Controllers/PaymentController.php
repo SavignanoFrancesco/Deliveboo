@@ -22,7 +22,7 @@ class PaymentController extends Controller
       $guest_phone = $request->phone;
       $guest_email = $request->email;
       $guest_address = $request->streetAddress;
-      $guest_postalCode = $request->postCode;
+      $guest_postalCode = $request->postalCode;
       
 
       $result = $gateway->transaction()->sale([
@@ -38,15 +38,15 @@ class PaymentController extends Controller
             'firstName' => $guest_firstName,
             'lastName' => $guest_lastName,
             'streetAddress' => $guest_address,
-            'locality' => 'BoolNation',
-            'postalCode' => $guest_postalCode
+            'postalCode' => $guest_postalCode,
+            'locality' => 'BoolNation'
           ],
           'shipping' => [
             'firstName' => $guest_firstName,
             'lastName' => $guest_lastName,
             'streetAddress' => $guest_address,
-            'locality' => 'BoolNation',
-            'postalCode' => $guest_postalCode
+            'postalCode' => $guest_postalCode,
+            'locality' => 'BoolNation'
           ],
         'options' => [
           'submitForSettlement' => True
