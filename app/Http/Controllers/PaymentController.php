@@ -17,7 +17,7 @@ class PaymentController extends Controller
 
       $nonceFromTheClient = $request->nonce;
       $total_price = $request->totalprice;
-      // dd($request->totalprice);
+      // dd($request->all());
 
       $result = $gateway->transaction()->sale([
         'amount' => $total_price,

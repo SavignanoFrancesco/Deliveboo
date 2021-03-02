@@ -87,7 +87,7 @@
 
     <!-- SIDEBAR CART -->
     <div :class="show_cart ? 'side-bar-cart-active' : 'side-bar-cart'">
-      <div class="cart-icon" @click='showCart()'>
+      <div class="cart-icon" @click='showCart()' v-show="!proceed">
 
         <i :class="piece % 2 == 0 ? 'minimized' : '' " class="fas fa-shopping-cart minimizable"></i>
 
@@ -99,7 +99,7 @@
 
       <div class="cart" v-if='show_cart'>
 
-        <ul class='cart-list'>
+        <ul class='cart-list' v-if="!proceed">
           <li>
             <h2 class="cart-title">Carrello: <h3>Totale: {{this.totalPrice.toFixed(2)}}€</h3></h2>
           </li>
@@ -132,43 +132,60 @@
           </div>
           </li>
           <li class="space-for-icon-mobile-cart w-100 d-flex justify-content-center">
-            <div class="alert alert-success" v-if="nonce">
-              Successfully generated nonce.
-            </div>
-            <div class="alert alert-danger" v-if="error">
-              {{ error }}
-            </div>
-            <p id="success"></p>
-            <form @submit.prevent="paymentSubmit">
-             <div class="form-group">
-                 <label for="amount">Amount</label>
-                 <div class="input-group">
-                     <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                     <input type="number" id="amount" class="form-control" placeholder="Enter Amount">
-                 </div>
-             </div>
-              <hr />
-             <div class="form-group">
-                 <label>Credit Card Number</label>
-                 <div id="creditCardNumber" class="form-control"></div>
-             </div>
-             <div class="form-group">
-                 <div class="row">
-                     <div class="col-6">
-                         <label>Expire Date</label>
-                         <div id="expireDate" class="form-control"></div>
-                     </div>
-                     <div class="col-6">
-                         <label>CVV</label>
-                         <div id="cvv" class="form-control"></div>
-                     </div>
-                 </div>
-             </div>
-             <button class="" @click.prevent="checkCreditCard">Check</button>
-             <button v-if="credit_card" class="" type='submit' value="Submit">Submit</button>
-          </form>
+            <button class="btn" @click="proceed = !proceed" v-if="!proceed">Procedi</button>
           </li>
         </ul>
+
+        <div class="credit-card-dropin" v-show="proceed && show_cart">
+          <h2 class="cart-title">Carrello: <h3>Totale: {{this.totalPrice.toFixed(2)}}€</h3></h2>
+          <div class="customer-info d-flex flex-column align-items-center">
+            <h3>Nome</h3>
+            <input type="text" v-model="customer_fname">
+            <h3>Cognome</h3>
+            <input type="text" v-model="customer_lname">
+            <h3>Telefono</h3>
+            <input type="text" v-model="customer_phone">
+            <h3>E-mail</h3>
+            <input type="text" v-model="customer_email">
+            <h3>Indirizzo</h3>
+            <input type="text" v-model="customer_address">
+          </div>
+          <div class="alert alert-success" v-if="nonce">
+            Successfully generated nonce.
+          </div>
+          <div class="alert alert-danger" v-if="error">
+            {{ error }}
+          </div>
+          <p id="success"></p>
+          <form @submit.prevent="paymentSubmit">
+           <!-- <div class="form-group">
+               <label for="amount">Amount</label>
+               <div class="input-group">
+                   <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                   <input type="number" id="amount" class="form-control" placeholder="Enter Amount">
+               </div>
+           </div> -->
+            <hr />
+           <div class="form-group">
+               <label>Credit Card Number</label>
+               <div id="creditCardNumber" class="form-control"></div>
+           </div>
+           <div class="form-group">
+               <div class="row">
+                   <div class="col-6">
+                       <label>Expire Date</label>
+                       <div id="expireDate" class="form-control"></div>
+                   </div>
+                   <div class="col-6">
+                       <label>CVV</label>
+                       <div id="cvv" class="form-control"></div>
+                   </div>
+               </div>
+           </div>
+           <button class="" @click.prevent="checkCreditCard">Check</button>
+           <button v-if="credit_card" class="" type='submit' value="Submit">Submit</button>
+        </form>
+        </div>
 
       </div>
 
@@ -190,6 +207,20 @@ export default {
       nonce: "",
       error: "",
       credit_card: false,
+
+      //customer
+      customer_fname: '',
+      customer_lname: '',
+      customer_email: '',
+      customer_address: '',
+      customer_phone: '',
+      // <input type="text" v-model="customer_fname">
+      // <input type="text" v-model="customer_lname">
+      // <input type="text" v-model="customer_email">
+      // <input type="text" v-model="customer_address">
+
+      //show payment form
+      proceed: false,
 
       //JSON DEI DISHES
       json_dishes: this.dishes,
@@ -283,6 +314,11 @@ export default {
                 axios.post('/payment', {
                     nonce: this.nonce,
                     totalprice: this.totalPrice,
+                    firstName: this.customer_fname,
+                    lastName: this.customer_lname,
+                    email: this.customer_email,
+                    streetAddress: this.customer_address,
+                    phone: this.customer_phone,
                 })
                 .then(function (response) {
                     currentObj.output = response.data;
