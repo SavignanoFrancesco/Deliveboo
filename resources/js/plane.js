@@ -72,16 +72,18 @@ $(document).ready(function(){
     });
     // Funzione per la visibilità della sidebar
         // Francesco Bello
+
         $('.hamburger-button').click(function () {
           $('nav').toggleClass('show');
-          $(".text").css("display", "block");
-        });
-        $(".hamburger").click(function () {
-          $('nav').toggleClass('left')
-          $(".text").css("display", "block");
-          $('nav').toggleClass('show-p')
-                  .toggleClass('show');
+          $(".text").css("display", "block");;
         });
 
-          
+        $(".hamburger").click(function () {
+          $('nav').toggleClass('show');
+          $(".text").css("display", "block");
+          //$("p").toggleClass("show-p");
+                  //.toggleClass('show-p')
+                  //.toggleClass('left');
+        });
+
 });
