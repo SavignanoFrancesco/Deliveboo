@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 mb-2">
-                    <div class="main-box {{ (request()->is('admin/user*')) ? 'active' : '' }}">
+                    <div class="main-box {{ (request()->is('admin/user*')) ? 'active-2' : '' }}">
                         <div class="box-contain">
                             <div class="box-img mb-2">
                                 <i class="fas fa-user fa-2x"></i>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 mb-2">
-                    <div class="main-box {{ (request()->is('admin/restaurant*')) ? 'active' : '' }}">
+                    <div class="main-box {{ (request()->is('admin/restaurant*')) ? 'active-2' : '' }}">
                         <div class="box-contain">
                             <div class="box-img mb-2">
                                 <i class="fas fa-utensils fa-2x"></i>
@@ -75,7 +75,7 @@
                 {{-- {{dd($restaurant)}} --}}
                 @if ($restaurant)
                   <div class="col-lg-3 mb-2">
-                      <div class="main-box {{ (request()->is('admin/dish*')) ? 'active' : '' }}">
+                      <div class="main-box {{ (request()->is('admin/dish*')) ? 'active-2' : '' }}">
                           <div class="box-contain">
                               <div class="box-img mb-2">
                                   <i class="fas fa-pizza-slice fa-2x"></i>
