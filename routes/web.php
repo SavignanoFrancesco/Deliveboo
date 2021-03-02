@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//bt-test
+Route::post('/payment', 'PaymentController@nonce');
 
 // public routes
 Route::get('/search', 'SearchController@search')->name('search');

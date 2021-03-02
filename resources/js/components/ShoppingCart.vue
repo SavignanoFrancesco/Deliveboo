@@ -132,7 +132,41 @@
           </div>
           </li>
           <li class="space-for-icon-mobile-cart w-100 d-flex justify-content-center">
-
+            <div class="alert alert-success" v-if="nonce">
+              Successfully generated nonce.
+            </div>
+            <div class="alert alert-danger" v-if="error">
+              {{ error }}
+            </div>
+            <p id="success"></p>
+            <form @submit.prevent="paymentSubmit">
+             <div class="form-group">
+                 <label for="amount">Amount</label>
+                 <div class="input-group">
+                     <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                     <input type="number" id="amount" class="form-control" placeholder="Enter Amount">
+                 </div>
+             </div>
+              <hr />
+             <div class="form-group">
+                 <label>Credit Card Number</label>
+                 <div id="creditCardNumber" class="form-control"></div>
+             </div>
+             <div class="form-group">
+                 <div class="row">
+                     <div class="col-6">
+                         <label>Expire Date</label>
+                         <div id="expireDate" class="form-control"></div>
+                     </div>
+                     <div class="col-6">
+                         <label>CVV</label>
+                         <div id="cvv" class="form-control"></div>
+                     </div>
+                 </div>
+             </div>
+             <button class="" @click.prevent="checkCreditCard">Check</button>
+             <button v-if="credit_card" class="" type='submit' value="Submit">Submit</button>
+          </form>
           </li>
         </ul>
 
@@ -141,13 +175,22 @@
     </div>
 
   </div>
+
 </template>
 
 <script>
+import braintree from 'braintree-web';
 export default {
   props: ['dishes', 'flag_restaurant'],
   data: function() {
     return {
+
+      //braintree section
+      hostedFieldInstance: false,
+      nonce: "",
+      error: "",
+      credit_card: false,
+
       //JSON DEI DISHES
       json_dishes: this.dishes,
 
@@ -184,6 +227,45 @@ export default {
 
   },
   mounted() {
+    braintree.client.create({
+           authorization: "sandbox_csqf8p58_jscy3g85t9nv768x"
+       })
+       .then(clientInstance => {
+           let options = {
+               client: clientInstance,
+               styles: {
+                   input: {
+                       'font-size': '14px',
+                       'font-family': 'Open Sans'
+                   }
+               },
+               fields: {
+                   number: {
+                       selector: '#creditCardNumber',
+                       placeholder: 'Enter Credit Card'
+                   },
+                   cvv: {
+                       selector: '#cvv',
+                       placeholder: 'Enter CVV'
+                   },
+                   expirationDate: {
+                       selector: '#expireDate',
+                       placeholder: '00 / 0000'
+                   }
+               }
+           }
+           return braintree.hostedFields.create(options)
+       })
+       .then(hostedFieldInstance => {
+           // @TODO - Use hostedFieldInstance to send data to Braintree
+           // Use hostedFieldInstance to send data to Braintree
+           this.hostedFieldInstance = hostedFieldInstance;
+
+       })
+       .catch(err => {
+       });
+
+
     // console.log('storage_dishes.length: ', JSON.parse(localStorage.shopping_cart).length);
     // console.log('dishes_length: ',this.dishes_length);
     // console.log('DISH_CATEGORIES: ', this.json_dish_categories);
@@ -194,6 +276,37 @@ export default {
     // alert('component working!');
   },
   methods: {
+    paymentSubmit(e) {
+      e.preventDefault();
+                let currentObj = this;
+                axios.post('/payment', {
+                    nonce: this.nonce,
+                })
+                .then(function (response) {
+                    currentObj.output = response.data;
+                })
+                .catch(function (error) {
+                    currentObj.output = error;
+                });
+    },
+    checkCreditCard() {
+      this.error = "";
+      this.nonce = "";
+
+       if(this.hostedFieldInstance)
+       {
+           this.hostedFieldInstance.tokenize().then(payload => {
+               console.log(payload);
+               this.nonce = payload.nonce;
+               this.credit_card = true;
+           })
+           .catch(err => {
+               console.error(err);
+               this.error = err.message;
+           })
+       }
+   },
+
     compareLocalStorage(){
 
       // controllo se è salvata la lista di piatti in local storage

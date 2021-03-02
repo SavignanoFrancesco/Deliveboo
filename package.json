@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.2",
+        "braintree-web": "^3.73.1",
         "run": "^1.4.0",
         "vue-carousel": "^0.18.0",
         "vue-scrollto": "^2.20.0",
