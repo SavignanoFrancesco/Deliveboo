@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h1 class="mb-2 text-center">Statistiche ristorante: {{Auth::user()->restaurants->name}}</h1>
+                <h1 class="mb-2 text-center">Statistiche ristorante: <strong class="text-capitalize">{{Auth::user()->restaurants->name}}</strong> </h1>
                 <canvas id="doughnut-chart" width="100%"></canvas>
             </div>
         </div>
