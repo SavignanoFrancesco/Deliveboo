@@ -10,9 +10,9 @@ class PaymentController extends Controller
 
       $gateway = new \Braintree\Gateway([
         'environment' => 'sandbox',
-        'merchantId' => 'jscy3g85t9nv768x',
-        'publicKey' => '8jkw58cs4p8y3vdz',
-        'privateKey' => '8a3e1ad0407ed3a5aeca4aa6569a4293'
+        'merchantId' => 'k54tfzv4g5h3mtyk',
+        'publicKey' => 't2frnskb9x6thgtt',
+        'privateKey' => '6f84fa26468f1afbc83f502fe8ed1f00'
       ]);
 
       $nonceFromTheClient = $request->nonce;
@@ -20,10 +20,16 @@ class PaymentController extends Controller
       // dd($request->totalprice);
 
       $result = $gateway->transaction()->sale([
+        'firstName' => 'Alberto',
+        'lastName' => 'Bertollo',
+        'email' => 'mike.jones@example.com',
+        'phone' => '281.330.8004',
         'amount' => $total_price,
         'paymentMethodNonce' => $nonceFromTheClient,
         'options' => [
-          'submitForSettlement' => True
+          'submitForSettlement' => True,
+          'storeInVaultOnSuccess' => True,
+          'storeInVault' => True
         ]
       ]);
 
