@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {{-- @include('layouts.partials.dashnav') --}}
+    @include('layouts.partials.dashnaUser')
 
     <div class="container" id="register-dash-user">
         <div class="row justify-content-center">
