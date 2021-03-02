@@ -1,60 +1,43 @@
-@extends('layouts.app')
-
-@section('content')
 
 
-    <section id="user-stats">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="box-title">
-                        <h1>Statistiche</h1>
-                    </div>
-                    <div class="panel-body">
-                        <canvas id="canvas" height="280" width="600"></canvas>
-                    </div>
 
-                </div>
+
+<section id="stats">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h1 class="mb-2 text-center">Statistiche ristorante: <strong class="text-capitalize">{{Auth::user()->restaurants->name}}</strong> </h1>
+                <canvas id="doughnut-chart" width="100%"></canvas>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script>
-        var year = {{$year}};
-        var user = {{$user}};
-
-        var barChartData = {
-            labels: year,
-            datasets: [{
-                label: 'Prezzo',
-                backgroundColor: "red",
-                data: user
-            }]
-        };
-
-        window.onload = function () {
-            var ctx = document.getElementById("canvas").getContext("2d");
-            window.myBar = new Chart(ctx, {
-                type: 'bar',
-                data: barChartData,
-                options: {
-                    elements: {
-                        rectangle: {
-                            borderWidth: 2,
-                            borderColor: '#c1c1c1',
-                            borderSkipped: 'bottom'
-                        }
-                    },
-                    responsive: true,
-                    title: {
-                        display: true,
-                        text: 'Prezzo complessivo prodotti'
+        new Chart(document.getElementById("doughnut-chart"), {
+            type: 'doughnut',
+            data: {
+                labels: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+                datasets: [
+                    {
+                        label: "Ordni Mensili",
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#ff0000",
+                        "#ffa500", "#ffff00", "#add8e6", "#008000", "#800080", "#00008b" ],
+                        data: [30, 50, 80, 100, 130, 170, 200, 250, 270, 300, 320, 400]
                     }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Ordini mensili anno 2021'
                 }
-            });
-        };
+            }
+        });
+
     </script>
-@endsection
+
 
 

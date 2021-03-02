@@ -18,9 +18,10 @@ class UserController extends Controller
     public function index()
     {
         $users = Auth::user();
-
+        $restaurant = Restaurant::all();
         $data = [
-            'users' => $users
+            'users' => $users,
+            'restaurant' => $restaurant
         ];
 
         return view('admin.users.index', $data);
@@ -72,9 +73,11 @@ class UserController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
+        $restaurant = Restaurant::find($id);
         $data = [
-            'users' => $users
-        ];
+            'users' => $users,
+            'restaurant' => $restaurant
+         ];
 
         return view('admin.users.edit', $data);
     }

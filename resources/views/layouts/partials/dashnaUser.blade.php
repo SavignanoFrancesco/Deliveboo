@@ -24,13 +24,7 @@
                                 <i class="fas fa-home fa-2x"></i>
                             </div>
                             <div class="box-title">
-                              {{-- WORKAROUND HREF --}}
-                              @if ($restaurant)
-                                {{-- {{dd($restaurant)}} --}}
-                                <h3><a href="{{ route('restaurant',['slug' => $restaurant->slug]) }}">Vai al tuo ristorante</a></h3>
-                              @else
-                                <h3><a href="{{route('home')}}">Visita il sito</a></h3>
-                              @endif
+                                <h3><a href="{{route('admin.home')}}">Home</a></h3>
                             </div>
                             <div class="box-content">
                                 <p>Descrizione</p>
