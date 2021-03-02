@@ -25,12 +25,9 @@ class ChartJsController extends Controller
     public function index()
     {
 
-        $year = ['2020'];
 
-        $user = DB::table('dishes')->count();
 
-        return view('admin.stats.index')->with('year',json_encode($year,JSON_NUMERIC_CHECK))
-            ->with('user',json_encode($user,JSON_NUMERIC_CHECK));
+        return view('admin.stats.index');
     }
 
     /**

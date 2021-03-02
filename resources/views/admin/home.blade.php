@@ -26,5 +26,7 @@
 
     -->
 
+    @include('admin.stats.index')
+
 
 @endsection
