@@ -55,7 +55,7 @@
 
                     <div class="info-box">
                       <h2 class="dish-header">{{ dishes[modal_index].name }}</h2>
-                      <h3>{{ dishes[modal_index].price }}$</h3>
+                      <h3>{{ dishes[modal_index].price }}€</h3>
                       <h4>{{ dishes[modal_index].ingredients }}</h4>
                       <h4>{{ dishes[modal_index].description}}</h4>
                       <div class="cart-adder">
