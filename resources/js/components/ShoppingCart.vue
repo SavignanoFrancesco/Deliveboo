@@ -186,7 +186,7 @@
                </div>
            </div>
            <button class="" @click.prevent="checkCreditCard">Check</button>
-           <button v-if="credit_card" class="" type='submit' value="Submit" @click.prevent="alrt">Submit</button>
+           <button v-if="credit_card" class="" type='submit' value="Submit" >Submit</button>
         </form>
         </div>
 
