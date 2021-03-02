@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="box-create mb-5">
-                            <div class="text-center mr-3 border-r pr-3">
+                            <div class="text-center">
                                 <a href="{{route('admin.dish.create')}}" class="btn btn-primary">Crea piatto</a>
                             </div>
                         </div>
@@ -29,10 +29,10 @@
 
         <section id="card-dash-user">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     @foreach($dishes as $dish)
                         <div class="col-lg-4">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card mb-3">
                             <img src="{{asset('storage/' . $dish->cover)}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h3 class="card-title text-capitalize">{{$dish->name}}</h3>

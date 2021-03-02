@@ -21,23 +21,23 @@
     {{-- @endif --}}
     <section id="dash-restaurant-cards-container" class="p-5">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 {{-- @foreach($restaurants as $restaurant) --}}
                     <div class="col-lg-4">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <img src="{{asset('storage/' . $restaurant->cover)}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h3 class="card-title text-capitalize">{{$restaurant->name}}</h3>
                                 <p class="card-text mb-3">{{$restaurant->description}}</p>
                                 <a href="{{ route('admin.restaurant.edit', ['restaurant' => $restaurant->slug]) }}"
-                                   class="btn btn-primary">Modifica</a>
+                                   class="btn btn-primary mb-2">Modifica</a>
                                 <a href="{{ route('admin.restaurant.show', ['restaurant' => $restaurant->slug]) }}"
-                                   class="btn btn-warning">Mostra</a>
+                                   class="btn btn-warning mb-2">Mostra</a>
                                 <form method="POST" class="d-inline-block"
                                       action="{{ route('admin.restaurant.destroy', ['restaurant' => $restaurant->slug]) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger mb-2">
                                         Elimina
                                     </button>
                                 </form>

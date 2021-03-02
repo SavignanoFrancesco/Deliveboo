@@ -8,7 +8,7 @@
 
     <div class="container" id="register-dash-user">
         <div class="row justify-content-center">
-            <div class="col-8 mx-auto">
+            <div class="col-lg-8 mx-auto">
                 <div class="d-flex justify-content-between align-items-center">
                     <h1>Modifica piatto: {{ $dishes->name }}</h1>
                 </div>

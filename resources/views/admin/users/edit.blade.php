@@ -6,7 +6,7 @@
 
     <div class="container mt-5" id="register-dash-user">
         <div class="row justify-content-center">
-            <div class="col-8 mx-auto">
+            <div class="col-lg-8 mx-auto">
                 <div class="d-flex justify-content-between align-items-center">
                     <h1>Modifica utente: {{ $users->owner_name }}</h1>
                 </div>

@@ -7,10 +7,10 @@
 
     <section id="user-card mt-5">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-lg-4 mt-5">
                     <div class="card-container">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             @if($users->cover)
                                 <img class="card-img-top" src="..." alt="Card image cap">
                             @else
