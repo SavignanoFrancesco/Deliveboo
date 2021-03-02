@@ -10,9 +10,9 @@ class PaymentController extends Controller
 
       $gateway = new \Braintree\Gateway([
         'environment' => 'sandbox',
-        'merchantId' => 'k54tfzv4g5h3mtyk',
-        'publicKey' => 't2frnskb9x6thgtt',
-        'privateKey' => '6f84fa26468f1afbc83f502fe8ed1f00'
+        'merchantId' => 'jscy3g85t9nv768x',
+        'publicKey' => '8jkw58cs4p8y3vdz',
+        'privateKey' => '8a3e1ad0407ed3a5aeca4aa6569a4293'
       ]);
 
       $nonceFromTheClient = $request->nonce;
@@ -23,7 +23,7 @@ class PaymentController extends Controller
       $guest_email = $request->email;
       $guest_address = $request->streetAddress;
       $guest_postalCode = $request->postalCode;
-      
+
 
       $result = $gateway->transaction()->sale([
         'amount' => $total_price,
