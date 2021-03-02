@@ -19,7 +19,7 @@
         new Chart(document.getElementById("doughnut-chart"), {
             type: 'doughnut',
             data: {
-                labels: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+                labels: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
                 datasets: [
                     {
                         label: "Ordni Mensili",
