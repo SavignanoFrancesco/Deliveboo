@@ -19,12 +19,13 @@
                   <img :src="'../storage/'+dish.cover" alt="">
                 </div>
 
-                <div class="info-box">
-                  <h2 class="dish-header">{{ dish.name }}</h2>
-                  <h3>{{ dish.price }}€</h3>
-                  <h4>{{ dish.ingredients }}</h4>
-                  <a class="btn btn-link" @click="showModal(index);show_cart = false;proceed = false">Info</a>
-                  <div class="cart-adder">
+                            <div class="info-box">
+                                <h2 class="dish-header">{{ dish.name }}</h2>
+                                <h3>{{ dish.price }}€</h3>
+                                <h4>{{ dish.ingredients }}</h4>
+                                <a class="btn btn-link"
+                                   @click="showModal(index);show_cart = false;proceed = false">Info</a>
+                                <div class="cart-adder">
 
                       <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
                         <i class="fas fa-minus" ></i>
@@ -99,24 +100,23 @@
 
       <div class="cart" v-if='show_cart'>
 
-        <ul class='cart-list' v-if="!proceed">
-          <li>
-            <h2 class="cart-title">Carrello: <h3>Totale: {{this.totalPrice.toFixed(2)}}€</h3></h2>
-          </li>
-          <li class="mb-3"
-          v-for='dish in cart'
-          >
-          <button type="button" name="button" @click="removeProductFromCart(dish.id)" class="btn btn-danger">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-          <div class="cart-card">
-            <div class="cart-card-img">
-              <img :src="'../storage/'+ dish.cover" alt="">
-            </div>
-            <div class="cart-card-info">
-              <h2>{{ dish.name }}:</h2>
-              <h3>{{ dish.price }}€</h3>
-              <div class="dish-quantity">
+                <ul class='cart-list' v-if="!proceed">
+                    <li>
+                        <h2 class="cart-title">Carrello: <h3>Totale: {{ this.totalPrice.toFixed(2) }}€</h3></h2>
+                    </li>
+                    <li class="mb-3" v-for='dish in cart'>
+                        <button type="button" name="button" @click="removeProductFromCart(dish.id)"
+                                class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <div class="cart-card">
+                            <div class="cart-card-img">
+                                <img :src="'../storage/'+ dish.cover" alt="">
+                            </div>
+                            <div class="cart-card-info">
+                                <h2>{{ dish.name }}:</h2>
+                                <h3>{{ dish.price }}€</h3>
+                                <div class="dish-quantity">
 
                 <div class="btn-group">
                   <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
