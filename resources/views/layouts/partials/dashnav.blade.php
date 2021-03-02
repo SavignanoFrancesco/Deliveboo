@@ -6,7 +6,6 @@
                         <div class="title">
                             <h1>Ciao {{Auth::user()->company_name}}</h1>
                             <p>questa è la tua dashborad, qui puoi trovare i tuoi contenuti</p>
-                            <a href="{{route('admin.home')}}" class="btn btn-light mt-5">Home</a>
                         </div>
                     </div>
                 </div>
