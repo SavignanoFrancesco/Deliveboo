@@ -16,7 +16,9 @@ main {
     padding: 20px;
 }
 
-
+.active {
+    border: 2px solid red !important;
+}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
