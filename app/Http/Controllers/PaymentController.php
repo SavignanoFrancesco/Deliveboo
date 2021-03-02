@@ -10,23 +10,48 @@ class PaymentController extends Controller
 
       $gateway = new \Braintree\Gateway([
         'environment' => 'sandbox',
-        'merchantId' => 'jscy3g85t9nv768x',
-        'publicKey' => '8jkw58cs4p8y3vdz',
-        'privateKey' => '8a3e1ad0407ed3a5aeca4aa6569a4293'
+        'merchantId' => 'k54tfzv4g5h3mtyk',
+        'publicKey' => 't2frnskb9x6thgtt',
+        'privateKey' => '6f84fa26468f1afbc83f502fe8ed1f00'
       ]);
 
       $nonceFromTheClient = $request->nonce;
       $total_price = $request->totalprice;
-      // dd($request->all());
+      $guest_firstName = $request->firstName;
+      $guest_lastName = $request->lastName;
+      $guest_phone = $request->phone;
+      $guest_email = $request->email;
+      $guest_address = $request->streetAddress;
+      $guest_postalCode = $request->postCode;
+      
 
       $result = $gateway->transaction()->sale([
         'amount' => $total_price,
         'paymentMethodNonce' => $nonceFromTheClient,
+        'customer' => [
+            'firstName' => $guest_firstName,
+            'lastName' => $guest_lastName,
+            'phone' => $guest_phone,
+            'email' => $guest_email
+          ],
+          'billing' => [
+            'firstName' => $guest_firstName,
+            'lastName' => $guest_lastName,
+            'streetAddress' => $guest_address,
+            'locality' => 'BoolNation',
+            'postalCode' => $guest_postalCode
+          ],
+          'shipping' => [
+            'firstName' => $guest_firstName,
+            'lastName' => $guest_lastName,
+            'streetAddress' => $guest_address,
+            'locality' => 'BoolNation',
+            'postalCode' => $guest_postalCode
+          ],
         'options' => [
           'submitForSettlement' => True
         ]
       ]);
-
 
       return response()->json([$request->all()]);
     }
