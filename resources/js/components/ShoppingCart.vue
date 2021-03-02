@@ -136,7 +136,7 @@
           </li>
         </ul>
 
-        <div class="credit-card-dropin" v-show="proceed">
+        <div class="credit-card-dropin p-4" v-show="proceed">
           <button class="btn btn-primary mb-3" @click="proceed = !proceed" v-if="proceed">Torna indietro</button>
           <h2 class="cart-title">Carrello: <h3>Totale: {{this.totalPrice.toFixed(2)}}€</h3></h2>
           <div class="customer-info d-flex flex-column align-items-baseline">
