@@ -7,7 +7,7 @@
       <!-- DISHES CARDS -->
       <div class="dish-categories-container" v-for='dish_category in dish_categories_assembled' v-if="">
 
-        <h2 class="dish-category-title">{{dish_category}}</h2>
+        <h3 class="dish-category-title">{{dish_category}}</h3>
 
         <div class="dish-cards-container">
           <!-- da aggiungere v-if visibility -->
@@ -23,7 +23,7 @@
                   <h2 class="dish-header">{{ dish.name }}</h2>
                   <h3>{{ dish.price }}$</h3>
                   <h4>{{ dish.ingredients }}</h4>
-                  <a class="btn btn-link" @click="showModal(index)">Info</a>
+                  <a class="btn btn-link" @click="showModal(index);show_cart = false;proceed = false">Info</a>
                   <div class="cart-adder">
 
                       <button type="button" name="button" class="btn btn-primary" @click='updateCart(dish, "subtract");piece += 1;'>
@@ -132,11 +132,12 @@
           </div>
           </li>
           <li class="space-for-icon-mobile-cart w-100 d-flex justify-content-center">
-            <button class="btn" @click="proceed = !proceed" v-if="!proceed">Procedi</button>
+            <button class="btn" @click="proceedMethod()" v-if="!proceed">Procedi al pagamento</button>
           </li>
         </ul>
 
-        <div class="credit-card-dropin" v-show="proceed && show_cart">
+        <div class="credit-card-dropin" v-show="proceed">
+          <button class="btn" @click="proceed = !proceed" v-if="proceed">Torna indietro</button>
           <h2 class="cart-title">Carrello: <h3>Totale: {{this.totalPrice.toFixed(2)}}€</h3></h2>
           <div class="customer-info d-flex flex-column align-items-center">
             <h3>Nome</h3>
@@ -261,46 +262,6 @@ export default {
 
   },
   mounted() {
-    braintree.client.create({
-           //inserire tokenization del proprio account
-           authorization: "sandbox_zj6wdtxb_k54tfzv4g5h3mtyk"
-       })
-       .then(clientInstance => {
-           let options = {
-               client: clientInstance,
-               styles: {
-                   input: {
-                       'font-size': '14px',
-                       'font-family': 'Open Sans'
-                   }
-               },
-               fields: {
-                   number: {
-                       selector: '#creditCardNumber',
-                       placeholder: 'Enter Credit Card'
-                   },
-                   cvv: {
-                       selector: '#cvv',
-                       placeholder: 'Enter CVV'
-                   },
-                   expirationDate: {
-                       selector: '#expireDate',
-                       placeholder: '00 / 0000'
-                   }
-               }
-           }
-           return braintree.hostedFields.create(options)
-       })
-       .then(hostedFieldInstance => {
-           // @TODO - Use hostedFieldInstance to send data to Braintree
-           // Use hostedFieldInstance to send data to Braintree
-           this.hostedFieldInstance = hostedFieldInstance;
-
-       })
-       .catch(err => {
-       });
-
-
     // console.log('storage_dishes.length: ', JSON.parse(localStorage.shopping_cart).length);
     // console.log('dishes_length: ',this.dishes_length);
     // console.log('DISH_CATEGORIES: ', this.json_dish_categories);
@@ -348,7 +309,47 @@ export default {
            })
        }
    },
+   proceedMethod(){
+     this.proceed = !this.proceed;
+     braintree.client.create({
+            //inserire tokenization del proprio account
+            authorization: "sandbox_csqf8p58_jscy3g85t9nv768x"
+        })
+        .then(clientInstance => {
+            let options = {
+                client: clientInstance,
+                styles: {
+                    input: {
+                        'font-size': '14px',
+                        'font-family': 'Open Sans'
+                    }
+                },
+                fields: {
+                    number: {
+                        selector: '#creditCardNumber',
+                        placeholder: 'Enter Credit Card'
+                    },
+                    cvv: {
+                        selector: '#cvv',
+                        placeholder: 'Enter CVV'
+                    },
+                    expirationDate: {
+                        selector: '#expireDate',
+                        placeholder: '00 / 0000'
+                    }
+                }
+            }
+            return braintree.hostedFields.create(options)
+        })
+        .then(hostedFieldInstance => {
+            // @TODO - Use hostedFieldInstance to send data to Braintree
+            // Use hostedFieldInstance to send data to Braintree
+            this.hostedFieldInstance = hostedFieldInstance;
 
+        })
+        .catch(err => {
+        });
+   },
     compareLocalStorage(){
 
       // controllo se è salvata la lista di piatti in local storage
@@ -436,9 +437,9 @@ export default {
       }
 
       //se esiste show_cart in local storage
-      if (localStorage.show_modal && !(this.show_cart)) {
-        this.show_modal = JSON.parse(localStorage.show_modal);
-      }
+      // if (localStorage.show_modal && !(this.show_cart)) {
+      //   this.show_modal = JSON.parse(localStorage.show_modal);
+      // }
 
     },
     //toggle per la visibility del carrello
