@@ -7,7 +7,7 @@
       <!-- DISHES CARDS -->
       <div class="dish-categories-container" v-for='dish_category in dish_categories_assembled' v-if="">
 
-        <h2 class="dish-category-title">{{dish_category}}</h2>
+        <h3 class="dish-category-title">{{dish_category}}</h3>
 
         <div class="dish-cards-container">
           <!-- da aggiungere v-if visibility -->
