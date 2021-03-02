@@ -30,6 +30,11 @@
             .btn-outline-primary {
                 color: #007e8a;
                 border-color: #007e8a;
+
+                &:hover{
+                    color: #fff;
+                    background-color: #007e8a;
+                }
             }
 
             .title {
