@@ -2,13 +2,13 @@
 
 @section('content')
 
-     {{-- @include('layouts.partials.dashnaUser') --}}
+     @include('layouts.partials.dashnaUser')
 
 
     <section id="user-card mt-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-5">
+                <div class="col-lg-4 mt-5">
                     <div class="card-container">
                         <div class="card" style="width: 18rem;">
                             @if($users->cover)

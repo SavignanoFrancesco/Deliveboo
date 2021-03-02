@@ -2,12 +2,12 @@
 
 @section('content')
 
-    {{-- @include('layouts.partials.dashnav') --}}
+    @include('layouts.partials.dashnaUser')
 
     <section id="user-data">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
+                <div class="col-lg-8 mx-auto mt-5">
                     <div class="box-title text-center">
                         <h1>Azienda:{{$users->company_name}}</h1>
                     </div>

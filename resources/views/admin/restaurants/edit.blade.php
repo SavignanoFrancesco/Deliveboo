@@ -55,7 +55,7 @@
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" name="email" class="form-control"
+                        <input type="email" name="email" class="form-control"
                                placeholder="Email" value="{{ old('email', $restaurant->email) }}" minlength="1">
                     </div>
 
