@@ -13,8 +13,24 @@ class RestaurantCategoryTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $categories = array_values(config('restaurant_categories.categories'));
-        $categories_values = array_keys(config('restaurant_categories.categories'));
+
+      $categories_array = [ //categorie definite a livello globale dal gestore del sito
+
+          'tutte' => 'images/restaurant_categories/all.png',
+          'italiano' => 'images/restaurant_categories/italian.png',
+          'giapponese' => 'images/restaurant_categories/japanese.png',
+          'cinese' => 'images/restaurant_categories/chinese.png',
+          'fastfood' => 'images/restaurant_categories/fastfood.png',
+          'americano' => 'images/restaurant_categories/american.png',
+          'pizza' => 'images/restaurant_categories/pizza.png',
+          'sushi' => 'images/restaurant_categories/sushi.png',
+          'vegano' => 'images/restaurant_categories/vegan.png',
+          'pesce' => 'images/restaurant_categories/seafood.png',
+
+      ];
+
+        $categories = array_values($categories_array);
+        $categories_values = array_keys($categories_array);
 
         for ($i = 0; $i < count($categories); $i++) {
             $new_rest = new RestaurantCategory();

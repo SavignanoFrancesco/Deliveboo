@@ -56,9 +56,15 @@
 
                     <div class="info-box">
                       <h2 class="dish-header">{{ dishes[modal_index].name }}</h2>
-                      <h3>{{ dishes[modal_index].price }}€</h3>
-                      <h4>{{ dishes[modal_index].ingredients }}</h4>
-                      <h4>{{ dishes[modal_index].description}}</h4>
+                      <div class="text-container">
+                        <h3>Prezzo: <h4>{{ dishes[modal_index].price }}€</h4> </h3>
+                      </div>
+                      <div class="text-container">
+                        <h3>Ingredienti: <h4>{{ dishes[modal_index].ingredients }}</h4> </h3>
+                      </div>
+                      <div class="text-container">
+                        <h3>Descrzione: <h4>{{ dishes[modal_index].description}}</h4> </h3>
+                      </div>
                       <div class="cart-adder">
 
                           <button type="button" name="button" class="btn btn-primary" @click='updateCart(json_dishes[modal_index], "subtract");piece += 1;'>
@@ -189,12 +195,12 @@
                </div>
            </div>
            <button class="btn btn-success" @click.prevent="checkCreditCard">Verifica</button>
-           <button v-if="credit_card" class="btn btn-success" type='submit' value="Submit">Submit</button>
+           <button v-if="credit_card" class="btn btn-success" type='submit' value="Submit">Termina e paga</button>
            <div class="alert alert-success my-2" v-if="nonce">
-            Successfully generated nonce.
+            Carta di credito accettata!
           </div>
           <div class="alert alert-danger my-2" v-if="error">
-            {{ error }}
+            Carta di credito non valida..
           </div>
         </form>
         </div>

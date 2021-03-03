@@ -12,7 +12,7 @@ class RestaurantController extends Controller
     public function restaurants_by_category(Request $request){
         $category = $request->all()['category'];
 
-        if ($category == 'all') {
+        if ($category == 'tutte') {
           // code...
           $restaurants = Restaurant::all();
         }else{
