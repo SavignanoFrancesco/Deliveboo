@@ -60,14 +60,16 @@
                     <div class="form-group">
                         <label class="d-block">Restaurant categories</label>
                             @foreach ($categories as $category)
-                                @if (old('restaurant_category_id') !== null)
-                                    <input type="checkbox" name="restaurant_category_id[]" value="{{ $category->id }}" {{
-                                        in_array($category->id, old('restaurant_category_id')) ? 'checked' : ''}}>
-                                    <label class="mr-2" for="{{ $category->id }}"> {{ $category->name }} </label>
+                              @if ($category->name != 'tutte')
+                              @if (old('restaurant_category_id') !== null)
+                                <input type="checkbox" name="restaurant_category_id[]" value="{{ $category->id }}" {{
+                                  in_array($category->id, old('restaurant_category_id')) ? 'checked' : ''}}>
+                                  <label class="mr-2" for="{{ $category->id }}"> {{ $category->name }} </label>
                                 @else
-                                    <input type="checkbox" name="restaurant_category_id[]" value="{{ $category->id }}">
-                                    <label class="mr-2" for="{{ $category->id }}"> {{ $category->name }} </label>
-                                @endif
+                                  <input type="checkbox" name="restaurant_category_id[]" value="{{ $category->id }}">
+                                  <label class="mr-2" for="{{ $category->id }}"> {{ $category->name }} </label>
+                                @endif  
+                              @endif
                             @endforeach
                         </select>
                     </div>
