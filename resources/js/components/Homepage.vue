@@ -13,7 +13,7 @@
                             <div class="info-section">
                                 <div class="title">
                                     <h1>Deliveboo</h1>
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                         Porro eum suscipit hic ut quia numquam fuga praesentium nobis!</h4>
                                     <!--<h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>-->
                                 </div>
@@ -25,7 +25,7 @@
                                             <slot v-if="flag_register">Registrati</slot>
                                             <slot v-else>Dashboard</slot>
                                         </a>
-                                        <a :href="href" @click.prevent="scroll" class="btn btn-outline-primary">
+                                        <a :href="href" @click.prevent="scroll(); getAllCategories()" class="btn btn-outline-primary">
                                             <slot>Esplora</slot>
                                         </a>
                                     </div>
@@ -112,20 +112,22 @@
             return {
                 restaurantList: [],
                 href: '#category',
-                catSelected: 'Tutte'
+                catSelected: 'tutte'
             }
         },
         methods: {
             async getAllCategories(){
+                // this.restaurantList = [];
                 await axios
                 .get('http://localhost:8000/api/restaurants_by_category', {
                     params: {
-                        category: 'all'
+                        category: 'tutte'
                     }
                 })
                 .then((response) => {
                     this.restaurantList = response.data.restaurants;
                     });
+                    this.catSelected = 'tutte';
             },
             async apiRequest(){
                 await axios
