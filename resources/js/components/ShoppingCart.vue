@@ -138,7 +138,7 @@
           </div>
           </li>
           <li class="space-for-icon-mobile-cart w-100 d-flex justify-content-center">
-            <button class="btn btn-success" @click="proceedMethod()" v-if="!proceed">Procedi al pagamento</button>
+            <button class="btn btn-success" @click="proceedMethod()" v-if="!proceed && (totalPrice > 0)">Procedi al pagamento</button>
           </li>
         </ul>
 
@@ -347,7 +347,7 @@ export default {
      this.proceed = !this.proceed;
      braintree.client.create({
             //inserire tokenization del proprio account
-            authorization: "sandbox_x69h4b4m_zyvj6svb8sp5858q"
+            authorization: "sandbox_csqf8p58_jscy3g85t9nv768x"
         })
         .then(clientInstance => {
             let options = {
