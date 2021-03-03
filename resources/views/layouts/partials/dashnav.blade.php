@@ -33,7 +33,7 @@
                               @endif
                             </div>
                             <div class="box-content">
-                                <p>Descrizione</p>
+                                <p>{{$restaurant->slug}}</p>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 <h3><a href="{{ route('admin.user.index')}}">Utente</a></h3>
                             </div>
                             <div class="box-content">
-                                <p>descrizione</p>
+                                <p>{{Auth::user()->owner_name}}</p>
                             </div>
                         </div>
                     </div>
@@ -67,12 +67,12 @@
                               @endif
                             </div>
                             <div class="box-content">
-                                <p>descrizione</p>
+                                <p>Gestisci: {{$restaurant->slug}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{-- {{dd($restaurant)}} --}}
+             
                 @if ($restaurant)
                   <div class="col-lg-3 mb-2">
                       <div class="main-box {{ (request()->is('admin/dish*')) ? 'active-2' : '' }}">
@@ -84,7 +84,10 @@
                                   <h3><a href="{{route('admin.dish.index')}}">Piatti</a></h3>
                               </div>
                               <div class="box-content">
-                                  <p>descrizione</p>
+                                  @php
+                                  $users = DB::table('dishes')->count();
+                                  @endphp
+                                  <p>Numero piatti: {{$users}}</p>
                               </div>
                           </div>
                       </div>
