@@ -71,7 +71,6 @@
                               @endif
                             </div>
                             <div class="box-content">
-
                                 @if($restaurant)
                                    <p>Gestisci: {{$restaurant->slug}}</p>
                                 @else
@@ -93,10 +92,7 @@
                                   <h3><a href="{{route('admin.dish.index')}}">Piatti</a></h3>
                               </div>
                               <div class="box-content">
-                                  @php
-                                  $users = DB::table('dishes')->count();
-                                  @endphp
-                                  <p>Numero piatti: {{$users}}</p>
+                                  <p>I tuoi piatti...</p>
                               </div>
                           </div>
                       </div>
