@@ -211,6 +211,7 @@
 
   </div>
 
+
 </template>
 
 <script>
@@ -307,8 +308,19 @@ export default {
                 .then(function (response) {
                     currentObj.output = response.data;
                     //sweetalert
-                    alert('ok');
-                    window.location.href = 'http://localhost:8000/';
+
+                    swal({
+                       title: "Ordine effettuato con successo!",
+                       icon: "success",
+                       //button: "OK!",
+                       //type: "success",
+                     }).then(function() {
+                     window.location = 'http://localhost:8000/';
+                     });
+
+                     //window.location.href = 'http://localhost:8000/';
+
+
                 })
                 .catch(function (error) {
                     currentObj.output = error;
@@ -335,7 +347,7 @@ export default {
      this.proceed = !this.proceed;
      braintree.client.create({
             //inserire tokenization del proprio account
-            authorization: "sandbox_csqf8p58_jscy3g85t9nv768x"
+            authorization: "sandbox_x69h4b4m_zyvj6svb8sp5858q"
         })
         .then(clientInstance => {
             let options = {

@@ -31,8 +31,21 @@
             @include('layouts.partials.footer')
         </main>
 
+
+
+        {{-- contenuto del carrello --}}
+        {{-- <aside>
+            @include('layouts.partials.cart')
+        </aside> --}}
+
+
+        {{-- contenuto del banner di approvazione delle policy del sito --}}
+        {{-- <section>
+            @include('layouts.partials.policy')
+        </section> --}}
         <script src=" {{ asset('js/app.js') }} " charset="utf-8"></script>
     <script src=" {{ asset('js/popper.js') }} " charset="utf-8"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 
 </html>
