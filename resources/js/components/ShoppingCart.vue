@@ -481,14 +481,17 @@ export default {
       this.show_cart = !this.show_cart;
       localStorage.show_cart = JSON.stringify(this.show_cart);
       this.show_modal = false;
-      localStorage.show_modal = JSON.stringify(this.show_modal);
+      // localStorage.show_modal = JSON.stringify(this.show_modal);
     },
     //toggle per la visibility del modale piatto
     showModal(index){
       this.modal_index = index;
       // alert(this.modal_index);
       this.show_modal = !this.show_modal;
-      localStorage.show_modal = JSON.stringify(this.show_modal);
+      if (this.show_modal == false) {
+        this.dish_index = 0;
+      }
+      // localStorage.show_modal = JSON.stringify(this.show_modal);
       this.show_cart = false;
       localStorage.show_cart = JSON.stringify(this.show_cart);
     },

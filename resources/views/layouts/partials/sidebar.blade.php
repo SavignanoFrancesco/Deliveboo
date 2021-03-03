@@ -25,11 +25,11 @@
            </form>
         </li>
        @else
-        <li><a href="{{ route('login') }}"><i class="icon fas fa-sign-in-alt"></i><p class="text">LogIn</p></a></li>
-        @if (Route::has('register'))
-          <li><a href="{{ route('register') }}"><i class="icon fas fa-user-plus"></i><p class="text">Registrati</p></a></li>
+         @if (Route::has('register'))
+           <li><a href="{{ route('register') }}"><i class="icon fas fa-user-plus"></i><p class="text">Registrati</p></a></li>
 
-        @endif
+         @endif
+        <li><a href="{{ route('login') }}"><i class="icon fas fa-sign-in-alt"></i><p class="text">LogIn</p></a></li>
         @endauth
       @endif
     </ul>

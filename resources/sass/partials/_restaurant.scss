@@ -182,6 +182,7 @@
                   top: 0;
                   left: 0;
                   background: rgba(0,0,0,0.3);
+                  z-index: 100;
 
                   .dish-modal-body{
                     position: absolute;
@@ -228,16 +229,19 @@
                         flex-direction: column;
                         align-items: center;
                         justify-content: space-between;
+
                         .text-container{
-                          display: flex;
-                          flex-direction: column;
-                          align-items: center;
+                          text-align: center;
+                          width: 100%;
+                          word-wrap: break-word;
                           h3{
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
+                            text-align: center;
+                            width: 100%;
+                            word-wrap: break-word;
                             h4{
-                              display: inline-block;
+                              width: 100%;
+                              text-align: center;
+                              word-wrap: break-word;
                             }
                           }
                         }
@@ -264,6 +268,7 @@
                             }
                           }
                         }
+
                       }
 
                     }
@@ -1121,4 +1126,39 @@
 
 //CART_COMP END
 }
+}
+
+@media only screen and (max-width: 400px){
+ #cart_comp{
+   .restaurant{
+     .container{
+       //COMPONENT TEMPLATE CONTAINER
+       .component-container{
+
+
+         .dish-categories{
+
+           .dish-cards-container{
+
+             .dish-card{
+
+
+               .dish-modal{
+
+
+                 .dish-modal-body{
+                   border-radius: 0px;
+                   width: 100%;
+                  }
+                }
+                // END DISH CARD
+              }
+
+
+            }
+          }
+        }
+     }
+   }
+  }
 }
