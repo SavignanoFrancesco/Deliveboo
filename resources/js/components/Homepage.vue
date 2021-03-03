@@ -13,8 +13,7 @@
                             <div class="info-section">
                                 <div class="title">
                                     <h1>Deliveboo</h1>
-                                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Porro eum suscipit hic ut quia numquam fuga praesentium nobis!</h4>
+                                    <h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>
                                     <!--<h4>Consegnamo i migliori piatti direttamente a casa tua!</h4>-->
                                 </div>
                                 <div class="block mt-3">
