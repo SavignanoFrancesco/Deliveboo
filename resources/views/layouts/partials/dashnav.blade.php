@@ -33,7 +33,11 @@
                               @endif
                             </div>
                             <div class="box-content">
-                                <p>{{$restaurant->slug}}</p>
+                                @if($restaurant)
+                                    <p>{{$restaurant->name}}</p>
+                                @else
+                                    <p></p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -67,12 +71,17 @@
                               @endif
                             </div>
                             <div class="box-content">
-                                <p>Gestisci: {{$restaurant->slug}}</p>
+
+                                @if($restaurant)
+                                   <p>Gestisci: {{$restaurant->slug}}</p>
+                                @else
+                                    <p></p>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
-             
+
                 @if ($restaurant)
                   <div class="col-lg-3 mb-2">
                       <div class="main-box {{ (request()->is('admin/dish*')) ? 'active-2' : '' }}">
