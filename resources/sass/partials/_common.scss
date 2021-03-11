@@ -93,3 +93,24 @@ p {
     font-size: $font_size_xxl;
   }
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #007e8a;
+    border-color: #007e8a;
+
+    &:hover{
+        color: #fff;
+        background-color: #007e8a;
+    }
+}
+
+.btn-outline-primary {
+    color: #007e8a;
+    border-color: #007e8a;
+
+    &:hover{
+        color: #fff;
+        background-color: #007e8a;
+    }
+}
